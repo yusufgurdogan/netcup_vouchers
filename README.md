@@ -152,4 +152,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 14.12.2024
+Last updated: 12/14/2024
