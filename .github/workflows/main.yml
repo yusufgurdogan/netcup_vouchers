@@ -1,0 +1,50 @@
+name: Update README and Site
+
+on:
+  push:
+    paths:
+      - 'data/vouchers.js'
+  workflow_dispatch:
+
+jobs:
+  update-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          npm ci || npm install
+
+      - name: Generate README
+        run: node scripts/generate-readme.js
+
+      - name: Update site
+        run: node scripts/update-site.js
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Commit changes
+        run: |
+          git add README.md index.html
+          git commit -m "Update README and site from voucher data" || echo "No changes to commit"
+          git push
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          full_commit_message: Update site from voucher data
