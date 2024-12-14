@@ -13,15 +13,17 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm ci || npm install
 
       - name: Generate README
         run: node scripts/generate-readme.js
@@ -29,18 +31,20 @@ jobs:
       - name: Update site
         run: node scripts/update-site.js
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Commit changes
+        run: |
+          git add README.md index.html
+          git commit -m "Update README and site from voucher data" || echo "No changes to commit"
+          git push
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
-          publish_branch: gh-pages
           full_commit_message: Update site from voucher data
-
-      - name: Commit changes to main
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add README.md index.html
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update README and site from voucher data"
-          git push
