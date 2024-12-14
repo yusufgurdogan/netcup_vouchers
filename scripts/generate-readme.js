@@ -25,7 +25,7 @@ ${data.items
 
 ## Usage
 
-1. Visit [our website](https://yusufgurdogan.github.io/netcup_vouchers)
+1. Visit [our website](https://netcupvoucher.com)
 2. Choose your desired voucher
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
