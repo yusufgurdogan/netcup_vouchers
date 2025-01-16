@@ -17,6 +17,7 @@ const updateSite = () => {
     for (const p of possiblePaths) {
       if (p && fs.existsSync(p)) {
         templatePath = p;
+        console.log('Found template at:', p);
         break;
       }
     }
@@ -24,10 +25,14 @@ const updateSite = () => {
     if (!templatePath) {
       throw new Error('Template file not found in any of the expected locations');
     }
-
-    console.log('Using template from:', templatePath);
     
     const template = fs.readFileSync(templatePath, 'utf8');
+    
+    // Verify this is actually our template
+    if (!template.includes('// VOUCHER_DATA_PLACEHOLDER')) {
+      throw new Error('Template file does not contain expected placeholder');
+    }
+    
     const updatedHtml = template.replace(
       '// VOUCHER_DATA_PLACEHOLDER',
       `const voucherData = ${JSON.stringify(voucherData, null, 2)};`

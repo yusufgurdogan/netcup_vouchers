@@ -1,10 +1,11 @@
-name: Update README and Site
+name: Update Site Content
 
 on:
   push:
     paths:
       - 'data/vouchers.js'
       - 'data/products.js'
+      - 'template.html'
   workflow_dispatch:
 
 permissions:
@@ -33,18 +34,21 @@ jobs:
           npm ci || npm install
 
       - name: List directory structure
-        run: ls -la
+        run: |
+          echo "Current directory contents:"
+          ls -la
+          echo "Template location:"
+          ls -la template.html
+
+      # Run in this specific order
+      - name: Update main site
+        run: node scripts/update-site.js
+
+      - name: Generate product pages
+        run: node scripts/generate-pages.js
 
       - name: Generate README
         run: node scripts/generate-readme.js
-
-      - name: Generate Pages
-        run: node scripts/generate-pages.js
-
-      - name: Update site
-        run: node scripts/update-site.js
-        env:
-          TEMPLATE_PATH: ${{ github.workspace }}/template.html
 
       - name: Configure Git
         run: |
