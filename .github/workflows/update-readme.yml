@@ -4,12 +4,13 @@ on:
   push:
     paths:
       - 'data/vouchers.js'
+      - 'data/products.js'
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write      # Add this
-  id-token: write   # Add this
+  pages: write
+  id-token: write
 
 jobs:
   update-content:
@@ -34,6 +35,9 @@ jobs:
       - name: Generate README
         run: node scripts/generate-readme.js
 
+      - name: Generate Pages
+        run: node scripts/generate-pages.js
+
       - name: Update site
         run: node scripts/update-site.js
 
@@ -44,8 +48,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git add README.md index.html
-          git commit -m "Update README and site from voucher data" || echo "No changes to commit"
+          git add README.md index.html pages/ sitemap.xml
+          git commit -m "Update site content and generate product pages" || echo "No changes to commit"
           git push
 
       - name: Setup Pages

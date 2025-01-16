@@ -1,12 +1,12 @@
 {
-    "name": "netcup_vouchers",
-    "version": "1.0.0",
-    "description": "Netcup voucher codes",
-    "private": true,
-    "scripts": {
-      "update": "node scripts/generate-readme.js && node scripts/update-site.js"
-    },
-    "dependencies": {
-      "fs-extra": "^11.2.0"
-    }
+  "name": "netcup_vouchers",
+  "version": "1.0.0",
+  "description": "Netcup voucher codes",
+  "private": true,
+  "scripts": {
+    "update": "node scripts/generate-readme.js && node scripts/generate-pages.js && node scripts/update-site.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0"
   }
+}
