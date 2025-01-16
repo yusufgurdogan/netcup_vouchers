@@ -5,7 +5,7 @@ on:
     paths:
       - 'data/vouchers.js'
       - 'data/products.js'
-      - 'template.html'
+      - 'templates/template.html'
   workflow_dispatch:
 
 permissions:
@@ -38,11 +38,13 @@ jobs:
           echo "Current directory contents:"
           ls -la
           echo "Template location:"
-          ls -la template.html
+          ls -la templates/template.html
 
       # Run in this specific order
       - name: Update main site
         run: node scripts/update-site.js
+        env:
+          TEMPLATE_PATH: ${{ github.workspace }}/templates/template.html
 
       - name: Generate product pages
         run: node scripts/generate-pages.js
