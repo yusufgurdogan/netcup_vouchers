@@ -32,6 +32,9 @@ jobs:
         run: |
           npm ci || npm install
 
+      - name: List directory structure
+        run: ls -la
+
       - name: Generate README
         run: node scripts/generate-readme.js
 
@@ -40,6 +43,8 @@ jobs:
 
       - name: Update site
         run: node scripts/update-site.js
+        env:
+          TEMPLATE_PATH: ${{ github.workspace }}/template.html
 
       - name: Configure Git
         run: |
@@ -48,7 +53,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git add README.md index.html pages/ sitemap.xml
+          git add README.md index.html *.html sitemap.xml
           git commit -m "Update site content and generate product pages" || echo "No changes to commit"
           git push
 
