@@ -397,44 +397,344 @@ const productInfo = {
             </ul>
         `,
   },
+  "RS 16000 G11": {
+    title: "RS 16000 G11 - Ultimate Enterprise Root Server",
+    description:
+      "Premium KVM-based root server with AMD EPYC™ 9634, 128GB DDR5 RAM, and 4TB NVMe SSD for maximum enterprise performance.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "128 GB DDR5 RAM (ECC)",
+      "24 dedicated cores",
+      "4 TB NVMe SSD",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+      "2.5 Gbps network card",
+    ],
+    content: `
+            <h2>About RS 16000 G11</h2>
+            <p>The RS 16000 G11 represents our ultimate root server solution, combining the advantages of both dedicated and virtual servers. With guaranteed AMD EPYC™ 9634 CPU cores and fast DDR5 RAM, it delivers uncompromising performance for the most demanding enterprise applications.</p>
+            
+            <h2>Perfect For</h2>
+            <ul>
+                <li>Large-scale enterprise applications</li>
+                <li>High-performance computing workloads</li>
+                <li>Extensive virtualization environments</li>
+                <li>Mission-critical database systems</li>
+                <li>Large-scale web services</li>
+                <li>Enterprise-level data processing</li>
+            </ul>
+            
+            <h2>Technical Features</h2>
+            <ul>
+                <li>24 dedicated AMD EPYC™ 9634 CPU cores</li>
+                <li>128 GB DDR5 ECC RAM</li>
+                <li>4 TB NVMe SSD with hardware RAID</li>
+                <li>2.5 Gbps network connectivity</li>
+                <li>Enterprise hardware from DELL and HPE</li>
+                <li>99.9% guaranteed minimum availability</li>
+                <li>KVM-based virtualization</li>
+                <li>Full root access</li>
+            </ul>
+
+            <h2>Advanced Features</h2>
+            <ul>
+                <li>Snapshot functionality with Copy-On-Write</li>
+                <li>Image import and export capabilities</li>
+                <li>Remote management via web VNC console</li>
+                <li>Server Control Panel (SCP) access</li>
+                <li>Expandable with Local Block Storage up to 8 TB</li>
+                <li>Multiple datacenter locations available</li>
+            </ul>
+        `,
+  },
+  "RS 12000 G11": {
+    title: "RS 12000 G11 - Advanced Enterprise Root Server",
+    description:
+      "High-performance KVM-based root server with AMD EPYC™ 9634, 96GB DDR5 RAM, and 3TB NVMe SSD for enterprise applications.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "96 GB DDR5 RAM (ECC)",
+      "20 dedicated cores",
+      "3 TB NVMe SSD",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+      "2.5 Gbps network card",
+    ],
+    content: `
+            <h2>About RS 12000 G11</h2>
+            <p>The RS 12000 G11 delivers exceptional performance with its AMD EPYC™ processor and substantial RAM, making it perfect for resource-intensive enterprise applications and large-scale deployments.</p>
+            
+            <h2>Perfect For</h2>
+            <ul>
+                <li>High-performance enterprise applications</li>
+                <li>Large-scale virtualization</li>
+                <li>Complex database systems</li>
+                <li>Enterprise web hosting</li>
+                <li>High-traffic applications</li>
+            </ul>
+            
+            <h2>Technical Features</h2>
+            <ul>
+                <li>20 dedicated AMD EPYC™ 9634 CPU cores</li>
+                <li>96 GB DDR5 ECC RAM</li>
+                <li>3 TB NVMe SSD with hardware RAID</li>
+                <li>2.5 Gbps network connectivity</li>
+                <li>Enterprise-grade hardware</li>
+                <li>99.9% availability guarantee</li>
+                <li>KVM virtualization support</li>
+            </ul>
+        `,
+  },
+  "RS 8000 G11": {
+    title: "RS 8000 G11 - Professional Root Server",
+    description:
+      "Professional KVM-based root server with AMD EPYC™ 9634, 64GB DDR5 RAM, and 2TB NVMe SSD for high-performance applications.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "64 GB DDR5 RAM (ECC)",
+      "16 dedicated cores",
+      "2 TB NVMe SSD",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+      "2.5 Gbps network card",
+    ],
+    content: `
+            <h2>About RS 8000 G11</h2>
+            <p>The RS 8000 G11 offers impressive performance with 64GB RAM and 16 dedicated cores, making it the ideal choice for high-performance application servers, web and mail servers, as well as extensive databases.</p>
+            
+            <h2>Perfect For</h2>
+            <ul>
+                <li>High-performance application servers</li>
+                <li>Large-scale web and mail servers</li>
+                <li>Extensive database systems</li>
+                <li>Resource-intensive applications</li>
+                <li>Development environments</li>
+            </ul>
+            
+            <h2>Technical Features</h2>
+            <ul>
+                <li>16 dedicated AMD EPYC™ 9634 CPU cores</li>
+                <li>64 GB DDR5 ECC RAM</li>
+                <li>2 TB NVMe SSD with hardware RAID</li>
+                <li>Snapshot and backup capabilities</li>
+                <li>Full root access</li>
+                <li>Remote management tools</li>
+            </ul>
+        `,
+  },
+  "RS 4000 G11": {
+    title: "RS 4000 G11 - Advanced Root Server",
+    description:
+      "High-performance root server with AMD EPYC™ 9634, 32GB DDR5 RAM, and 1TB NVMe SSD for enterprise platforms and data-intensive applications.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "32 GB DDR5 RAM (ECC)",
+      "12 dedicated cores",
+      "1 TB NVMe SSD",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+    ],
+    content: `
+            <h2>About RS 4000 G11</h2>
+            <p>The RS 4000 G11 delivers high performance for large enterprise platforms, extensive web applications, and data-intensive scenarios. It's ideal as a database server with extensive resources.</p>
+            
+            <h2>Perfect For</h2>
+            <ul>
+                <li>Large enterprise platforms</li>
+                <li>Data-intensive applications</li>
+                <li>Database servers</li>
+                <li>Complex web applications</li>
+                <li>Development environments</li>
+            </ul>
+            
+            <h2>Technical Features</h2>
+            <ul>
+                <li>12 dedicated AMD EPYC™ 9634 CPU cores</li>
+                <li>32 GB DDR5 ECC RAM</li>
+                <li>1 TB NVMe SSD storage</li>
+                <li>Hardware RAID configuration</li>
+                <li>Snapshot support</li>
+                <li>Remote management capabilities</li>
+            </ul>
+        `,
+  },
+  "RS 2000 G11": {
+    title: "RS 2000 G11 - Professional Root Server",
+    description:
+      "Balanced root server with AMD EPYC™ 9634, 16GB DDR5 RAM, and 512GB NVMe SSD for medium-sized applications.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "16 GB DDR5 RAM (ECC)",
+      "8 dedicated cores",
+      "512 GB NVMe SSD",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+    ],
+    content: `
+            <h2>About RS 2000 G11</h2>
+            <p>The RS 2000 G11 offers extended resources perfect for medium-sized web and mail servers, complex web applications, and application servers. It provides excellent performance for growing businesses.</p>
+            
+            <h2>Perfect For</h2>
+            <ul>
+                <li>Medium-sized web servers</li>
+                <li>Mail servers</li>
+                <li>Complex web applications</li>
+                <li>Application servers</li>
+                <li>Development environments</li>
+            </ul>
+            
+            <h2>Technical Features</h2>
+            <ul>
+                <li>8 dedicated AMD EPYC™ 9634 CPU cores</li>
+                <li>16 GB DDR5 ECC RAM</li>
+                <li>512 GB NVMe SSD storage</li>
+                <li>Hardware RAID support</li>
+                <li>Snapshot capabilities</li>
+                <li>Remote management tools</li>
+            </ul>
+        `,
+  },
+  "RS 1000 G11": {
+    title: "RS 1000 G11 - Entry-Level Root Server",
+    description:
+      "Entry-level root server with AMD EPYC™ 9634, 8GB DDR5 RAM, and 256GB NVMe SSD for small to medium applications.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "8 GB DDR5 RAM (ECC)",
+      "4 dedicated cores",
+      "256 GB NVMe SSD",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+    ],
+    content: `
+            <h2>About RS 1000 G11</h2>
+            <p>RS 1000 G11 is ideal as an entry-level solution for web and mail servers, as well as light database applications. It offers balanced performance perfect for beginners while maintaining professional features.</p>
+            
+            <h2>Perfect For</h2>
+            <ul>
+                <li>Small web servers</li>
+                <li>Mail servers</li>
+                <li>Light database applications</li>
+                <li>Development environments</li>
+                <li>Testing servers</li>
+            </ul>
+            
+            <h2>Technical Features</h2>
+            <ul>
+                <li>4 dedicated AMD EPYC™ 9634 CPU cores</li>
+                <li>8 GB DDR5 ECC RAM</li>
+                <li>256 GB NVMe SSD storage</li>
+                <li>Hardware RAID configuration</li>
+                <li>Snapshot support</li>
+                <li>Remote console access</li>
+            </ul>
+        `,
+  },
 };
 
-// Add common sections to all products
-Object.values(productInfo).forEach((product) => {
+// Add common sections based on product type
+Object.entries(productInfo).forEach(([name, product]) => {
+  // Determine product type
+  const isWebhosting = name.startsWith("Webhosting");
+  const isVPS = name.startsWith("VPS");
+  const isRootServer = name.startsWith("RS");
+
+  // Common sections for all products
   product.content += `
-      <h2>Why Choose Netcup Hosting?</h2>
-      <ul>
-        <li>High-availability cloud infrastructure</li>
-        <li>State-of-the-art branded hardware</li>
-        <li>Unlimited traffic included</li>
-        <li>Free SSL certificates via Let's Encrypt</li>
-        <li>Professional Plesk® control panel</li>
-        <li>Competent technical support</li>
-        <li>30-day satisfaction guarantee</li>
-        <li>Best price guarantee</li>
-        <li>No hidden costs</li>
-      </ul>
-  
-      <h2>Hosting Infrastructure</h2>
-      <p>All web hosting packages are provided within a redundantly designed cloud infrastructure supported by multiple servers, offering:</p>
-      <ul>
-        <li>High availability through redundant systems</li>
-        <li>Automatic resource scaling</li>
-        <li>High-performance branded hardware</li>
-        <li>Fast SSD storage</li>
-        <li>Modern Plesk® management interface</li>
-        <li>Guaranteed 99.6% annual average availability</li>
-      </ul>
-  
       <h2>Support & Guarantees</h2>
       <ul>
         <li>Professional technical support</li>
         <li>30-day money-back guarantee</li>
         <li>Best price guarantee with additional 10% discount if you find a lower price</li>
         <li>No hidden costs - all traffic included</li>
-        <li>Free SSL certificates for all domains</li>
       </ul>
     `;
+
+  // Add webhosting-specific sections
+  if (isWebhosting) {
+    product.content += `
+        <h2>Why Choose Netcup Hosting?</h2>
+        <ul>
+          <li>High-availability cloud infrastructure</li>
+          <li>State-of-the-art branded hardware</li>
+          <li>Unlimited traffic included</li>
+          <li>Free SSL certificates via Let's Encrypt</li>
+          <li>Professional Plesk® control panel</li>
+          <li>Competent technical support</li>
+          <li>30-day satisfaction guarantee</li>
+          <li>Best price guarantee</li>
+          <li>No hidden costs</li>
+        </ul>
+  
+        <h2>Hosting Infrastructure</h2>
+        <p>All web hosting packages are provided within a redundantly designed cloud infrastructure supported by multiple servers, offering:</p>
+        <ul>
+          <li>High availability through redundant systems</li>
+          <li>Automatic resource scaling</li>
+          <li>High-performance branded hardware</li>
+          <li>Fast SSD storage</li>
+          <li>Modern Plesk® management interface</li>
+          <li>Guaranteed 99.6% annual average availability</li>
+        </ul>
+      `;
+  }
+
+  // Add VPS-specific sections
+  if (isVPS) {
+    product.content += `
+        <h2>VPS Infrastructure</h2>
+        <ul>
+          <li>High availability through redundant systems</li>
+          <li>Automatic resource scaling capabilities</li>
+          <li>Pre-configured vServer images available</li>
+          <li>DDoS protection included</li>
+          <li>Remote console access</li>
+          <li>Expandable with Local Block Storage up to 8 TB</li>
+          <li>Multiple datacenter locations available</li>
+        </ul>
+  
+        <h2>Management Features</h2>
+        <ul>
+          <li>Full root access</li>
+          <li>Snapshot functionality (Copy-On-Write)</li>
+          <li>API integration available</li>
+          <li>Flexible billing options (hourly or monthly)</li>
+          <li>Easy scalability of resources</li>
+        </ul>
+      `;
+  }
+
+  // Add Root Server-specific sections
+  if (isRootServer) {
+    product.content += `
+        <h2>Root Server Infrastructure</h2>
+        <ul>
+          <li>Enterprise hardware from DELL and HPE</li>
+          <li>Fast hardware RAID on SSD/NVMe drives</li>
+          <li>Network card with 2.5 Gbps connectivity</li>
+          <li>99.9% guaranteed minimum availability</li>
+          <li>Multiple datacenter locations available</li>
+          <li>Expandable with Local Block Storage up to 8 TB</li>
+        </ul>
+  
+        <h2>Management & Control</h2>
+        <ul>
+          <li>Full root access for complete control</li>
+          <li>KVM-based virtualization</li>
+          <li>Server Control Panel (SCP) access</li>
+          <li>Remote management via web VNC console</li>
+          <li>Snapshot creation and management</li>
+          <li>Image import and export capabilities</li>
+          <li>Custom ISO mounting support</li>
+        </ul>
+      `;
+  }
 });
 
 module.exports = { productInfo };
