@@ -5,7 +5,7 @@ const generateReadme = () => {
   try {
     const readme = `# Netcup Voucher Codes
 
-> 🎟️ A curated collection of Netcup voucher codes with a modern, dark-themed interface.
+> 🏷️ A curated collection of Netcup voucher codes with a modern, dark-themed interface.
 
 ## Available Vouchers
 
