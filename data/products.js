@@ -1,5 +1,184 @@
 // File: data/products.js
 const productInfo = {
+  "RS 2000 G11 iv SE VIE": {
+    title: "RS 2000 G11 iv SE VIE - Vienna Root Server",
+    description:
+      "Save money on Netcup's RS 2000 G11 root server in Vienna, Austria with our exclusive discount codes and coupons. Get the best deals on professional hosting with AMD EPYC™ 9634, 16GB DDR5 RAM, and 512GB NVMe SSD, now available in netcup's Vienna datacenter.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "16 GB DDR5 RAM (ECC)",
+      "8 dedicated cores",
+      "512 GB NVMe SSD",
+      "Located in Vienna, Austria",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+      "IPv4 & IPv6 Support",
+    ],
+    content: `
+        <h2>About RS 2000 G11 iv SE VIE</h2>
+        <p>The RS 2000 G11 iv SE VIE offers all the powerful features of the standard RS 2000 G11, but hosted in netcup's state-of-the-art datacenter in Vienna, Austria. This location is perfect for businesses targeting the Central and Eastern European market, offering excellent connectivity and low latency across the region.</p>
+        
+        <h2>Vienna Datacenter Benefits</h2>
+        <ul>
+          <li>Strategic location in the heart of Europe</li>
+          <li>Excellent connectivity to Central and Eastern European networks</li>
+          <li>State-of-the-art facility with redundant power supply</li>
+          <li>Enhanced physical security</li>
+          <li>24/7 monitoring and support</li>
+          <li>Compliant with EU data protection regulations</li>
+        </ul>
+        
+        <h2>Perfect For</h2>
+        <ul>
+          <li>Businesses targeting the Austrian market</li>
+          <li>Central European web services</li>
+          <li>Low-latency applications in Eastern Europe</li>
+          <li>Companies requiring EU data residency</li>
+          <li>Development and testing environments</li>
+          <li>Medium to large-scale web applications</li>
+        </ul>
+
+        <h2>Technical Features</h2>
+        <ul>
+          <li>8 dedicated AMD EPYC™ 9634 CPU cores</li>
+          <li>16 GB DDR5 ECC RAM</li>
+          <li>512 GB NVMe SSD storage</li>
+          <li>Hardware RAID support</li>
+          <li>Snapshot capabilities</li>
+          <li>Remote management tools</li>
+          <li>DDoS protection</li>
+          <li>Unlimited traffic</li>
+        </ul>
+
+        <h2>Network Features</h2>
+        <ul>
+          <li>High-performance network connection</li>
+          <li>Multiple upstream providers</li>
+          <li>IPv4 and IPv6 support</li>
+          <li>Excellent European connectivity</li>
+          <li>Low latency to major European cities</li>
+        </ul>
+    `,
+  },
+
+  "RS 2000 G11 iv SE MNZ": {
+    title: "RS 2000 G11 iv SE MNZ - Mainz Root Server",
+    description:
+      "Get exclusive Netcup coupon codes and promotional offers for the RS 2000 G11 root server in Mainz, Germany. Save money on professional hosting with AMD EPYC™ 9634, 16GB DDR5 RAM, and 512GB NVMe SSD in netcup's premium Mainz datacenter location.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "16 GB DDR5 RAM (ECC)",
+      "8 dedicated cores",
+      "512 GB NVMe SSD",
+      "Located in Mainz, Germany",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+      "IPv4 & IPv6 Support",
+    ],
+    content: `
+        <h2>About RS 2000 G11 iv SE MNZ</h2>
+        <p>The RS 2000 G11 iv SE MNZ combines the powerful features of the RS 2000 G11 with the strategic advantages of netcup's Mainz datacenter location. This German facility offers exceptional connectivity and meets the highest standards for data security and reliability.</p>
+        
+        <h2>Mainz Datacenter Benefits</h2>
+        <ul>
+          <li>Premium location in central Germany</li>
+          <li>Direct connection to DE-CIX Frankfurt</li>
+          <li>Tier-3 equivalent facility</li>
+          <li>Advanced security measures</li>
+          <li>24/7 technical support</li>
+          <li>Full compliance with German data protection laws</li>
+        </ul>
+        
+        <h2>Perfect For</h2>
+        <ul>
+          <li>German market-focused businesses</li>
+          <li>DACH region web services</li>
+          <li>Low-latency applications in Central Europe</li>
+          <li>Companies requiring German data residency</li>
+          <li>Development and production environments</li>
+          <li>Business-critical applications</li>
+        </ul>
+
+        <h2>Technical Features</h2>
+        <ul>
+          <li>8 dedicated AMD EPYC™ 9634 CPU cores</li>
+          <li>16 GB DDR5 ECC RAM</li>
+          <li>512 GB NVMe SSD storage</li>
+          <li>Hardware RAID support</li>
+          <li>Snapshot capabilities</li>
+          <li>Remote management tools</li>
+          <li>DDoS protection</li>
+          <li>Unlimited traffic</li>
+        </ul>
+
+        <h2>Network Features</h2>
+        <ul>
+          <li>Premium network connection</li>
+          <li>Multiple Tier-1 providers</li>
+          <li>IPv4 and IPv6 support</li>
+          <li>Excellent European connectivity</li>
+          <li>Ultra-low latency to Frankfurt region</li>
+        </ul>
+    `,
+  },
+  "New Customer Offer": {
+    title:
+      "Gutschein 5 Euro (fuer Neukunden, keine Domains) - New Customer Discount",
+    description:
+      "€5 discount voucher for new customers at netcup. Valid for all products except domain registrations.",
+    features: [
+      "€5 discount on your first order",
+      "Valid for all netcup products except domains",
+      "One-time use per new customer",
+      "Can be combined with other product-specific vouchers",
+      "Quick and easy redemption",
+      "No minimum order value",
+    ],
+    content: `
+        <h2>About the New Customer Voucher</h2>
+        <p>The netcup new customer voucher provides a €5 discount on your first order. This special offer is designed to welcome new customers to netcup's range of hosting services and server solutions.</p>
+        
+        <h2>How to Use</h2>
+        <ul>
+          <li>Add your desired products to the shopping cart</li>
+          <li>Enter the voucher code during checkout</li>
+          <li>The €5 discount will be automatically applied</li>
+          <li>Complete your purchase with the reduced total</li>
+        </ul>
+        
+        <h2>Important Information</h2>
+        <ul>
+          <li>Valid only for new customers who haven't ordered from netcup before</li>
+          <li>Cannot be used for domain registrations</li>
+          <li>Can be combined with product-specific discount codes</li>
+          <li>One-time use per customer</li>
+          <li>No expiration date specified</li>
+        </ul>
+
+        <h2>Compatibility</h2>
+        <p>This voucher can be used for:</p>
+        <ul>
+          <li>Web Hosting packages</li>
+          <li>Virtual Private Servers (VPS)</li>
+          <li>Root Servers</li>
+          <li>Storage Space</li>
+          <li>SSL Certificates</li>
+          <li>Other netcup products (except domains)</li>
+        </ul>
+
+        <h2>Why Choose netcup?</h2>
+        <ul>
+          <li>High-quality hosting services since 2003</li>
+          <li>Professional customer support</li>
+          <li>State-of-the-art data centers in Germany</li>
+          <li>Excellent price-performance ratio</li>
+          <li>Comprehensive product portfolio</li>
+          <li>Regular special offers and promotions</li>
+        </ul>
+    `,
+  },
   "Webhosting 8000": {
     title: "Webhosting 8000 - Enterprise Cloud Hosting Solution",
     description:
