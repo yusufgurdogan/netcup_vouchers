@@ -2,66 +2,32 @@ name: Update Site Content
 
 on:
   push:
-    paths:
-      - 'data/vouchers.js'
-      - 'data/products.js'
-      - 'templates/template.html'
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  update-content:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
-
-      - name: Install dependencies
-        run: |
-          npm ci || npm install
-
-      - name: Update main site
-        run: node scripts/update-site.js
-        env:
-          TEMPLATE_PATH: ${{ github.workspace }}/templates/template.html
-
-      - name: Generate product pages
-        run: node scripts/generate-pages.js
-
-      - name: Generate README
-        run: node scripts/generate-readme.js
-
-      - name: Configure Git
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-
-      - name: Commit changes
-        run: |
-          git add README.md index.html *.html sitemap.xml
-          git commit -m "Update site content and generate product pages" || echo "No changes to commit"
-          git push
-
-      - name: Setup Pages
+          
+      - name: Configure Pages
         uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        
+      - name: Build site
+        run: |
+          npm ci
+          npm run build
+          
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: .
-
+          path: ./dist
+          
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
