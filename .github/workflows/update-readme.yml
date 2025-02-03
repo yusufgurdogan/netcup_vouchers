@@ -14,7 +14,7 @@ permissions:
   id-token: write
 
 jobs:
-  update-content:
+  build-and-deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -33,14 +33,6 @@ jobs:
         run: |
           npm ci || npm install
 
-      - name: List directory structure
-        run: |
-          echo "Current directory contents:"
-          ls -la
-          echo "Template location:"
-          ls -la templates/template.html
-
-      # Run in this specific order
       - name: Update main site
         run: node scripts/update-site.js
         env:
@@ -67,10 +59,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
-          path: '.'
+          path: .
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v2
