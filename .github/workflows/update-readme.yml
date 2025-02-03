@@ -16,9 +16,6 @@ permissions:
 jobs:
   update-content:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -63,6 +60,17 @@ jobs:
           git commit -m "Update site content and generate product pages" || echo "No changes to commit"
           git push
 
+  deploy:
+    needs: update-content
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
@@ -70,7 +78,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-          name: github-pages
 
       - name: Deploy to GitHub Pages
         id: deployment
