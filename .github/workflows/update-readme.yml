@@ -64,44 +64,27 @@ jobs:
           git commit -m "Update site content and generate product pages" || echo "No changes to commit"
           git push
 
-  build:
+  build-and-deploy:
     needs: update-content
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           ref: main
-          fetch-depth: 1
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-action@v1.0.7
-        with:
-          source: .
-          destination: ./_site
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
-          name: github-pages
+          path: .
           retention-days: 1
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-        with:
-          artifact_name: github-pages
