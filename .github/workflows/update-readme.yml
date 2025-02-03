@@ -13,13 +13,12 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  update-content:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,14 +33,6 @@ jobs:
         run: |
           npm ci || npm install
 
-      - name: List directory structure
-        run: |
-          echo "Current directory contents:"
-          ls -la
-          echo "Template location:"
-          ls -la templates/template.html
-
-      # Run in this specific order
       - name: Update main site
         run: node scripts/update-site.js
         env:
@@ -64,27 +55,13 @@ jobs:
           git commit -m "Update site content and generate product pages" || echo "No changes to commit"
           git push
 
-  build-and-deploy:
-    needs: update-content
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: main
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: .
-          retention-days: 1
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v2
