@@ -13,6 +13,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   update-content:
     runs-on: ubuntu-latest
@@ -60,17 +64,15 @@ jobs:
           git commit -m "Update site content and generate product pages" || echo "No changes to commit"
           git push
 
-  deploy:
+  build:
     needs: update-content
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+        with:
+          ref: main  # Explicitly checkout main to get the latest changes
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
@@ -79,6 +81,16 @@ jobs:
         with:
           path: '.'
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
