@@ -373,6 +373,7 @@ const generateProductPage = (name, category, vouchers) => {
   }
 
   try {
+    // Write only to pages directory
     fs.writeFileSync(path.join(pagesDir, `${slug}.html`), template);
     return slug;
   } catch (error) {
@@ -398,7 +399,12 @@ const generatePages = () => {
       });
     });
 
-    // Update sitemap.xml - modify the URLs to include the pages folder
+    // Move index.html to pages directory as well
+    if (fs.existsSync("index.html")) {
+      fs.copyFileSync("index.html", path.join(pagesDir, "index.html"));
+    }
+
+    // Keep the original sitemap URLs (without /pages/)
     const today = new Date().toISOString().split("T")[0];
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -412,7 +418,7 @@ const generatePages = () => {
       .map(
         (page) => `
     <url>
-        <loc>https://netcupvoucher.com/pages/${page.slug}</loc>
+        <loc>https://netcupvoucher.com/${page.slug}</loc>
         <priority>0.8</priority>
         <changefreq>daily</changefreq>
         <lastmod>${today}</lastmod>

@@ -51,7 +51,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git add README.md index.html *.html sitemap.xml
+          git add pages/* README.md sitemap.xml
           git commit -m "Update site content and generate product pages" || echo "No changes to commit"
           git push
 
@@ -62,7 +62,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: .
+          path: pages
 
       - name: Deploy to GitHub Pages
         id: deployment
