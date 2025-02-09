@@ -10,6 +10,17 @@ const generateSlug = (name) => {
     .replace(/[^a-z0-9-]/g, "");
 };
 
+const cleanDirectory = (directory) => {
+  if (fs.existsSync(directory)) {
+    fs.readdirSync(directory).forEach((file) => {
+      const filePath = path.join(directory, file);
+      fs.unlinkSync(filePath);
+    });
+  } else {
+    fs.mkdirSync(directory, { recursive: true });
+  }
+};
+
 // Generate individual product page HTML
 const generateProductPage = (name, category, vouchers) => {
   const slug = generateSlug(name);
@@ -123,10 +134,27 @@ const generateProductPage = (name, category, vouchers) => {
         .breadcrumb-item.active {
             color: #c9d1d9;
         }
+        @media (max-width: 991px) {
+            .mobile-vouchers {
+                display: block;
+                margin-bottom: 2rem;
+            }
+            .desktop-vouchers {
+                display: none;
+            }
+        }
+        @media (min-width: 992px) {
+            .mobile-vouchers {
+                display: none;
+            }
+            .desktop-vouchers {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <i class="fas fa-ticket-alt me-2"></i>
@@ -151,93 +179,120 @@ const generateProductPage = (name, category, vouchers) => {
     </nav>
 
     <div class="container py-4">
-            <!-- Enhanced Breadcrumb -->
-            <nav aria-label="breadcrumb" class="mb-4">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">${name}</li>
-                </ol>
-            </nav>
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">${name}</li>
+            </ol>
+        </nav>
 
-            <div class="row">
-                <!-- Main Content Column -->
-                <div class="col-lg-8">
-                    <h1 class="mb-4">${name}</h1>
-                    
-                    <!-- Features List -->
-                    <div class="feature-list">
-                        <h3 class="h5 mb-3">Key Features</h3>
-                        <ul class="mb-0">
-                            ${info.features
-                              .map((feature) => `<li>${feature}</li>`)
-                              .join("\n                            ")}
-                        </ul>
+        <div class="row">
+            <!-- Mobile Vouchers Section -->
+            <div class="col-12 mobile-vouchers">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Available Vouchers</h5>
                     </div>
-
-                    <!-- Main Content -->
-                    <div class="content mb-4">
-                        ${info.content}
-                    </div>
-
-                    <!-- Related Products -->
-                    ${
-                      relatedProducts.length > 0
-                        ? `
-                    <div class="related-products mt-5">
-                        <h2 class="h4 mb-4">Similar Products</h2>
-                        <div class="row">
-                            ${relatedProducts
-                              .map(
-                                (product) => `
-                            <div class="col-md-6 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">${product.name}</h5>
-                                        <p class="card-text">
-                                            <span class="badge badge-discount">${product.discount}</span>
-                                        </p>
-                                        <a href="/${product.slug}" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                    </div>
-                                </div>
+                    <div class="card-body">
+                        ${vouchers.codes
+                          .map(
+                            (code) => `
+                            <div class="code-block mb-2">
+                                ${code}
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
                             </div>
-                            `
-                              )
-                              .join("")}
-                        </div>
-                    </div>
-                    `
-                        : ""
-                    }
-
-                    <!-- Recommended Products -->
-                    <div class="recommended-products mt-5">
-                        <h2 class="h4 mb-4">You Might Also Like</h2>
-                        <div class="row">
-                            ${recommendedProducts
-                              .map(
-                                (product) => `
-                            <div class="col-md-6 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <span class="badge text-bg-secondary mb-2">${product.category}</span>
-                                        <h5 class="card-title">${product.name}</h5>
-                                        <p class="card-text">
-                                            <span class="badge badge-discount">${product.discount}</span>
-                                        </p>
-                                        <a href="/${product.slug}" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            `
-                              )
-                              .join("")}
+                        `
+                          )
+                          .join("")}
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Current discount: ${vouchers.discount}
                         </div>
                     </div>
                 </div>
+            </div>
 
-            <!-- Sidebar -->
+            <!-- Main Content Column -->
+            <div class="col-lg-8">
+                <h1 class="mb-4">${name}</h1>
+                
+                <!-- Features List -->
+                <div class="feature-list">
+                    <h3 class="h5 mb-3">Key Features</h3>
+                    <ul class="mb-0">
+                        ${info.features
+                          .map((feature) => `<li>${feature}</li>`)
+                          .join("\n                            ")}
+                    </ul>
+                </div>
+
+                <!-- Main Content -->
+                <div class="content mb-4">
+                    ${info.content}
+                </div>
+
+                <!-- Related Products -->
+                ${
+                  relatedProducts.length > 0
+                    ? `
+                <div class="related-products mt-5">
+                    <h2 class="h4 mb-4">Similar Products</h2>
+                    <div class="row">
+                        ${relatedProducts
+                          .map(
+                            (product) => `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">${product.name}</h5>
+                                    <p class="card-text">
+                                        <span class="badge badge-discount">${product.discount}</span>
+                                    </p>
+                                    <a href="/${product.slug}" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+                `
+                    : ""
+                }
+
+                <!-- Recommended Products -->
+                <div class="recommended-products mt-5">
+                    <h2 class="h4 mb-4">You Might Also Like</h2>
+                    <div class="row">
+                        ${recommendedProducts
+                          .map(
+                            (product) => `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <span class="badge text-bg-secondary mb-2">${product.category}</span>
+                                    <h5 class="card-title">${product.name}</h5>
+                                    <p class="card-text">
+                                        <span class="badge badge-discount">${product.discount}</span>
+                                    </p>
+                                    <a href="/${product.slug}" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Sidebar -->
             <div class="col-lg-4">
-                <div class="card sticky-top" style="top: 2rem;">
+                <div class="card sticky-top desktop-vouchers" style="top: 2rem;">
                     <div class="card-header">
                         <h5 class="mb-0">Available Vouchers</h5>
                     </div>
@@ -317,9 +372,8 @@ const generateProductPage = (name, category, vouchers) => {
     fs.mkdirSync(pagesDir, { recursive: true });
   }
 
-  // Write file directly to root instead of using /pages/
   try {
-    fs.writeFileSync(path.join(process.cwd(), `${slug}.html`), template);
+    fs.writeFileSync(path.join(pagesDir, `${slug}.html`), template);
     return slug;
   } catch (error) {
     console.error(`Error writing file for ${name}:`, error);
@@ -329,29 +383,24 @@ const generateProductPage = (name, category, vouchers) => {
 
 // Main function to generate all pages
 const generatePages = () => {
-    try {
-        const pages = [];
-        
-        // Clean up existing product pages from root
-        const files = fs.readdirSync(process.cwd());
-        files.forEach(file => {
-            // Only remove .html files that match our product page pattern
-            if (file.endsWith('.html') && file !== 'index.html') {
-                fs.unlinkSync(path.join(process.cwd(), file));
-            }
-        });
-        
-        // Generate new pages
-        Object.entries(voucherData).forEach(([category, data]) => {
-            data.items.forEach(item => {
-                const slug = generateProductPage(item.name, category, item);
-                pages.push({ name: item.name, slug, category });
-            });
-        });
+  try {
+    const pages = [];
 
-        // Generate sitemap.xml with current date
-        const today = new Date().toISOString().split('T')[0];
-        const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    // Clean up existing pages directory
+    const pagesDir = path.join(process.cwd(), "pages");
+    cleanDirectory(pagesDir);
+
+    // Generate new pages
+    Object.entries(voucherData).forEach(([category, data]) => {
+      data.items.forEach((item) => {
+        const slug = generateProductPage(item.name, category, item);
+        pages.push({ name: item.name, slug, category });
+      });
+    });
+
+    // Update sitemap.xml - modify the URLs to include the pages folder
+    const today = new Date().toISOString().split("T")[0];
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://netcupvoucher.com/</loc>
@@ -359,25 +408,33 @@ const generatePages = () => {
         <changefreq>daily</changefreq>
         <lastmod>${today}</lastmod>
     </url>
-    ${pages.map(page => `
+    ${pages
+      .map(
+        (page) => `
     <url>
-        <loc>https://netcupvoucher.com/${page.slug}</loc>
+        <loc>https://netcupvoucher.com/pages/${page.slug}</loc>
         <priority>0.8</priority>
         <changefreq>daily</changefreq>
         <lastmod>${today}</lastmod>
-    </url>`).join('')}
+    </url>`
+      )
+      .join("")}
 </urlset>`;
 
-        fs.writeFileSync('sitemap.xml', sitemap);
-        
-        // Update main page with categorized links
-        const mainPageLinks = `
+    fs.writeFileSync("sitemap.xml", sitemap);
+
+    // Update main page with categorized links
+    const mainPageLinks = `
         <div class="row mt-4">
-            ${Object.entries(voucherData).map(([category, data]) => `
+            ${Object.entries(voucherData)
+              .map(
+                ([category, data]) => `
                 <div class="col-12 mb-4">
                     <h2 class="h3 mb-3">${data.name}</h2>
                     <div class="list-group">
-                        ${data.items.map(item => `
+                        ${data.items
+                          .map(
+                            (item) => `
                             <a href="/${generateSlug(item.name)}" 
                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                 <span>
@@ -385,37 +442,43 @@ const generatePages = () => {
                                     ${item.name}
                                 </span>
                                 <span>
-                                    <span class="badge badge-discount me-2">${item.discount}</span>
+                                    <span class="badge badge-discount me-2">${
+                                      item.discount
+                                    }</span>
                                     <i class="fas fa-chevron-right"></i>
                                 </span>
                             </a>
-                        `).join('')}
+                        `
+                          )
+                          .join("")}
                     </div>
                 </div>
-            `).join('')}
+            `
+              )
+              .join("")}
         </div>
         `;
-        
-        let indexContent = fs.readFileSync('index.html', 'utf8');
-        indexContent = indexContent.replace(
-            '</div>\n\n    <script>',
-            `${mainPageLinks}\n    </div>\n\n    <script>`
-        );
-        fs.writeFileSync('index.html', indexContent);
-        
-        console.log('Successfully generated:');
-        console.log(` - ${pages.length} product pages`);
-        console.log(' - sitemap.xml');
-        console.log(' - updated index.html');
-    } catch (error) {
-        console.error('Error in page generation:', error);
-        process.exit(1);
-    }
+
+    let indexContent = fs.readFileSync("index.html", "utf8");
+    indexContent = indexContent.replace(
+      "</div>\n\n    <script>",
+      `${mainPageLinks}\n    </div>\n\n    <script>`
+    );
+    fs.writeFileSync("index.html", indexContent);
+
+    console.log("Successfully generated:");
+    console.log(` - ${pages.length} product pages`);
+    console.log(" - sitemap.xml");
+    console.log(" - updated index.html");
+  } catch (error) {
+    console.error("Error in page generation:", error);
+    process.exit(1);
+  }
 };
 
 module.exports = { generatePages };
 
 // Run the generator if this script is called directly
 if (require.main === module) {
-    generatePages();
+  generatePages();
 }

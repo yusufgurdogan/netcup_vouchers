@@ -79,10 +79,27 @@
         .breadcrumb-item.active {
             color: #c9d1d9;
         }
+        @media (max-width: 991px) {
+            .mobile-vouchers {
+                display: block;
+                margin-bottom: 2rem;
+            }
+            .desktop-vouchers {
+                display: none;
+            }
+        }
+        @media (min-width: 992px) {
+            .mobile-vouchers {
+                display: none;
+            }
+            .desktop-vouchers {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <i class="fas fa-ticket-alt me-2"></i>
@@ -107,35 +124,121 @@
     </nav>
 
     <div class="container py-4">
-            <!-- Enhanced Breadcrumb -->
-            <nav aria-label="breadcrumb" class="mb-4">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">New Customer Offer</li>
-                </ol>
-            </nav>
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">New Customer Offer</li>
+            </ol>
+        </nav>
 
-            <div class="row">
-                <!-- Main Content Column -->
-                <div class="col-lg-8">
-                    <h1 class="mb-4">New Customer Offer</h1>
-                    
-                    <!-- Features List -->
-                    <div class="feature-list">
-                        <h3 class="h5 mb-3">Key Features</h3>
-                        <ul class="mb-0">
-                            <li>€5 discount on your first order</li>
+        <div class="row">
+            <!-- Mobile Vouchers Section -->
+            <div class="col-12 mobile-vouchers">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Available Vouchers</h5>
+                    </div>
+                    <div class="card-body">
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876179
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876178
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876177
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876176
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876175
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876174
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876173
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876172
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876171
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                            <div class="code-block mb-2">
+                                36nc17341876170
+                                <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Current discount: €5 DISCOUNT
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Column -->
+            <div class="col-lg-8">
+                <h1 class="mb-4">New Customer Offer</h1>
+                
+                <!-- Features List -->
+                <div class="feature-list">
+                    <h3 class="h5 mb-3">Key Features</h3>
+                    <ul class="mb-0">
+                        <li>€5 discount on your first order</li>
                             <li>Valid for all netcup products except domains</li>
                             <li>One-time use per new customer</li>
                             <li>Can be combined with other product-specific vouchers</li>
                             <li>Quick and easy redemption</li>
                             <li>No minimum order value</li>
-                        </ul>
-                    </div>
+                    </ul>
+                </div>
 
-                    <!-- Main Content -->
-                    <div class="content mb-4">
-                        
+                <!-- Main Content -->
+                <div class="content mb-4">
+                    
         <h2>About the New Customer Voucher</h2>
         <p>The netcup new customer voucher provides a €5 discount on your first order. This special offer is designed to welcome new customers to netcup's range of hosting services and server solutions.</p>
         
@@ -185,75 +288,75 @@
         <li>No hidden costs - all traffic included</li>
       </ul>
     
-                    </div>
-
-                    <!-- Related Products -->
-                    
-
-                    <!-- Recommended Products -->
-                    <div class="recommended-products mt-5">
-                        <h2 class="h4 mb-4">You Might Also Like</h2>
-                        <div class="row">
-                            
-                            <div class="col-md-6 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <span class="badge text-bg-secondary mb-2">Webhosting</span>
-                                        <h5 class="card-title">Webhosting 8000</h5>
-                                        <p class="card-text">
-                                            <span class="badge badge-discount">30%</span>
-                                        </p>
-                                        <a href="/webhosting-8000" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <span class="badge text-bg-secondary mb-2">Webhosting</span>
-                                        <h5 class="card-title">Webhosting 4000</h5>
-                                        <p class="card-text">
-                                            <span class="badge badge-discount">30%</span>
-                                        </p>
-                                        <a href="/webhosting-4000" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <span class="badge text-bg-secondary mb-2">VPS</span>
-                                        <h5 class="card-title">VPS 8000 G11</h5>
-                                        <p class="card-text">
-                                            <span class="badge badge-discount">FREE 1 MONTH</span>
-                                        </p>
-                                        <a href="/vps-8000-g11" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <span class="badge text-bg-secondary mb-2">VPS</span>
-                                        <h5 class="card-title">VPS 6000 G11</h5>
-                                        <p class="card-text">
-                                            <span class="badge badge-discount">FREE 1 MONTH</span>
-                                        </p>
-                                        <a href="/vps-6000-g11" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
                 </div>
 
-            <!-- Sidebar -->
+                <!-- Related Products -->
+                
+
+                <!-- Recommended Products -->
+                <div class="recommended-products mt-5">
+                    <h2 class="h4 mb-4">You Might Also Like</h2>
+                    <div class="row">
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <span class="badge text-bg-secondary mb-2">Webhosting</span>
+                                    <h5 class="card-title">Webhosting 8000</h5>
+                                    <p class="card-text">
+                                        <span class="badge badge-discount">30%</span>
+                                    </p>
+                                    <a href="/webhosting-8000" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <span class="badge text-bg-secondary mb-2">Webhosting</span>
+                                    <h5 class="card-title">Webhosting 4000</h5>
+                                    <p class="card-text">
+                                        <span class="badge badge-discount">30%</span>
+                                    </p>
+                                    <a href="/webhosting-4000" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <span class="badge text-bg-secondary mb-2">VPS</span>
+                                    <h5 class="card-title">VPS 8000 G11</h5>
+                                    <p class="card-text">
+                                        <span class="badge badge-discount">FREE 1 MONTH</span>
+                                    </p>
+                                    <a href="/vps-8000-g11" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <span class="badge text-bg-secondary mb-2">VPS</span>
+                                    <h5 class="card-title">VPS 6000 G11</h5>
+                                    <p class="card-text">
+                                        <span class="badge badge-discount">FREE 1 MONTH</span>
+                                    </p>
+                                    <a href="/vps-6000-g11" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Sidebar -->
             <div class="col-lg-4">
-                <div class="card sticky-top" style="top: 2rem;">
+                <div class="card sticky-top desktop-vouchers" style="top: 2rem;">
                     <div class="card-header">
                         <h5 class="mb-0">Available Vouchers</h5>
                     </div>
@@ -359,7 +462,7 @@
         // Add products dropdown population
         const populateProductsDropdown = () => {
             const dropdown = document.getElementById('productsDropdown');
-            const voucherData = {"webhosting":{"icon":"fas fa-server","name":"Webhosting","items":[{"name":"Webhosting 8000","discount":"30%","codes":["1929nc17341876259","1929nc17341876258","1929nc17341876257","1929nc17341876256","1929nc17341876255","1929nc17341876254","1929nc17341876253","1929nc17341876252","1929nc17341876251","1929nc17341876250"]},{"name":"Webhosting 4000","discount":"30%","codes":["1928nc17341876229","1928nc17341876228","1928nc17341876227","1928nc17341876226","1928nc17341876225","1928nc17341876224","1928nc17341876223","1928nc17341876222","1928nc17341876221","1928nc17341876220"]},{"name":"Webhosting 2000","discount":"30%","codes":["1927nc17387491610","1927nc17341876197","1927nc17341876196","1927nc17341876195","1927nc17341876194","1927nc17341876193","1927nc17341876192","1927nc17341876191","1927nc17341876190"]}]},"vps":{"icon":"fas fa-cloud","name":"VPS","items":[{"name":"VPS 8000 G11","discount":"FREE 1 MONTH","codes":["4105nc17341876003","4105nc17341876002","4105nc17341876001"]},{"name":"VPS 6000 G11","discount":"FREE 1 MONTH","codes":["4104nc17341875964","4104nc17341875963","4104nc17341875962","4104nc17341875961","4104nc17341875960"]},{"name":"VPS 4000 G11","discount":"FREE 1 MONTH","codes":["4103nc17341875944","4103nc17341875943","4103nc17341875942","4103nc17341875941","4103nc17341875940"]},{"name":"VPS 3000 G11","discount":"FREE 1 MONTH","codes":["4102nc17380583280","4102nc17341875923","4102nc17341875922","4102nc17341875921","4102nc17341875920"]},{"name":"VPS 2000 G11","discount":"FREE 1 MONTH","codes":["4101nc17385766091","4101nc17385766090","4101nc17341875900"]},{"name":"VPS 1000 G11","discount":"FREE 1 MONTH","codes":["4095nc17387492050","4095nc17387491850","4095nc17341875732","4095nc17341875731","4095nc17341875730"]}]},"rootserver":{"icon":"fas fa-database","name":"Root Server","items":[{"name":"RS 8000 G11","discount":"FREE 1 MONTH","codes":["4100nc17385765912","4100nc17364138846","4100nc17385765911","4100nc17364138844","4100nc17364138843","4100nc17364138842","4100nc17385765910","4100nc17364138840","4100nc17341875883","4100nc17341875882","4100nc17341875881"]},{"name":"RS 4000 G11","discount":"FREE 1 MONTH","codes":["4099nc17380583600","4099nc17341875863","4099nc17341875862","4099nc17341875860"]},{"name":"RS 2000 G11","discount":"FREE 1 MONTH","codes":["4098nc17387492910","4098nc17341875833","4098nc17387492740","4098nc17341875831","4098nc17341875830"]},{"name":"RS 2000 G11 iv SE MNZ","discount":"ADV24","codes":["4489nc17341876114","4489nc17341876113","4489nc17341876112","4489nc17341876111","4489nc17341876110"]},{"name":"RS 2000 G11 iv SE VIE","discount":"ADV24","codes":["4487nc17341876054","4487nc17341876053","4487nc17341876052","4487nc17341876051","4487nc17341876050"]},{"name":"RS 1000 G11","discount":"FREE 2 MONTHS","codes":["4096nc17385766030","4096nc17387492640","4096nc17341875802","4096nc17341875801","4096nc17341875800"]}]},"general":{"icon":"fas fa-percentage","name":"General","items":[{"name":"New Customer Offer","discount":"€5 DISCOUNT","codes":["36nc17341876179","36nc17341876178","36nc17341876177","36nc17341876176","36nc17341876175","36nc17341876174","36nc17341876173","36nc17341876172","36nc17341876171","36nc17341876170"]}]}};
+            const voucherData = {"webhosting":{"icon":"fas fa-server","name":"Webhosting","items":[{"name":"Webhosting 8000","discount":"30%","codes":["1929nc17341876259","1929nc17341876258","1929nc17341876257","1929nc17341876256","1929nc17341876255","1929nc17341876254","1929nc17341876253","1929nc17341876252","1929nc17341876251","1929nc17341876250"]},{"name":"Webhosting 4000","discount":"30%","codes":["1928nc17341876229","1928nc17341876228","1928nc17341876227","1928nc17341876226","1928nc17341876225","1928nc17341876224","1928nc17341876223","1928nc17341876222","1928nc17341876221","1928nc17341876220"]},{"name":"Webhosting 2000","discount":"30%","codes":["1927nc17387491610","1927nc17341876197","1927nc17341876196","1927nc17341876195","1927nc17341876194","1927nc17341876193","1927nc17341876192","1927nc17341876191","1927nc17341876190"]}]},"vps":{"icon":"fas fa-cloud","name":"VPS","items":[{"name":"VPS 8000 G11","discount":"FREE 1 MONTH","codes":["4105nc17341876003","4105nc17341876002","4105nc17341876001"]},{"name":"VPS 6000 G11","discount":"FREE 1 MONTH","codes":["4104nc17391113960","4104nc17341875963","4104nc17341875962","4104nc17341875961","4104nc17341875960"]},{"name":"VPS 4000 G11","discount":"FREE 1 MONTH","codes":["4103nc17341875944","4103nc17341875943","4103nc17341875942","4103nc17341875941","4103nc17341875940"]},{"name":"VPS 3000 G11","discount":"FREE 1 MONTH","codes":["4102nc17380583280","4102nc17341875923","4102nc17341875922","4102nc17341875921","4102nc17341875920"]},{"name":"VPS 2000 G11","discount":"FREE 1 MONTH","codes":["4101nc17391114050","4101nc17385766090","4101nc17341875900"]},{"name":"VPS 1000 G11","discount":"FREE 1 MONTH","codes":["4095nc17391114230","4095nc17387491850","4095nc17341875732","4095nc17341875731","4095nc17341875730"]}]},"rootserver":{"icon":"fas fa-database","name":"Root Server","items":[{"name":"RS 8000 G11","discount":"FREE 1 MONTH","codes":["4100nc17385765912","4100nc17364138846","4100nc17385765911","4100nc17364138844","4100nc17364138843","4100nc17364138842","4100nc17385765910","4100nc17364138840","4100nc17341875883","4100nc17341875882","4100nc17341875881"]},{"name":"RS 4000 G11","discount":"FREE 1 MONTH","codes":["4099nc17380583600","4099nc17341875863","4099nc17341875862","4099nc17341875860"]},{"name":"RS 2000 G11","discount":"FREE 1 MONTH","codes":["4098nc17387492910","4098nc17341875833","4098nc17387492740","4098nc17341875831","4098nc17341875830"]},{"name":"RS 2000 G11 iv SE MNZ","discount":"ADV24","codes":["4489nc17341876114","4489nc17341876113","4489nc17341876112","4489nc17341876111","4489nc17341876110"]},{"name":"RS 2000 G11 iv SE VIE","discount":"ADV24","codes":["4487nc17341876054","4487nc17341876053","4487nc17341876052","4487nc17341876051","4487nc17341876050"]},{"name":"RS 1000 G11","discount":"FREE 2 MONTHS","codes":["4096nc17385766030","4096nc17387492640","4096nc17341875802","4096nc17341875801","4096nc17341875800"]}]},"general":{"icon":"fas fa-percentage","name":"General","items":[{"name":"New Customer Offer","discount":"€5 DISCOUNT","codes":["36nc17341876179","36nc17341876178","36nc17341876177","36nc17341876176","36nc17341876175","36nc17341876174","36nc17341876173","36nc17341876172","36nc17341876171","36nc17341876170"]}]}};
             
             Object.entries(voucherData).forEach(([category, data]) => {
                 const header = document.createElement('li');
