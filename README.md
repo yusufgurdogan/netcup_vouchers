@@ -151,4 +151,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 3/21/2025
+Last updated: 3/25/2025
