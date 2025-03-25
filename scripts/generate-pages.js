@@ -12,9 +12,22 @@ const generateSlug = (name) => {
 
 const cleanDirectory = (directory) => {
   if (fs.existsSync(directory)) {
+    // Don't delete the favicon directory or its contents or image files we need
+    const preserveFiles = ['favicon', 'icon.png', 'netcup-voucher-image.png', 'robots.txt', 'sitemap.xml'];
+    
     fs.readdirSync(directory).forEach((file) => {
-      const filePath = path.join(directory, file);
-      fs.unlinkSync(filePath);
+      if (!preserveFiles.includes(file)) {
+        const filePath = path.join(directory, file);
+        if (fs.lstatSync(filePath).isDirectory()) {
+          if (file !== 'favicon') {
+            // Recursively delete subdirectories except favicon
+            cleanDirectory(filePath);
+            fs.rmdirSync(filePath);
+          }
+        } else {
+          fs.unlinkSync(filePath);
+        }
+      }
     });
   } else {
     fs.mkdirSync(directory, { recursive: true });
@@ -40,7 +53,7 @@ const generateProductPage = (name, category, vouchers) => {
       discount: item.discount,
     }));
 
-  // Find recommended products (different categories)
+  // Find recommended products (different categories) - enhanced to include more diversity
   const recommendedProducts = Object.entries(voucherData)
     .filter(([cat, _]) => cat !== category)
     .flatMap(([_, data]) =>
@@ -52,6 +65,24 @@ const generateProductPage = (name, category, vouchers) => {
       }))
     )
     .slice(0, 4);
+
+  // Generate schema.org JSON-LD markup for the product
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": name,
+    "description": info.description,
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Netcup GmbH"
+      },
+      "discount": vouchers.discount
+    }
+  };
 
   const template = `<!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
@@ -71,9 +102,34 @@ const generateProductPage = (name, category, vouchers) => {
     <meta property="og:description" content="${info.description}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://netcupvoucher.com/${slug}">
+    <meta property="og:image" content="https://netcupvoucher.com/netcup-voucher-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${info.title}">
+    <meta name="twitter:description" content="${info.description}">
+    <meta name="twitter:image" content="https://netcupvoucher.com/netcup-voucher-image.png">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🏷️</text></svg>">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#0d1117">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#0d1117">
     
     <!-- Styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -134,6 +190,11 @@ const generateProductPage = (name, category, vouchers) => {
         .breadcrumb-item.active {
             color: #c9d1d9;
         }
+        .navbar-brand img {
+            height: 24px;
+            width: auto;
+            margin-right: 0.5rem;
+        }
         @media (max-width: 991px) {
             .mobile-vouchers {
                 display: block;
@@ -151,13 +212,30 @@ const generateProductPage = (name, category, vouchers) => {
                 display: block;
             }
         }
+        @media (max-width: 576px) {
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .badge-discount {
+                margin-top: 0.5rem;
+            }
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
     </style>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    ${JSON.stringify(schemaMarkup)}
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <i class="fas fa-ticket-alt me-2"></i>
+                <img src="/icon.png" alt="Netcup Vouchers Logo">
                 Netcup Vouchers
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -173,6 +251,9 @@ const generateProductPage = (name, category, vouchers) => {
                             <!-- Will be populated by JavaScript -->
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -183,6 +264,7 @@ const generateProductPage = (name, category, vouchers) => {
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/#${category}">${voucherData[category].name}</a></li>
                 <li class="breadcrumb-item active">${name}</li>
             </ol>
         </nav>
@@ -318,6 +400,19 @@ const generateProductPage = (name, category, vouchers) => {
             </div>
         </div>
     </div>
+    
+    <footer class="bg-dark py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 NetcupVoucher.com - All voucher codes are updated regularly</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Not affiliated with Netcup GmbH</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Copy button functionality
@@ -382,12 +477,309 @@ const generateProductPage = (name, category, vouchers) => {
   }
 };
 
+// Generate about page
+const generateAboutPage = () => {
+  const template = `<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Netcup Vouchers - How Our Discount Codes Work</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn about Netcup Vouchers, how our discount codes work, and how to save money on Netcup hosting products and services.">
+    <meta name="keywords" content="netcup, voucher codes, discount codes, hosting, about, how it works">
+    <meta name="author" content="Netcup Vouchers">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About Netcup Vouchers - How Our Discount Codes Work">
+    <meta property="og:description" content="Learn about Netcup Vouchers, how our discount codes work, and how to save money on Netcup hosting products and services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://netcupvoucher.com/about">
+    <meta property="og:image" content="https://netcupvoucher.com/netcup-voucher-image.png">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#0d1117">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#0d1117">
+    
+    <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+        }
+        .card-header {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+        .navbar {
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: #8b949e;
+        }
+        .breadcrumb-item a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .breadcrumb-item.active {
+            color: #c9d1d9;
+        }
+        .dropdown-menu {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+        }
+        .dropdown-item {
+            color: #c9d1d9;
+        }
+        .dropdown-item:hover {
+            background-color: #21262d;
+            color: #ffffff;
+        }
+        .dropdown-header {
+            color: #8b949e;
+        }
+        .dropdown-divider {
+            border-color: #30363d;
+        }
+        .navbar-brand img {
+            height: 24px;
+            width: auto;
+            margin-right: 0.5rem;
+        }
+    </style>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do Netcup voucher codes work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Netcup voucher codes are special discount codes that you can enter during the checkout process at netcup.com. Simply copy your desired code from our site, add your desired products to your cart at Netcup, and enter the code in the designated voucher field before completing your purchase."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are these voucher codes official?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, all our voucher codes are official Netcup discount codes. We curate and verify them to ensure they work, but we are not affiliated with Netcup GmbH."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can existing Netcup customers use these vouchers?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most vouchers are valid for new customers only. If you're an existing customer, check specific terms for each voucher code."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/icon.png" alt="Netcup Vouchers Logo">
+                Netcup Vouchers
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" id="productsDropdown">
+                            <!-- Will be populated by JavaScript -->
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">About</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">About Netcup Vouchers</h1>
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h4 mb-3">Our Mission</h2>
+                        <p>Welcome to NetcupVoucher.com, your trusted source for verified Netcup discount codes and promotional offers. Our mission is to help you save money on high-quality web hosting, VPS, and root server solutions from Netcup.</p>
+                        <p>We maintain an updated collection of voucher codes for all major Netcup products, regularly verify their validity, and organize them in an easy-to-use format so you can quickly find and apply the best discounts.</p>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 class="h4 mb-0">How to Use Our Voucher Codes</h2>
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                            <li class="mb-2">Browse our collection of vouchers by category or product</li>
+                            <li class="mb-2">Click the copy button next to your desired voucher code</li>
+                            <li class="mb-2">Add your desired products to your cart at <a href="https://www.netcup.com/en/checkout/cart" target="_blank" rel="noopener">netcup.com</a></li>
+                            <li class="mb-2">Enter the voucher code in the designated field during checkout</li>
+                            <li>Complete your purchase and enjoy the savings!</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 class="h4 mb-0">FAQ</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h3 class="h5">Are these voucher codes official?</h3>
+                            <p>Yes, all our voucher codes are official Netcup discount codes. We curate and verify them to ensure they work, but we are not affiliated with Netcup GmbH.</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="h5">Can existing Netcup customers use these vouchers?</h3>
+                            <p>Most vouchers are valid for new customers only. If you're an existing customer, check specific terms for each voucher code.</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="h5">How often are voucher codes updated?</h3>
+                            <p>We update our voucher codes regularly as new promotions become available. Check the "Last updated" indicator on our homepage for the most recent update date.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="h5">What if a voucher code doesn't work?</h3>
+                            <p>While we strive to maintain only valid voucher codes, occasionally some may expire or have usage limitations. If you encounter an issue with a voucher, try another code from the same category or check back later for updates.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="h4 mb-0">About Netcup</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Netcup is a German web hosting provider founded in 2003, known for their high-quality hosting solutions and excellent price-performance ratio. They offer a wide range of products including:</p>
+                        
+                        <ul>
+                            <li class="mb-2"><strong>Web Hosting:</strong> Reliable cloud hosting solutions with SSD storage and multiple domain support</li>
+                            <li class="mb-2"><strong>Virtual Private Servers (VPS):</strong> Flexible virtual servers with guaranteed resources</li>
+                            <li class="mb-2"><strong>Root Servers:</strong> Powerful dedicated servers with full root access</li>
+                            <li class="mb-2"><strong>Domain Registration:</strong> Register and manage domains</li>
+                            <li><strong>SSL Certificates:</strong> Secure your websites with SSL encryption</li>
+                        </ul>
+                        
+                        <p class="mt-3">Netcup operates state-of-the-art data centers in Germany and Austria, ensuring high availability and performance for all their services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 NetcupVoucher.com - All voucher codes are updated regularly</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Not affiliated with Netcup GmbH</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add products dropdown population
+        const populateProductsDropdown = () => {
+            const dropdown = document.getElementById('productsDropdown');
+            const voucherData = ${JSON.stringify(voucherData)};
+            
+            Object.entries(voucherData).forEach(([category, data]) => {
+                const header = document.createElement('li');
+                header.innerHTML = \`<h6 class="dropdown-header">\${data.name}</h6>\`;
+                dropdown.appendChild(header);
+                
+                data.items.forEach(item => {
+                    const li = document.createElement('li');
+                    const slug = item.name.toLowerCase().replace(/\\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                    li.innerHTML = \`<a class="dropdown-item" href="/\${slug}">\${item.name}</a>\`;
+                    dropdown.appendChild(li);
+                });
+                
+                if (Object.keys(voucherData).indexOf(category) !== Object.keys(voucherData).length - 1) {
+                    const divider = document.createElement('li');
+                    divider.innerHTML = '<hr class="dropdown-divider">';
+                    dropdown.appendChild(divider);
+                }
+            });
+        };
+        // Initialize dropdown
+        populateProductsDropdown();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>`;
+
+  const pagesDir = path.join(process.cwd(), "pages");
+  try {
+    fs.writeFileSync(path.join(pagesDir, "about.html"), template);
+    return "about";
+  } catch (error) {
+    console.error("Error writing about page:", error);
+    process.exit(1);
+  }
+};
+
 // Main function to generate all pages
 const generatePages = () => {
   try {
     const pages = [];
 
-    // Clean up existing pages directory
+    // Clean up existing pages directory while preserving the favicon directory and crucial files
     const pagesDir = path.join(process.cwd(), "pages");
     cleanDirectory(pagesDir);
 
@@ -399,12 +791,32 @@ const generatePages = () => {
       });
     });
 
-    // Move index.html to pages directory as well
+    // Generate the About page
+    const aboutSlug = generateAboutPage();
+    pages.push({ name: "About", slug: aboutSlug, category: "info" });
+
+    // Move index.html to pages directory
     if (fs.existsSync("index.html")) {
       fs.copyFileSync("index.html", path.join(pagesDir, "index.html"));
     }
 
-    // Keep the original sitemap URLs (without /pages/)
+    // Copy OG image to pages directory if it exists
+    const sourceOgImage = path.join(process.cwd(), "data", "netcup-voucher-image.png");
+    const destOgImage = path.join(pagesDir, "netcup-voucher-image.png");
+    
+    if (fs.existsSync(sourceOgImage) && !fs.existsSync(destOgImage)) {
+      fs.copyFileSync(sourceOgImage, destOgImage);
+    }
+    
+    // Copy icon image for navbar logo
+    const sourceIconImage = path.join(process.cwd(), "data", "icon.png");
+    const destIconImage = path.join(pagesDir, "icon.png");
+    
+    if (fs.existsSync(sourceIconImage) && !fs.existsSync(destIconImage)) {
+      fs.copyFileSync(sourceIconImage, destIconImage);
+    }
+
+    // Generate sitemap with today's date for all pages
     const today = new Date().toISOString().split("T")[0];
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -428,53 +840,18 @@ const generatePages = () => {
 </urlset>`;
 
     fs.writeFileSync("sitemap.xml", sitemap);
+    fs.writeFileSync(path.join(pagesDir, "sitemap.xml"), sitemap);
 
-    // Update main page with categorized links
-    const mainPageLinks = `
-        <div class="row mt-4">
-            ${Object.entries(voucherData)
-              .map(
-                ([category, data]) => `
-                <div class="col-12 mb-4">
-                    <h2 class="h3 mb-3">${data.name}</h2>
-                    <div class="list-group">
-                        ${data.items
-                          .map(
-                            (item) => `
-                            <a href="/${generateSlug(item.name)}" 
-                               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                <span>
-                                    <i class="${data.icon} me-2"></i>
-                                    ${item.name}
-                                </span>
-                                <span>
-                                    <span class="badge badge-discount me-2">${
-                                      item.discount
-                                    }</span>
-                                    <i class="fas fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        `
-                          )
-                          .join("")}
-                    </div>
-                </div>
-            `
-              )
-              .join("")}
-        </div>
-        `;
-
-    let indexContent = fs.readFileSync("index.html", "utf8");
-    indexContent = indexContent.replace(
-      "</div>\n\n    <script>",
-      `${mainPageLinks}\n    </div>\n\n    <script>`
-    );
-    fs.writeFileSync("index.html", indexContent);
+    // Create robots.txt
+    const robotsTxt = `User-agent: *
+Allow: /
+Sitemap: https://netcupvoucher.com/sitemap.xml`;
+    fs.writeFileSync(path.join(pagesDir, "robots.txt"), robotsTxt);
 
     console.log("Successfully generated:");
-    console.log(` - ${pages.length} product pages`);
+    console.log(` - ${pages.length} pages`);
     console.log(" - sitemap.xml");
+    console.log(" - robots.txt");
     console.log(" - updated index.html");
   } catch (error) {
     console.error("Error in page generation:", error);
