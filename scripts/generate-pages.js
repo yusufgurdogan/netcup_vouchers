@@ -296,6 +296,11 @@ const generateProductPage = (name, category, vouchers) => {
                             <i class="fas fa-info-circle me-2"></i>
                             Current discount: ${vouchers.discount}
                         </div>
+                        <a href="https://www.netcup.com/en/checkout/cart"
+                        target="_blank" rel="noopener"
+                        class="btn btn-success w-100 mt-3">
+                        Redeem at netcup.com &raquo;
+                        </a>
                     </div>
                 </div>
             </div>
@@ -398,6 +403,11 @@ const generateProductPage = (name, category, vouchers) => {
                             <i class="fas fa-info-circle me-2"></i>
                             Current discount: ${vouchers.discount}
                         </div>
+                        <a href="https://www.netcup.com/en/checkout/cart"
+                        target="_blank" rel="noopener"
+                        class="btn btn-success w-100 mt-3">
+                        Redeem at netcup.com &raquo;
+                        </a>
                     </div>
                 </div>
             </div>
