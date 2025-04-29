@@ -83,76 +83,139 @@ const readTemplate = (templatePath) => {
   }
 };
 
-// Replace template variables
+// Replace template variables - IMPROVED VERSION
 const applyTemplate = (template, data) => {
-    // Replace basic variables
-    let result = template;
-
-    // Replace all {{varName}} with their values
-    Object.entries(data).forEach(([key, value]) => {
-        if (typeof value === 'string' || typeof value === 'number') {
-        const regex = new RegExp(`{{${key}}}`, 'g');
-        result = result.replace(regex, value);
-        }
-    });
+  // Replace basic variables
+  let result = template;
   
-  // Handle arrays and conditional sections
+  // Replace all {{varName}} with their values
   Object.entries(data).forEach(([key, value]) => {
-    if (Array.isArray(value)) {
-      // Handle {{#each arrayName}}...{{/each}}
-      const eachRegex = new RegExp(`{{#each ${key}}}([\\s\\S]*?){{/each}}`, 'g');
-      
-      result = result.replace(eachRegex, (match, template) => {
-        return value.map(item => {
-          let itemTemplate = template;
-          
-          // Replace item properties
-          Object.entries(item).forEach(([itemKey, itemValue]) => {
-            if (typeof itemValue === 'string' || typeof itemValue === 'number') {
-              const itemRegex = new RegExp(`{{this.${itemKey}}}`, 'g');
-              itemTemplate = itemTemplate.replace(itemRegex, itemValue);
-            }
-          });
-          
-          // Handle @last
-          const lastRegex = new RegExp(`{{#unless @last}}([\\s\\S]*?){{/unless}}`, 'g');
-          itemTemplate = itemTemplate.replace(lastRegex, (match, content) => {
-            return item === value[value.length - 1] ? '' : content;
-          });
-          
-          return itemTemplate;
-        }).join('');
-      });
-    } else if (typeof value === 'object' && value !== null) {
-      // Handle nested objects
-      Object.entries(value).forEach(([nestedKey, nestedValue]) => {
-        const regex = new RegExp(`{{${key}.${nestedKey}}}`, 'g');
-        result = result.replace(regex, nestedValue);
-      });
+    if (typeof value === 'string' || typeof value === 'number') {
+      const regex = new RegExp(`{{${key}}}`, 'g');
+      result = result.replace(regex, value);
     }
   });
   
-  // Handle conditionals {{#if varName}}...{{/if}}
+  // Handle arrays and conditional sections with better parsing
+  
+  // Process {{#if varName}}...{{/if}} blocks
+  const processIfBlocks = (html) => {
+    let processed = html;
+    const ifRegex = /{{#if ([^}]+)}}([\s\S]*?){{\/if}}/g;
+    
+    return processed.replace(ifRegex, (match, condition, content) => {
+      // Split the condition path (e.g., "featuredPost.tags" -> ["featuredPost", "tags"])
+      const conditionPath = condition.trim().split('.');
+      
+      // Evaluate the condition by following the path in the data object
+      let conditionValue = data;
+      for (const part of conditionPath) {
+        if (conditionValue && typeof conditionValue === 'object') {
+          conditionValue = conditionValue[part];
+        } else {
+          conditionValue = undefined;
+          break;
+        }
+      }
+      
+      // If condition is truthy, return the content, otherwise empty string
+      return conditionValue ? content : '';
+    });
+  };
+  
+  // Process {{#if varName}}...{{else}}...{{/if}} blocks
+  const processIfElseBlocks = (html) => {
+    let processed = html;
+    const ifElseRegex = /{{#if ([^}]+)}}([\s\S]*?){{else}}([\s\S]*?){{\/if}}/g;
+    
+    return processed.replace(ifElseRegex, (match, condition, ifContent, elseContent) => {
+      // Split the condition path
+      const conditionPath = condition.trim().split('.');
+      
+      // Evaluate the condition
+      let conditionValue = data;
+      for (const part of conditionPath) {
+        if (conditionValue && typeof conditionValue === 'object') {
+          conditionValue = conditionValue[part];
+        } else {
+          conditionValue = undefined;
+          break;
+        }
+      }
+      
+      return conditionValue ? ifContent : elseContent;
+    });
+  };
+  
+  // Process {{#each arrayName}}...{{/each}} blocks
+  const processEachBlocks = (html) => {
+    let processed = html;
+    const eachRegex = /{{#each ([^}]+)}}([\s\S]*?){{\/each}}/g;
+    
+    return processed.replace(eachRegex, (match, arrayName, template) => {
+      // Get the array from data
+      const array = data[arrayName];
+      
+      if (!Array.isArray(array)) {
+        return ''; // If not an array, return empty string
+      }
+      
+      // Map each item in the array to the template
+      return array.map((item, index) => {
+        let itemTemplate = template;
+        
+        // Replace {{this.property}} with the item's property value
+        Object.entries(item).forEach(([key, value]) => {
+          if (typeof value === 'string' || typeof value === 'number') {
+            const regex = new RegExp(`{{this\\.${key}}}`, 'g');
+            itemTemplate = itemTemplate.replace(regex, value);
+          }
+        });
+        
+        // Handle @last, @index, etc.
+        itemTemplate = itemTemplate.replace(/{{@index}}/g, index);
+        itemTemplate = itemTemplate.replace(/{{@last}}/g, index === array.length - 1);
+        
+        // Handle nested {{#if}} inside {{#each}}
+        itemTemplate = processIfBlocks(itemTemplate);
+        itemTemplate = processIfElseBlocks(itemTemplate);
+        
+        // Handle {{#unless @last}}...{{/unless}}
+        const unlessLastRegex = /{{#unless @last}}([\s\S]*?){{\/unless}}/g;
+        itemTemplate = itemTemplate.replace(unlessLastRegex, (match, content) => {
+          return index === array.length - 1 ? '' : content;
+        });
+        
+        return itemTemplate;
+      }).join('');
+    });
+  };
+  
+  // Apply transformations in the correct order
+  result = processIfElseBlocks(result); // Process if-else blocks first
+  result = processIfBlocks(result);     // Then process remaining if blocks
+  result = processEachBlocks(result);   // Then process each blocks
+  
+  // Handle nested objects
   Object.entries(data).forEach(([key, value]) => {
-    const ifRegex = new RegExp(`{{#if ${key}}}([\\s\\S]*?){{/if}}`, 'g');
-    
-    result = result.replace(ifRegex, (match, content) => {
-      return value ? content : '';
-    });
-    
-    // Handle {{#if varName}}...{{else}}...{{/if}}
-    const ifElseRegex = new RegExp(`{{#if ${key}}}([\\s\\S]*?){{else}}([\\s\\S]*?){{/if}}`, 'g');
-    
-    result = result.replace(ifElseRegex, (match, ifContent, elseContent) => {
-      return value ? ifContent : elseContent;
-    });
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      // Handle nested objects
+      Object.entries(value).forEach(([nestedKey, nestedValue]) => {
+        if (typeof nestedValue === 'string' || typeof nestedValue === 'number') {
+          const regex = new RegExp(`{{${key}\\.${nestedKey}}}`, 'g');
+          result = result.replace(regex, nestedValue);
+        }
+      });
+    }
   });
   
   // Add voucher data as JSON
   result = result.replace('{{voucherData}}', JSON.stringify(voucherData));
   
+  // Fix the slug generation in dropdown population script
+  // This ensures that proper hyphens are used in the URLs
   result = result.replace(
-    "const slug = item.name.toLowerCase().replace(/\\\\s+/g, '').replace(/[^a-z0-9]/g, '');", 
+    /const slug = item\.name\.toLowerCase\(\)\.replace\(\/\\s\+\/g,\s*['"][^'"]*['"]\)\.replace\(\/\[\^a-z0-9[^'"]*\/g,\s*['"][^'"]*['"]\);/g,
     "const slug = item.name.toLowerCase().replace(/\\\\s+/g, '-').replace(/[^a-z0-9-]/g, '');"
   );
   
