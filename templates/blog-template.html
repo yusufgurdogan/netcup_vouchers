@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - Netcup Voucher Blog</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="netcup, voucher codes, discount codes, {{keywords}}">
+    <meta name="author" content="{{author}}">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{title}} - Netcup Voucher Blog">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://netcupvoucher.com/blog/{{slug}}">
+    <meta property="og:image" content="https://netcupvoucher.com/netcup-voucher-image.png">
+    <meta property="article:published_time" content="{{date}}">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{title}} - Netcup Voucher Blog">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:image" content="https://netcupvoucher.com/netcup-voucher-image.png">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#0d1117">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#0d1117">
+    
+    <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+        }
+        .card-header {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+        .navbar {
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: #8b949e;
+        }
+        .breadcrumb-item a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .breadcrumb-item.active {
+            color: #c9d1d9;
+        }
+        .navbar-brand img {
+            height: 24px;
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        .dropdown-menu {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+        }
+        .dropdown-item {
+            color: #c9d1d9;
+        }
+        .dropdown-item:hover {
+            background-color: #21262d;
+            color: #ffffff;
+        }
+        .dropdown-header {
+            color: #8b949e;
+        }
+        .dropdown-divider {
+            border-color: #30363d;
+        }
+        .blog-content {
+            line-height: 1.6;
+        }
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+        .blog-content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #30363d;
+        }
+        .blog-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .blog-content pre {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .blog-content code {
+            background-color: #0d1117;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-bottom: 2rem;
+        }
+        .blog-meta i {
+            margin-right: 0.5rem;
+        }
+        .blog-meta span {
+            margin-right: 1.5rem;
+        }
+        /* Table styling */
+        .blog-content table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+        }
+        .blog-content th {
+            background-color: #161b22;
+            padding: 0.75rem;
+            border: 1px solid #30363d;
+            text-align: left;
+        }
+        .blog-content td {
+            padding: 0.75rem;
+            border: 1px solid #30363d;
+        }
+        /* Blockquote styling */
+        .blog-content blockquote {
+            border-left: 4px solid #58a6ff;
+            padding-left: 1rem;
+            margin-left: 0;
+            color: #8b949e;
+        }
+        @media (max-width: 767px) {
+            .blog-meta span {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "{{title}}",
+        "description": "{{description}}",
+        "image": "https://netcupvoucher.com/netcup-voucher-image.png",
+        "author": {
+            "@type": "Person",
+            "name": "{{author}}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Netcup Vouchers",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://netcupvoucher.com/icon.png"
+            }
+        },
+        "datePublished": "{{date}}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://netcupvoucher.com/blog/{{slug}}"
+        }
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/icon.png" alt="Netcup Vouchers Logo">
+                Netcup Vouchers
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" id="productsDropdown">
+                            <!-- Will be populated by JavaScript -->
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+                <li class="breadcrumb-item active">{{title}}</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <article>
+                    <h1 class="mb-3">{{title}}</h1>
+                    
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> {{formatDate}}</span>
+                        <span><i class="far fa-user"></i> {{author}}</span>
+                        {{#if tags}}<span><i class="fas fa-tags"></i> {{tags}}</span>{{/if}}
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body blog-content">
+                            {{content}}
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Related Posts Section -->
+                {{#if relatedPosts}}
+                <div class="related-posts mt-5">
+                    <h3 class="mb-4">Related Articles</h3>
+                    <div class="row">
+                        {{#each relatedPosts}}
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{this.title}}</h5>
+                                    <p class="card-text text-muted">{{this.description}}</p>
+                                    <a href="/blog/{{this.slug}}" class="btn btn-outline-primary btn-sm">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+            
+            <div class="col-lg-4">
+                <!-- Sidebar -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Latest Posts</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            {{#each recentPosts}}
+                            <li class="mb-2">
+                                <a href="/blog/{{this.slug}}" class="text-decoration-none">{{this.title}}</a>
+                                <small class="d-block text-muted">{{this.formatDate}}</small>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Promotional Card -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Latest Vouchers</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Check out our latest voucher codes for big savings on Netcup services!</p>
+                        {{#each featuredVouchers}}
+                        <div class="mb-2">
+                            <strong>{{this.name}}</strong>: <span class="badge bg-success">{{this.discount}}</span>
+                            <a href="/{{this.slug}}" class="btn btn-sm btn-outline-primary w-100 mt-1">View Offers</a>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 NetcupVoucher.com - All voucher codes are updated regularly</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Not affiliated with Netcup GmbH</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add products dropdown population
+        const populateProductsDropdown = () => {
+            const dropdown = document.getElementById('productsDropdown');
+            const voucherData = {{voucherData}};
+            
+            Object.entries(voucherData).forEach(([category, data]) => {
+                const header = document.createElement('li');
+                header.innerHTML = `<h6 class="dropdown-header">${data.name}</h6>`;
+                dropdown.appendChild(header);
+                
+                data.items.forEach(item => {
+                    const li = document.createElement('li');
+                    const slug = item.name.toLowerCase().replace(/\\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                    li.innerHTML = `<a class="dropdown-item" href="/${slug}">${item.name}</a>`;
+                    dropdown.appendChild(li);
+                });
+                
+                if (Object.keys(voucherData).indexOf(category) !== Object.keys(voucherData).length - 1) {
+                    const divider = document.createElement('li');
+                    divider.innerHTML = '<hr class="dropdown-divider">';
+                    dropdown.appendChild(divider);
+                }
+            });
+        };
+        // Initialize dropdown
+        populateProductsDropdown();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

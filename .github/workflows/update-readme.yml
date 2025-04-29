@@ -6,6 +6,9 @@ on:
       - 'data/vouchers.js'
       - 'data/products.js'
       - 'templates/template.html'
+      - 'templates/blog-template.html'
+      - 'templates/blog-index-template.html'
+      - 'blog/**'
   workflow_dispatch:
 
 permissions:
@@ -41,6 +44,9 @@ jobs:
       - name: Generate product pages
         run: node scripts/generate-pages.js
 
+      - name: Generate blog
+        run: node scripts/generate-blog.js
+
       - name: Generate README
         run: node scripts/generate-readme.js
 
@@ -52,7 +58,7 @@ jobs:
       - name: Commit changes
         run: |
           git add pages/* README.md sitemap.xml
-          git commit -m "Update site content and generate product pages" || echo "No changes to commit"
+          git commit -m "Update site content, generate product pages and blog posts" || echo "No changes to commit"
           git push
 
       - name: Setup Pages

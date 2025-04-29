@@ -4,9 +4,13 @@
   "description": "Netcup voucher codes",
   "private": true,
   "scripts": {
-    "update": "node scripts/generate-readme.js && node scripts/generate-pages.js && node scripts/update-site.js"
+    "update": "node scripts/generate-readme.js && node scripts/generate-pages.js && node scripts/update-site.js",
+    "generate-blog": "node scripts/generate-blog.js",
+    "build": "npm run update && npm run generate-blog"
   },
   "dependencies": {
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.11"
   }
 }
