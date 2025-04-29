@@ -1,3 +1,4 @@
+// scripts/update-site.js
 const fs = require('fs');
 const path = require('path');
 const { voucherData } = require('../data/vouchers.js');
@@ -153,13 +154,26 @@ const updateSite = () => {
       throw new Error('Valid template file not found in any of the expected locations');
     }
     
+    // Check if Blog link is missing and add it if needed
+    if (!templateContent.includes('<a class="nav-link" href="/blog">Blog</a>')) {
+      // Add Blog link after Products dropdown
+      templateContent = templateContent.replace(
+        '</ul>\n                    </li>',
+        '</ul>\n                    </li>\n                    <li class="nav-item">\n                        <a class="nav-link" href="/blog">Blog</a>\n                    </li>'
+      );
+      
+      // Save the updated template
+      fs.writeFileSync(templatePath, templateContent);
+      console.log('Added Blog navigation link to template.html');
+    }
+    
     // Inject voucher data
     const updatedHtml = templateContent.replace(
       '// VOUCHER_DATA_PLACEHOLDER',
       `const voucherData = ${JSON.stringify(voucherData, null, 2)};`
     );
 
-    // Fix favicon paths - ADD THIS CODE BLOCK
+    // Fix favicon paths
     const fixedFaviconPaths = updatedHtml
       .replace(/href="\/favicon-(\d+)x(\d+)\.png"/g, 'href="/favicon/favicon-$1x$2.png"')
       .replace(/href="\/android-icon-(\d+)x(\d+)\.png"/g, 'href="/favicon/android-icon-$1x$2.png"')
@@ -167,9 +181,15 @@ const updateSite = () => {
       .replace(/href="\/ms-icon-(\d+)x(\d+)\.png"/g, 'href="/favicon/ms-icon-$1x$2.png"')
       .replace(/href="\/manifest\.json"/g, 'href="/favicon/manifest.json"')
       .replace(/content="\/ms-icon-(\d+)x(\d+)\.png"/g, 'content="/favicon/ms-icon-$1x$2.png"');
+    
+    // Fix the slug generation issue in the JavaScript code
+    const fixedSlugJs = fixedFaviconPaths.replace(
+      "const slug = item.name.toLowerCase().replace(/\\s+/g, '-').replace(/[^a-z0-9-]/g, '');",
+      "const slug = item.name.toLowerCase().replace(/\\s+/g, '-').replace(/[^a-z0-9-]/g, '');"
+    );
 
     // Write the fixed HTML instead of the original updatedHtml
-    fs.writeFileSync('index.html', fixedFaviconPaths);
+    fs.writeFileSync('index.html', fixedSlugJs);
     console.log('Successfully updated index.html');
     
     // Copy images

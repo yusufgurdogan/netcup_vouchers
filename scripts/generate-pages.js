@@ -13,14 +13,14 @@ const generateSlug = (name) => {
 const cleanDirectory = (directory) => {
   if (fs.existsSync(directory)) {
     // Don't delete the favicon directory or its contents or image files we need
-    const preserveFiles = ['favicon', 'icon.png', 'netcup-voucher-image.png', 'robots.txt', 'sitemap.xml'];
+    const preserveFiles = ['favicon', 'icon.png', 'netcup-voucher-image.png', 'robots.txt', 'sitemap.xml', 'blog'];
     
     fs.readdirSync(directory).forEach((file) => {
       if (!preserveFiles.includes(file)) {
         const filePath = path.join(directory, file);
         if (fs.lstatSync(filePath).isDirectory()) {
-          if (file !== 'favicon') {
-            // Recursively delete subdirectories except favicon
+          if (file !== 'favicon' && file !== 'blog') {
+            // Recursively delete subdirectories except favicon and blog
             cleanDirectory(filePath);
             fs.rmdirSync(filePath);
           }
@@ -250,6 +250,9 @@ const generateProductPage = (name, category, vouchers) => {
                         <ul class="dropdown-menu" id="productsDropdown">
                             <!-- Will be populated by JavaScript -->
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
@@ -625,6 +628,9 @@ const generateAboutPage = () => {
                         <ul class="dropdown-menu" id="productsDropdown">
                             <!-- Will be populated by JavaScript -->
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/about">About</a>
