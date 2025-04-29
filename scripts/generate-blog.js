@@ -218,6 +218,8 @@ const applyTemplate = (template, data) => {
     /const slug = item\.name\.toLowerCase\(\)\.replace\(\/\\s\+\/g,\s*['"][^'"]*['"]\)\.replace\(\/\[\^a-z0-9[^'"]*\/g,\s*['"][^'"]*['"]\);/g,
     "const slug = item.name.toLowerCase().replace(/\\\\s+/g, '-').replace(/[^a-z0-9-]/g, '');"
   );
+
+  result = result.replace(/{{[^{}]+}}/g, '');
   
   return result;
 };
