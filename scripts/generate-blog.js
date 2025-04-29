@@ -85,16 +85,16 @@ const readTemplate = (templatePath) => {
 
 // Replace template variables
 const applyTemplate = (template, data) => {
-  // Replace basic variables
-  let result = template;
-  
-  // Replace all {{varName}} with their values
-  Object.entries(data).forEach(([key, value]) => {
-    if (typeof value === 'string' || typeof value === 'number') {
-      const regex = new RegExp(`{{${key}}}`, 'g');
-      result = result.replace(regex, value);
-    }
-  });
+    // Replace basic variables
+    let result = template;
+
+    // Replace all {{varName}} with their values
+    Object.entries(data).forEach(([key, value]) => {
+        if (typeof value === 'string' || typeof value === 'number') {
+        const regex = new RegExp(`{{${key}}}`, 'g');
+        result = result.replace(regex, value);
+        }
+    });
   
   // Handle arrays and conditional sections
   Object.entries(data).forEach(([key, value]) => {
@@ -150,6 +150,11 @@ const applyTemplate = (template, data) => {
   
   // Add voucher data as JSON
   result = result.replace('{{voucherData}}', JSON.stringify(voucherData));
+  
+  result = result.replace(
+    "const slug = item.name.toLowerCase().replace(/\\\\s+/g, '').replace(/[^a-z0-9]/g, '');", 
+    "const slug = item.name.toLowerCase().replace(/\\\\s+/g, '-').replace(/[^a-z0-9-]/g, '');"
+  );
   
   return result;
 };

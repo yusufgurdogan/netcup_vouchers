@@ -154,8 +154,9 @@ const updateSite = () => {
       throw new Error('Valid template file not found in any of the expected locations');
     }
     
-    // Check if Blog link is missing and add it if needed
+    // Add Blog link if not already present
     if (!templateContent.includes('<a class="nav-link" href="/blog">Blog</a>')) {
+      console.log('Adding Blog navigation link to template...');
       // Add Blog link after Products dropdown
       templateContent = templateContent.replace(
         '</ul>\n                    </li>',
@@ -165,6 +166,8 @@ const updateSite = () => {
       // Save the updated template
       fs.writeFileSync(templatePath, templateContent);
       console.log('Added Blog navigation link to template.html');
+    } else {
+      console.log('Blog navigation link already exists in template');
     }
     
     // Inject voucher data
@@ -183,12 +186,13 @@ const updateSite = () => {
       .replace(/content="\/ms-icon-(\d+)x(\d+)\.png"/g, 'content="/favicon/ms-icon-$1x$2.png"');
     
     // Fix the slug generation issue in the JavaScript code
+    // Make sure we're using hyphens in the item.name.toLowerCase() function
     const fixedSlugJs = fixedFaviconPaths.replace(
-      "const slug = item.name.toLowerCase().replace(/\\s+/g, '-').replace(/[^a-z0-9-]/g, '');",
+      /const slug = item\.name\.toLowerCase\(\)\.replace\(\/\\s\+\/g,\s*['"][^'"]*['"]\)\.replace\(\/\[\^a-z0-9[^'"]*\/g,\s*['"][^'"]*['"]\);/g,
       "const slug = item.name.toLowerCase().replace(/\\s+/g, '-').replace(/[^a-z0-9-]/g, '');"
     );
 
-    // Write the fixed HTML instead of the original updatedHtml
+    // Write the fixed HTML 
     fs.writeFileSync('index.html', fixedSlugJs);
     console.log('Successfully updated index.html');
     
