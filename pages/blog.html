@@ -161,7 +161,7 @@
                 "@type": "BlogPosting",
                 "headline": "Netcup Root Servers vs VPS — Complete G11 Line-up Benchmarked",
                 "description": "Netcup Root Server and VPS comparison",
-                "datePublished": "{{this.date}}",
+                "datePublished": "",
                 "url": "https://netcupvoucher.com/blog/netcup-root-server-vs-vps"
             }
             
@@ -230,7 +230,7 @@
                         <a href="/blog/netcup-root-server-vs-vps" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
-                {{/if}}
+                
                 
                 <!-- Blog Posts -->
                 <div class="row">
@@ -345,7 +345,10 @@
                 
                 data.items.forEach(item => {
                     const li = document.createElement('li');
-                    const slug = item.name.toLowerCase().replace(/\\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                    const slug = item.name
+                                .toLowerCase()
+                                .replace(/\s+/g,'-')          // keep the hyphen
+                                .replace(/[^a-z0-9-]/g,'');
                     li.innerHTML = `<a class="dropdown-item" href="/${slug}">${item.name}</a>`;
                     dropdown.appendChild(li);
                 });
