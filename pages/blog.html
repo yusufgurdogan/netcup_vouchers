@@ -223,7 +223,7 @@
                         <div class="blog-meta mb-3">
                             <span><i class="far fa-calendar-alt"></i> April 29, 2025</span>
                             <span><i class="far fa-user"></i> Yusuf Gürdoğan</span>
-                            {{#if featuredPost.tags}}<span><i class="fas fa-tags"></i> netcup, vps, root server, benchmark</span>
+                            <span><i class="fas fa-tags"></i> netcup, vps, root server, benchmark</span>
                         </div>
                         
                         <p class="blog-excerpt">Netcup Root Server and VPS comparison</p>
@@ -253,45 +253,7 @@
                 </div>
                 
                 <!-- Pagination (if needed) -->
-                {{#if pagination}}
-                <nav aria-label="Blog pagination" class="mt-4">
-                    <ul class="pagination justify-content-center">
-                        {{#if pagination.prev}}
-                        <li class="page-item">
-                            <a class="page-link" href="/blog/page/{{pagination.prev}}" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        {{else}}
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        {{/if}}
-                        
-                        {{#each pagination.pages}}
-                        <li class="page-item {{#if this.current}}active{{/if}}">
-                            <a class="page-link" href="/blog/page/{{this.num}}">{{this.num}}</a>
-                        </li>
-                        {{/each}}
-                        
-                        {{#if pagination.next}}
-                        <li class="page-item">
-                            <a class="page-link" href="/blog/page/{{pagination.next}}" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                        {{else}}
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                        {{/if}}
-                    </ul>
-                </nav>
-                {{/if}}
+                
             </div>
             
             <div class="col-lg-4">
