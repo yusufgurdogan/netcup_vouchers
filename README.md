@@ -124,9 +124,9 @@
   - `4487nc17341876050`
 
 - **RS 1000 G11** (FREE 2 MONTHS)
-  - `4096nc17495853401`
-  - `4096nc17495853400`
-  - `4096nc17472097500`
+  - `4096nc17509273892`
+  - `4096nc17509273891`
+  - `4096nc17509273890`
   - `4096nc17480217403`
   - `4096nc17480217401`
   - `4096nc17480217400`
@@ -152,4 +152,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 6/10/2025
+Last updated: 6/26/2025
