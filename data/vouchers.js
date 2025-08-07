@@ -186,6 +186,8 @@ const voucherData = {
         name: "RS 1000 G11",
         discount: "FREE 2 MONTHS",
         codes: [
+          "4096nc17545605011",
+          "4096nc17545605010",
           "4096nc17509273891",
           "4096nc17480217403",
           "4096nc17480217400",
