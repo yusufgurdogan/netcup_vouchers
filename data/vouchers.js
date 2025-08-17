@@ -1,4 +1,21 @@
 const voucherData = {
+  networking: {
+    icon: "fas fa-network-wired",
+    name: "Networking",
+    items: [
+      {
+        name: "IPv4-Subnet /24",
+        discount: "FREE 1 MONTH",
+        codes: [
+          "5001nc17554167320",
+          "5001nc17554166873",
+          "5001nc17554166872",
+          "5001nc17554166871",
+          "5001nc17554166870",
+        ],
+      },
+    ],
+  },
   webhosting: {
     icon: "fas fa-server",
     name: "Webhosting",
@@ -53,7 +70,7 @@ const voucherData = {
           "4105nc17489813210",
           "4105nc17466936060",
           "4105nc17433462250",
-          "4105nc17433462251"
+          "4105nc17433462251",
         ],
       },
       {
@@ -172,10 +189,7 @@ const voucherData = {
       {
         name: "RS 2000 G11 iv SE VIE",
         discount: "ADV24",
-        codes: [
-          "4487nc17341876051",
-          "4487nc17341876050",
-        ],
+        codes: ["4487nc17341876051", "4487nc17341876050"],
       },
       {
         name: "RS 1000 G11",

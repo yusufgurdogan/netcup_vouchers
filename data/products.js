@@ -1,5 +1,56 @@
 // File: data/products.js
 const productInfo = {
+  "IPv4-Subnet /24": {
+    title: "IPv4-Subnet /24 - Dedicated IP Address Block",
+    description:
+      "Get your own /24 IPv4 subnet with 256 IP addresses. Perfect for businesses requiring multiple dedicated IP addresses for various services and applications.",
+    features: [
+      "256 dedicated IPv4 addresses",
+      "Full /24 subnet control",
+      "No shared IP restrictions",
+      "Perfect for multiple services",
+      "Professional IP reputation",
+      "Flexible routing options",
+      "24/7 technical support",
+      "Instant activation",
+    ],
+    content: `
+    <h2>About IPv4-Subnet /24</h2>
+    <p>The IPv4-Subnet /24 provides you with a complete block of 256 consecutive IPv4 addresses, giving you maximum flexibility for your networking needs. This is ideal for businesses running multiple services that require dedicated IP addresses.</p>
+    
+    <h2>Perfect For</h2>
+    <ul>
+      <li>Multiple website hosting</li>
+      <li>Email server operations</li>
+      <li>VPN services</li>
+      <li>Gaming server hosting</li>
+      <li>API services requiring dedicated IPs</li>
+      <li>SEO and marketing applications</li>
+      <li>Development and testing environments</li>
+    </ul>
+
+    <h2>Technical Features</h2>
+    <ul>
+      <li>256 consecutive IPv4 addresses (x.x.x.0 to x.x.x.255)</li>
+      <li>Full subnet mask /24 (255.255.255.0)</li>
+      <li>Complete administrative control</li>
+      <li>Professional IP reputation</li>
+      <li>Reverse DNS (PTR) support</li>
+      <li>Flexible routing configurations</li>
+      <li>Compatible with all Netcup services</li>
+    </ul>
+
+    <h2>Benefits</h2>
+    <ul>
+      <li>No IP sharing with other customers</li>
+      <li>Better email delivery rates</li>
+      <li>Enhanced security and isolation</li>
+      <li>Professional appearance for business services</li>
+      <li>Compliance with industry requirements</li>
+      <li>Future-proof IP allocation</li>
+    </ul>
+  `,
+  },
   "RS 2000 G11 iv SE VIE": {
     title: "RS 2000 G11 iv SE VIE - Vienna Root Server",
     description:
