@@ -360,6 +360,32 @@
                         <div class="col-md-6 mb-4">
                             <div class="card h-100">
                                 <div class="card-body">
+                                    <span class="badge text-bg-secondary mb-2">VPS</span>
+                                    <h5 class="card-title">VPS 8000 G11</h5>
+                                    <p class="card-text">
+                                        <span class="badge badge-discount">FREE 1 MONTH</span>
+                                    </p>
+                                    <a href="/vps-8000-g11" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <span class="badge text-bg-secondary mb-2">VPS</span>
+                                    <h5 class="card-title">VPS 6000 G11</h5>
+                                    <p class="card-text">
+                                        <span class="badge badge-discount">FREE 1 MONTH</span>
+                                    </p>
+                                    <a href="/vps-6000-g11" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
                                     <span class="badge text-bg-secondary mb-2">Networking</span>
                                     <h5 class="card-title">IPv4-Subnet /24</h5>
                                     <p class="card-text">
@@ -379,32 +405,6 @@
                                         <span class="badge badge-discount">30%</span>
                                     </p>
                                     <a href="/webhosting-8000" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <span class="badge text-bg-secondary mb-2">Webhosting</span>
-                                    <h5 class="card-title">Webhosting 4000</h5>
-                                    <p class="card-text">
-                                        <span class="badge badge-discount">30%</span>
-                                    </p>
-                                    <a href="/webhosting-4000" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <span class="badge text-bg-secondary mb-2">VPS</span>
-                                    <h5 class="card-title">VPS 8000 G11</h5>
-                                    <p class="card-text">
-                                        <span class="badge badge-discount">FREE 1 MONTH</span>
-                                    </p>
-                                    <a href="/vps-8000-g11" class="btn btn-outline-primary btn-sm">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -539,7 +539,7 @@
         // Add products dropdown population
         const populateProductsDropdown = () => {
             const dropdown = document.getElementById('productsDropdown');
-            const voucherData = {"networking":{"icon":"fas fa-network-wired","name":"Networking","items":[{"name":"IPv4-Subnet /24","discount":"FREE 1 MONTH","codes":["5001nc17554167320","5001nc17554166873","5001nc17554166872","5001nc17554166871","5001nc17554166870"]}]},"webhosting":{"icon":"fas fa-server","name":"Webhosting","items":[{"name":"Webhosting 8000","discount":"30%","codes":["1929nc17341876259","1929nc17341876258","1929nc17341876257","1929nc17341876256","1929nc17341876255","1929nc17341876254","1929nc17341876253","1929nc17341876252","1929nc17341876251","1929nc17341876250"]},{"name":"Webhosting 4000","discount":"30%","codes":["1928nc17341876229","1928nc17341876228","1928nc17341876227","1928nc17341876226","1928nc17341876225"]},{"name":"Webhosting 2000","discount":"30%","codes":["1927nc17387491610","1927nc17341876197","1927nc17341876196","1927nc17341876195"]}]},"vps":{"icon":"fas fa-cloud","name":"VPS","items":[{"name":"VPS 8000 G11","discount":"FREE 1 MONTH","codes":["4105nc17489813210","4105nc17466936060","4105nc17433462250","4105nc17433462251"]},{"name":"VPS 6000 G11","discount":"FREE 1 MONTH","codes":["4104nc17476396240","4104nc17453955313","4104nc17453955312","4104nc17453955311","4104nc17453955310","4104nc17341875962"]},{"name":"VPS 4000 G11","discount":"FREE 1 MONTH","codes":["4103nc17476396130","4103nc17459148531","4103nc17459148530","4103nc17341875942","4103nc17341875941","4103nc17341875940"]},{"name":"VPS 3000 G11","discount":"FREE 1 MONTH","codes":["4102nc17472097800","4102nc17439420530","4102nc17431902430","4102nc17431897680","4102nc17418525240","4102nc17341875920"]},{"name":"VPS 2000 G11","discount":"FREE 1 MONTH","codes":["4101nc17521368390","4101nc17435812581","4101nc17435812580","4101nc17435810661","4101nc17435809970","4101nc17431896520"]},{"name":"VPS 1000 G11","discount":"FREE 1 MONTH","codes":["4095nc17545604782","4095nc17545604781","4095nc17545604780","4095nc17538666412","4095nc17538666411","4095nc17538666410","4095nc17527407521"]}]},"rootserver":{"icon":"fas fa-database","name":"Root Server","items":[{"name":"RS 8000 G11","discount":"FREE 1 MONTH","codes":["4100nc17515343211","4100nc17515343210","4100nc17364138842","4100nc17341875883"]},{"name":"RS 4000 G11","discount":"FREE 1 MONTH","codes":["4099nc17554168682","4099nc17554168681","4099nc17554168680","4099nc17415196473","4099nc17341875860","4099nc17445518491","4099nc17445518490"]},{"name":"RS 2000 G11","discount":"FREE 1 MONTH","codes":["4098nc17548390561","4098nc17548390560","4098nc17455840550","4098nc17439419561","4098nc17543008693","4098nc17543008692","4098nc17543008691"]},{"name":"RS 2000 G11 iv SE MNZ","discount":"ADV24","codes":["4489nc17341876113","4489nc17341876112","4489nc17341876111","4489nc17341876110"]},{"name":"RS 2000 G11 iv SE VIE","discount":"ADV24","codes":["4487nc17341876051","4487nc17341876050"]},{"name":"RS 1000 G11","discount":"FREE 2 MONTHS","codes":["4096nc17545605011","4096nc17545605010","4096nc17509273891","4096nc17480217403","4096nc17480217400","4096nc17538666952","4096nc17538666950"]}]},"general":{"icon":"fas fa-percentage","name":"General","items":[{"name":"New Customer Offer","discount":"€5 DISCOUNT","codes":["36nc17341876179","36nc17341876178","36nc17341876177","36nc17341876176","36nc17341876175","36nc17341876174","36nc17341876173","36nc17341876172","36nc17341876171","36nc17341876170"]}]}};
+            const voucherData = {"vps":{"icon":"fas fa-cloud","name":"VPS","items":[{"name":"VPS 8000 G11","discount":"FREE 1 MONTH","codes":["4105nc17489813210","4105nc17466936060","4105nc17433462250","4105nc17433462251"]},{"name":"VPS 6000 G11","discount":"FREE 1 MONTH","codes":["4104nc17476396240","4104nc17453955313","4104nc17453955312","4104nc17453955311","4104nc17453955310","4104nc17341875962"]},{"name":"VPS 4000 G11","discount":"FREE 1 MONTH","codes":["4103nc17476396130","4103nc17459148531","4103nc17459148530","4103nc17341875942","4103nc17341875941","4103nc17341875940"]},{"name":"VPS 3000 G11","discount":"FREE 1 MONTH","codes":["4102nc17472097800","4102nc17439420530","4102nc17431902430","4102nc17431897680","4102nc17418525240","4102nc17341875920"]},{"name":"VPS 2000 G11","discount":"FREE 1 MONTH","codes":["4101nc17521368390","4101nc17435812581","4101nc17435812580","4101nc17435810661","4101nc17435809970","4101nc17431896520"]},{"name":"VPS 1000 G11","discount":"FREE 1 MONTH","codes":["4095nc17545604782","4095nc17545604781","4095nc17545604780","4095nc17538666412","4095nc17538666411","4095nc17538666410","4095nc17527407521"]}]},"networking":{"icon":"fas fa-network-wired","name":"Networking","items":[{"name":"IPv4-Subnet /24","discount":"FREE 1 MONTH","codes":["5001nc17554167320","5001nc17554166873","5001nc17554166872","5001nc17554166871","5001nc17554166870"]}]},"webhosting":{"icon":"fas fa-server","name":"Webhosting","items":[{"name":"Webhosting 8000","discount":"30%","codes":["1929nc17341876259","1929nc17341876258","1929nc17341876257","1929nc17341876256","1929nc17341876255","1929nc17341876254","1929nc17341876253","1929nc17341876252","1929nc17341876251","1929nc17341876250"]},{"name":"Webhosting 4000","discount":"30%","codes":["1928nc17341876229","1928nc17341876228","1928nc17341876227","1928nc17341876226","1928nc17341876225"]},{"name":"Webhosting 2000","discount":"30%","codes":["1927nc17387491610","1927nc17341876197","1927nc17341876196","1927nc17341876195"]}]},"rootserver":{"icon":"fas fa-database","name":"Root Server","items":[{"name":"RS 8000 G11","discount":"FREE 1 MONTH","codes":["4100nc17515343211","4100nc17515343210","4100nc17364138842","4100nc17341875883"]},{"name":"RS 4000 G11","discount":"FREE 1 MONTH","codes":["4099nc17554168682","4099nc17554168681","4099nc17554168680","4099nc17415196473","4099nc17341875860","4099nc17445518491","4099nc17445518490"]},{"name":"RS 2000 G11","discount":"FREE 1 MONTH","codes":["4098nc17548390561","4098nc17548390560","4098nc17455840550","4098nc17439419561","4098nc17543008693","4098nc17543008692","4098nc17543008691"]},{"name":"RS 2000 G11 iv SE MNZ","discount":"ADV24","codes":["4489nc17341876113","4489nc17341876112","4489nc17341876111","4489nc17341876110"]},{"name":"RS 2000 G11 iv SE VIE","discount":"ADV24","codes":["4487nc17341876051","4487nc17341876050"]},{"name":"RS 1000 G11","discount":"FREE 2 MONTHS","codes":["4096nc17545605011","4096nc17545605010","4096nc17509273891","4096nc17480217403","4096nc17480217400","4096nc17538666952","4096nc17538666950"]}]},"general":{"icon":"fas fa-percentage","name":"General","items":[{"name":"New Customer Offer","discount":"€5 DISCOUNT","codes":["36nc17341876179","36nc17341876178","36nc17341876177","36nc17341876176","36nc17341876175","36nc17341876174","36nc17341876173","36nc17341876172","36nc17341876171","36nc17341876170"]}]}};
             
             Object.entries(voucherData).forEach(([category, data]) => {
                 const header = document.createElement('li');
