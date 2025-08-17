@@ -79,9 +79,13 @@ const generateProductPage = (name, category, vouchers) => {
     "@type": "Product",
     name: name,
     description: info.description,
+    brand: {
+      "@type": "Brand",
+      name: "Netcup",
+    },
     offers: {
       "@type": "Offer",
-      price: "0", // Since these are voucher codes, not direct sales
+      price: "0",
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
       seller: {
@@ -89,10 +93,7 @@ const generateProductPage = (name, category, vouchers) => {
         name: "Netcup GmbH",
       },
     },
-    brand: {
-      "@type": "Brand",
-      name: "Netcup",
-    },
+    category: "Web Hosting and VPS Services",
   };
 
   const template = `<!DOCTYPE html>
@@ -104,7 +105,7 @@ const generateProductPage = (name, category, vouchers) => {
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="${info.description}">
-    <meta name="keywords" content="netcup, ${slug}, voucher codes, discount codes, hosting">
+    <meta name="keywords" content="netcup, ${slug}, netcup voucher codes, netcup promotion, netcup gutschein, netcup discount code">
     <meta name="author" content="Netcup Vouchers">
     <meta name="robots" content="index, follow">
     
