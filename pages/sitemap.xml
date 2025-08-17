@@ -8,30 +8,6 @@
     </url>
     
     <url>
-        <loc>https://netcupvoucher.com/ipv4-subnet-24</loc>
-        <priority>0.8</priority>
-        <changefreq>daily</changefreq>
-        <lastmod>2025-08-17</lastmod>
-    </url>
-    <url>
-        <loc>https://netcupvoucher.com/webhosting-8000</loc>
-        <priority>0.8</priority>
-        <changefreq>daily</changefreq>
-        <lastmod>2025-08-17</lastmod>
-    </url>
-    <url>
-        <loc>https://netcupvoucher.com/webhosting-4000</loc>
-        <priority>0.8</priority>
-        <changefreq>daily</changefreq>
-        <lastmod>2025-08-17</lastmod>
-    </url>
-    <url>
-        <loc>https://netcupvoucher.com/webhosting-2000</loc>
-        <priority>0.8</priority>
-        <changefreq>daily</changefreq>
-        <lastmod>2025-08-17</lastmod>
-    </url>
-    <url>
         <loc>https://netcupvoucher.com/vps-8000-g11</loc>
         <priority>0.8</priority>
         <changefreq>daily</changefreq>
@@ -63,6 +39,30 @@
     </url>
     <url>
         <loc>https://netcupvoucher.com/vps-1000-g11</loc>
+        <priority>0.8</priority>
+        <changefreq>daily</changefreq>
+        <lastmod>2025-08-17</lastmod>
+    </url>
+    <url>
+        <loc>https://netcupvoucher.com/ipv4-subnet-24</loc>
+        <priority>0.8</priority>
+        <changefreq>daily</changefreq>
+        <lastmod>2025-08-17</lastmod>
+    </url>
+    <url>
+        <loc>https://netcupvoucher.com/webhosting-8000</loc>
+        <priority>0.8</priority>
+        <changefreq>daily</changefreq>
+        <lastmod>2025-08-17</lastmod>
+    </url>
+    <url>
+        <loc>https://netcupvoucher.com/webhosting-4000</loc>
+        <priority>0.8</priority>
+        <changefreq>daily</changefreq>
+        <lastmod>2025-08-17</lastmod>
+    </url>
+    <url>
+        <loc>https://netcupvoucher.com/webhosting-2000</loc>
         <priority>0.8</priority>
         <changefreq>daily</changefreq>
         <lastmod>2025-08-17</lastmod>
@@ -113,20 +113,6 @@
         <loc>https://netcupvoucher.com/about</loc>
         <priority>0.8</priority>
         <changefreq>daily</changefreq>
-        <lastmod>2025-08-17</lastmod>
-    </url>
-
-    <url>
-        <loc>https://netcupvoucher.com/blog</loc>
-        <priority>0.8</priority>
-        <changefreq>weekly</changefreq>
-        <lastmod>2025-08-17</lastmod>
-    </url>
-
-    <url>
-        <loc>https://netcupvoucher.com/blog/netcup-root-server-vs-vps</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
         <lastmod>2025-08-17</lastmod>
     </url>
 </urlset>

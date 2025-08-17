@@ -13,13 +13,20 @@ const generateSlug = (name) => {
 const cleanDirectory = (directory) => {
   if (fs.existsSync(directory)) {
     // Don't delete the favicon directory or its contents or image files we need
-    const preserveFiles = ['favicon', 'icon.png', 'netcup-voucher-image.png', 'robots.txt', 'sitemap.xml', 'blog'];
-    
+    const preserveFiles = [
+      "favicon",
+      "icon.png",
+      "netcup-voucher-image.png",
+      "robots.txt",
+      "sitemap.xml",
+      "blog",
+    ];
+
     fs.readdirSync(directory).forEach((file) => {
       if (!preserveFiles.includes(file)) {
         const filePath = path.join(directory, file);
         if (fs.lstatSync(filePath).isDirectory()) {
-          if (file !== 'favicon' && file !== 'blog') {
+          if (file !== "favicon" && file !== "blog") {
             // Recursively delete subdirectories except favicon and blog
             cleanDirectory(filePath);
             fs.rmdirSync(filePath);
@@ -70,18 +77,22 @@ const generateProductPage = (name, category, vouchers) => {
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": name,
-    "description": info.description,
-    "offers": {
+    name: name,
+    description: info.description,
+    offers: {
       "@type": "Offer",
-      "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock",
-      "seller": {
+      price: "0", // Since these are voucher codes, not direct sales
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      seller: {
         "@type": "Organization",
-        "name": "Netcup GmbH"
+        name: "Netcup GmbH",
       },
-      "discount": vouchers.discount
-    }
+    },
+    brand: {
+      "@type": "Brand",
+      name: "Netcup",
+    },
   };
 
   const template = `<!DOCTYPE html>
@@ -267,7 +278,9 @@ const generateProductPage = (name, category, vouchers) => {
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/#${category}">${voucherData[category].name}</a></li>
+                <li class="breadcrumb-item"><a href="/#${category}">${
+    voucherData[category].name
+  }</a></li>
                 <li class="breadcrumb-item active">${name}</li>
             </ol>
         </nav>
@@ -817,17 +830,21 @@ const generatePages = () => {
     }
 
     // Copy OG image to pages directory if it exists
-    const sourceOgImage = path.join(process.cwd(), "data", "netcup-voucher-image.png");
+    const sourceOgImage = path.join(
+      process.cwd(),
+      "data",
+      "netcup-voucher-image.png"
+    );
     const destOgImage = path.join(pagesDir, "netcup-voucher-image.png");
-    
+
     if (fs.existsSync(sourceOgImage) && !fs.existsSync(destOgImage)) {
       fs.copyFileSync(sourceOgImage, destOgImage);
     }
-    
+
     // Copy icon image for navbar logo
     const sourceIconImage = path.join(process.cwd(), "data", "icon.png");
     const destIconImage = path.join(pagesDir, "icon.png");
-    
+
     if (fs.existsSync(sourceIconImage) && !fs.existsSync(destIconImage)) {
       fs.copyFileSync(sourceIconImage, destIconImage);
     }
