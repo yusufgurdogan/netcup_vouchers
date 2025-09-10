@@ -100,17 +100,12 @@ const voucherData = {
       {
         name: "Webhosting 8000",
         discount: "30%",
-        codes: [
-          "1929nc17341876259",
-          "1929nc17341876258",
-        ],
+        codes: ["1929nc17341876259", "1929nc17341876258"],
       },
       {
         name: "Webhosting 4000",
         discount: "30%",
-        codes: [
-          "1928nc17341876229",
-        ],
+        codes: ["1928nc17341876229"],
       },
       {
         name: "Webhosting 2000",
@@ -128,6 +123,61 @@ const voucherData = {
     icon: "fas fa-database",
     name: "Root Server",
     items: [
+      // === NEW: Generation 12 (G12) coupons ===
+      {
+        name: "RS 8000 G12",
+        discount: "1M Rabatt",
+        codes: [
+          "5162nc17575037585",
+          "5162nc17575037584",
+          "5162nc17575037583",
+          "5162nc17575037582",
+          "5162nc17575037581",
+          "5162nc17575037580",
+        ],
+      },
+      {
+        name: "RS 4000 G12",
+        discount: "1M Rabatt",
+        codes: [
+          "5161nc17575037547",
+          "5161nc17575037546",
+          "5161nc17575037545",
+          "5161nc17575037544",
+          "5161nc17575037543",
+          "5161nc17575037542",
+          "5161nc17575037541",
+          "5161nc17575037540",
+        ],
+      },
+      {
+        name: "RS 1000 G12",
+        discount: "2M Rabatt",
+        codes: [
+          "5159nc17575037485",
+          "5159nc17575037484",
+          "5159nc17575037483",
+          "5159nc17575037482",
+          "5159nc17575037481",
+          "5159nc17575037480",
+          "5159nc17575037445",
+          "5159nc17575037444",
+          "5159nc17575037443",
+          "5159nc17575037442",
+          "5159nc17575037441",
+          "5159nc17575037440",
+        ],
+      },
+      {
+        name: "RS 2000 G12",
+        discount: "1M Rabatt",
+        codes: [
+          "5160nc17575037181",
+          "5160nc17575037180",
+        ],
+      },
+
+      // === Existing Generation 11 (G11) coupons ===
       {
         name: "RS 8000 G11",
         discount: "FREE 1 MONTH",
@@ -166,9 +216,7 @@ const voucherData = {
       {
         name: "RS 2000 G11 iv SE MNZ",
         discount: "ADV24",
-        codes: [
-          "4489nc17341876113",
-        ],
+        codes: ["4489nc17341876113"],
       },
       {
         name: "RS 2000 G11 iv SE VIE",
@@ -196,10 +244,7 @@ const voucherData = {
       {
         name: "New Customer Offer",
         discount: "€5 DISCOUNT",
-        codes: [
-          "36nc17341876179",
-          "36nc17341876178",
-        ],
+        codes: ["36nc17341876179", "36nc17341876178"],
       },
     ],
   },

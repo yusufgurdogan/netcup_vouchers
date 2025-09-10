@@ -866,6 +866,173 @@ const productInfo = {
             </ul>
         `,
   },
+  "RS 1000 G12": {
+    title: "RS 1000 G12 – Entry-Level Root Server (G12)",
+    description:
+      "Ideal entry-level root server for web & mail servers and light database workloads. Balanced performance on the latest AMD EPYC™ 9645 platform with DDR5 ECC and NVMe.",
+    features: [
+      "AMD EPYC™ 9645 platform",
+      "DDR5 ECC RAM",
+      "NVMe SSD storage",
+      "2.5 Gbit/s network",
+      "Snapshots & images via SCP",
+      "Web VNC console",
+      "Locations: Nuremberg, Vienna, Manassas",
+    ],
+    content: `
+      <h2>About RS 1000 G12</h2>
+      <p>
+        The RS 1000 G12 is ideal as an entry-level solution for web and mail servers,
+        plus light database applications. It offers balanced performance for beginners,
+        built on the latest AMD EPYC™ 9645 with DDR5 ECC RAM and NVMe SSD.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>Web & mail servers</li>
+        <li>Light databases</li>
+        <li>Small business apps</li>
+        <li>Staging & dev environments</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>Latest AMD EPYC™ 9645 CPU</li>
+        <li>DDR5 ECC RAM</li>
+        <li>NVMe SSD storage</li>
+        <li>2.5 Gbit/s network card</li>
+        <li>Snapshots, image import/export</li>
+        <li>KVM virtualization with web VNC</li>
+        <li>Locations: Nuremberg (DE), Vienna (AT), Manassas (US)</li>
+      </ul>
+    `,
+  },
+
+  "RS 2000 G12": {
+    title: "RS 2000 G12 – Versatile Root Server (G12)",
+    description:
+      "Extended resources for medium-sized web & mail servers, complex web apps, and application servers. Built on AMD EPYC™ 9645 with DDR5 ECC and NVMe.",
+    features: [
+      "AMD EPYC™ 9645 platform",
+      "More RAM & larger NVMe SSD",
+      "2.5 Gbit/s network",
+      "Snapshots & images via SCP",
+      "Web VNC console",
+      "Locations: Nuremberg, Vienna, Manassas",
+    ],
+    content: `
+      <h2>About RS 2000 G12</h2>
+      <p>
+        With extended resources including more RAM and a larger SSD,
+        RS 2000 G12 is perfect for medium-sized web and mail servers,
+        complex web apps, and application servers.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>Medium web & mail hosting</li>
+        <li>Complex web applications</li>
+        <li>Application servers & APIs</li>
+        <li>Growing SMB workloads</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>Latest AMD EPYC™ 9645 CPU</li>
+        <li>DDR5 ECC RAM</li>
+        <li>NVMe SSD storage</li>
+        <li>2.5 Gbit/s network card</li>
+        <li>Snapshots, image import/export</li>
+        <li>KVM virtualization with web VNC</li>
+        <li>Locations: Nuremberg (DE), Vienna (AT), Manassas (US)</li>
+      </ul>
+    `,
+  },
+
+  "RS 4000 G12": {
+    title: "RS 4000 G12 – High-Performance Root Server (G12)",
+    description:
+      "High performance for large enterprise platforms, extensive web apps, and data-intensive scenarios. Great as a database server with extensive resources.",
+    features: [
+      "AMD EPYC™ 9645 platform",
+      "High RAM capacity (DDR5 ECC)",
+      "High-capacity NVMe SSD",
+      "2.5 Gbit/s network",
+      "Snapshots & images via SCP",
+      "Web VNC console",
+      "Locations: Nuremberg, Vienna, Manassas",
+    ],
+    content: `
+      <h2>About RS 4000 G12</h2>
+      <p>
+        The RS 4000 G12 delivers high performance for enterprise platforms,
+        extensive web applications, and data-intensive workloads.
+        It's also ideal as a database server thanks to its extensive resources.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>Enterprise web platforms</li>
+        <li>Data-intensive applications</li>
+        <li>Databases & analytics</li>
+        <li>Heavy multi-service hosting</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>Latest AMD EPYC™ 9645 CPU</li>
+        <li>DDR5 ECC RAM</li>
+        <li>NVMe SSD storage</li>
+        <li>2.5 Gbit/s network card</li>
+        <li>Snapshots, image import/export</li>
+        <li>KVM virtualization with web VNC</li>
+        <li>Locations: Nuremberg (DE), Vienna (AT), Manassas (US)</li>
+      </ul>
+    `,
+  },
+
+  "RS 8000 G12": {
+    title: "RS 8000 G12 – Flagship Root Server (G12)",
+    description:
+      "For the highest performance and resource demands. RS 8000 G12 pairs AMD EPYC™ 9645 with 64 GB RAM, 14 dedicated cores, and 4 TB SSD for mission-critical apps.",
+    features: [
+      "AMD EPYC™ 9645 platform",
+      "14 dedicated CPU cores",
+      "64 GB DDR5 ECC RAM",
+      "4 TB NVMe SSD",
+      "2.5 Gbit/s network",
+      "Snapshots & images via SCP",
+      "Web VNC console",
+      "Locations: Nuremberg, Vienna, Manassas",
+    ],
+    content: `
+      <h2>About RS 8000 G12</h2>
+      <p>
+        The RS 8000 G12 is the ideal choice for high-performance application servers,
+        enterprise web & mail clusters, and extensive databases. It combines 14
+        dedicated CPU cores with 64 GB DDR5 ECC and a 4 TB NVMe SSD.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>High-performance application servers</li>
+        <li>Enterprise web & mail servers</li>
+        <li>Extensive databases</li>
+        <li>Large, resource-intensive workloads</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>Latest AMD EPYC™ 9645 CPU (up to 3.7 GHz)</li>
+        <li>64 GB DDR5 ECC RAM</li>
+        <li>4 TB NVMe SSD storage</li>
+        <li>2.5 Gbit/s network card</li>
+        <li>Snapshots, image import/export</li>
+        <li>KVM virtualization with web VNC</li>
+        <li>Locations: Nuremberg (DE), Vienna (AT), Manassas (US)</li>
+      </ul>
+    `,
+  },
 };
 
 // Add common sections based on product type
