@@ -126,7 +126,7 @@ const voucherData = {
       // === NEW: Generation 12 (G12) coupons ===
       {
         name: "RS 8000 G12",
-        discount: "1M Rabatt",
+        discount: "FREE 1 MONTH",
         codes: [
           "5162nc17575037585",
           "5162nc17575037584",
@@ -138,7 +138,7 @@ const voucherData = {
       },
       {
         name: "RS 4000 G12",
-        discount: "1M Rabatt",
+        discount: "FREE 1 MONTH",
         codes: [
           "5161nc17575037547",
           "5161nc17575037546",
@@ -152,7 +152,7 @@ const voucherData = {
       },
       {
         name: "RS 1000 G12",
-        discount: "2M Rabatt",
+        discount: "FREE 2 MONTH",
         codes: [
           "5159nc17575037485",
           "5159nc17575037484",
@@ -170,7 +170,7 @@ const voucherData = {
       },
       {
         name: "RS 2000 G12",
-        discount: "1M Rabatt",
+        discount: "FREE 1 MONTH",
         codes: [
           "5160nc17575037181",
           "5160nc17575037180",
