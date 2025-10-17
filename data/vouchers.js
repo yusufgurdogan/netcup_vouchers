@@ -81,7 +81,6 @@ const voucherData = {
         name: "IPv4-Subnet /24",
         discount: "FREE 1 MONTH",
         codes: [
-          "5001nc17554167320",
           "5001nc17554166873",
           "5001nc17554166871",
           "5001nc17554166870",
@@ -136,6 +135,7 @@ const voucherData = {
         name: "RS 4000 G12",
         discount: "FREE 1 MONTH",
         codes: [
+          
           "5161nc17585725490",
           "5161nc17580112721",
           "5161nc17580112720",
@@ -161,7 +161,9 @@ const voucherData = {
         name: "RS 2000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          "5160nc17606440403",
+          "5160nc17607301542",
+          "5160nc17607301541",
+          "5160nc17607301540",
           "5160nc17606440402",
           "5160nc17606440401",
           "5160nc17606440400",
@@ -201,7 +203,6 @@ const voucherData = {
         name: "RS 2000 G11",
         discount: "FREE 1 MONTH",
         codes: [
-          "5160nc17604344521",
           "5160nc17604344520",
           "4098nc17573183052",
           "4098nc17573183051",
