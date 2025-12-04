@@ -19,7 +19,8 @@ const voucherData = {
         name: "VPS 6000 G11",
         discount: "FREE 1 MONTH",
         codes: [
-          "4104nc17453955312",
+          "4104nc17648405351",
+          "4104nc17648405350",
           "4104nc17453955311",
           "4104nc17585415041",
           "4104nc17585415040",
@@ -63,26 +64,12 @@ const voucherData = {
         name: "VPS 1000 G11",
         discount: "FREE 1 MONTH",
         codes: [
-          "4095nc17642321011",
           "4095nc17642321010",
           "4095nc17635498813",
           "4095nc17635498812",
           "4095nc17635498811",
           "4095nc17635498810",
           "4095nc17627555831",
-        ],
-      },
-    ],
-  },
-  networking: {
-    icon: "fas fa-network-wired",
-    name: "Networking",
-    items: [
-      {
-        name: "IPv4-Subnet /24",
-        discount: "FREE 1 MONTH",
-        codes: [
-          "5001nc17554166870",
         ],
       },
     ],
@@ -126,6 +113,8 @@ const voucherData = {
           "5162nc17624158161",
           "5162nc17624158160",
           "5162nc17579245100",
+          "5162nc17648405781",
+          "5162nc17648405780",
         ],
       },
       {
@@ -157,7 +146,6 @@ const voucherData = {
         name: "RS 2000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          "5160nc17640552950",
           "5160nc17606440400",
           "5160nc17592469760",
           "5160nc17587342663",
