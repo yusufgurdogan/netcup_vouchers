@@ -152,7 +152,7 @@ const voucherData = {
           "5160nc17644329603"],
       },
 
-      (// === Existing Generation 11 \(G11\) coupons ===)
+      // === Existing Generation 11 (G11) coupons ===
       {
         name: "RS 1000 G11 2M",
         discount: "FREE 2 MONTHS",
@@ -232,3 +232,4 @@ const voucherData = {
 };
 
 module.exports = { voucherData };
+
