@@ -152,7 +152,19 @@ const voucherData = {
           "5160nc17644329603"],
       },
 
-      // === Existing Generation 11 (G11) coupons ===
+      (// === Existing Generation 11 \(G11\) coupons ===)
+      {
+        name: "RS 1000 G11 2M",
+        discount: "FREE 2 MONTHS",
+        codes: [
+          "4096nc17545605010",
+          "4096nc17538666952",
+          "4096nc17538666950",
+          "4096nc17509273891",
+          "4096nc17480217403",
+          "4096nc17480217400"],
+      },
+      
       {
         name: "RS 8000 G11",
         discount: "FREE 1 MONTH",
