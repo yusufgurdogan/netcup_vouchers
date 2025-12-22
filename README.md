@@ -61,6 +61,7 @@
   - `4095nc17661764270`
   - `4095nc17663148120`
   - `4095nc17663580130`
+  - `4095nc17664012130`
 
 ### Webhosting
 
@@ -96,7 +97,6 @@
   - `5161nc17644329950`
 
 - **RS 1000 G12** (FREE 2 MONTH)
-  - `5159nc17659550840`
   - `5159nc17643174522`
 
 - **RS 2000 G12** (FREE 1 MONTH)
@@ -162,4 +162,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 12/21/2025
+Last updated: 12/22/2025
