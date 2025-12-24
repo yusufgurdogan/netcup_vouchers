@@ -61,7 +61,8 @@ const voucherData = {
           "4101nc17654458120",
           "4101nc17661764300",
           "4101nc17663148170",
-          "4101nc17664876180"],
+          "4101nc17664876180",
+          "4101nc17666172180"],
       },
       {
         name: "VPS 1000 G11",
@@ -79,7 +80,8 @@ const voucherData = {
           "4095nc17663580130",
           "4095nc17664012130",
           "4095nc17664444130",
-          "4095nc17664876130"],
+          "4095nc17664876130",
+          "4095nc17666172130"],
       }],
   },
   webhosting: {
@@ -115,8 +117,6 @@ const voucherData = {
         name: "RS 8000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          
-          
           "5162nc17624158160",
           "5162nc17579245100",
           "5162nc17648405781",
@@ -126,8 +126,6 @@ const voucherData = {
         name: "RS 4000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          
-          
           "5161nc17658761630",
           
           "5161nc17580112721",
@@ -141,10 +139,6 @@ const voucherData = {
         name: "RS 1000 G12",
         discount: "FREE 2 MONTH",
         codes: [
-          
-          
-          
-          
           ],
       },
       {
@@ -155,9 +149,7 @@ const voucherData = {
           "5160nc17658761350",
           "5160nc17649496551",
           "5160nc17592469760",
-          "5160nc17587342663",
-          "5160nc17620811264",
-          "5160nc17644329603"],
+          "5160nc17587342663"],
       },
 
       // === Existing Generation 11 (G11) coupons ===
@@ -219,7 +211,6 @@ const voucherData = {
         name: "RS 1000 G11",
         discount: "FREE 2 MONTHS",
         codes: [
-          
           "5159nc17639846170"],
       }],
   },
