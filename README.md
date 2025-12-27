@@ -57,6 +57,7 @@
   - `4101nc17666172180`
   - `4101nc17666604180`
   - `4101nc17667900180`
+  - `4101nc17668764180`
 
 - **VPS 1000 G11** (FREE 1 MONTH)
   - `4095nc17654458411`
@@ -72,6 +73,7 @@
   - `4095nc17664876130`
   - `4095nc17666604130`
   - `4095nc17667900130`
+  - `4095nc17668764130`
 
 ### Webhosting
 
@@ -106,8 +108,6 @@
   
 
 - **RS 2000 G12** (FREE 1 MONTH)
-  - `5160nc17658761350`
-  - `5160nc17649496551`
   - `5160nc17592469760`
 
 - **RS 1000 G11 2M** (FREE 2 MONTHS)
@@ -164,4 +164,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 12/26/2025
+Last updated: 12/27/2025
