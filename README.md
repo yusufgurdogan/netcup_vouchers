@@ -76,11 +76,11 @@
 ### Root Server
 
 - **RS 8000 G12** (FREE 1 MONTH)
-  - `5162nc17669193770`
   - `5162nc17671356261`
   - `5162nc17671356260`
   - `5162nc17679564181`
   - `5162nc17679564180`
+  - `5162nc17682156130`
 
 - **RS 4000 G12** (FREE 1 MONTH)
   - `5161nc17580112721`
@@ -157,4 +157,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 1/9/2026
+Last updated: 1/12/2026
