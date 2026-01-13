@@ -55,9 +55,9 @@
   - `4095nc17661764270`
   - `4095nc17663148120`
   - `4095nc17669628180`
-  - `4095nc17671356200`
   - `4095nc17672652130`
   - `4095nc17682588130`
+  - `4095nc17683020130`
 
 ### Webhosting
 
@@ -157,4 +157,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 1/12/2026
+Last updated: 1/13/2026
