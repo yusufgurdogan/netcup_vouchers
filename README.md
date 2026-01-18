@@ -50,14 +50,14 @@
   - `4101nc17675676130`
 
 - **VPS 1000 G11** (FREE 1 MONTH)
-  - `4095nc17661764270`
-  - `4095nc17669628180`
   - `4095nc17682588130`
   - `4095nc17683452130`
   - `4095nc17686044130`
   - `4095nc17686476132`
   - `4095nc17686476131`
   - `4095nc17686476130`
+  - `4095nc17687340141`
+  - `4095nc17687340140`
 
 ### Webhosting
 
@@ -157,4 +157,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 1/17/2026
+Last updated: 1/18/2026
