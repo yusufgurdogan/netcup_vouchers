@@ -130,7 +130,7 @@ const voucherData = {
         name: "RS 1000 G12",
         discount: "FREE 2 MONTH",
         codes: [
-          ],
+          "5159nc17669192980"],
       },
       {
         name: "RS 2000 G12",
