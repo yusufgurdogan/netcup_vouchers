@@ -148,6 +148,13 @@
     </url>
 
     <url>
+        <loc>https://netcupvoucher.com/blog/netcup-vs-hetzner-budget-servers-2026</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-01-19</lastmod>
+    </url>
+
+    <url>
         <loc>https://netcupvoucher.com/blog/netcup-root-server-g12-is-out</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
