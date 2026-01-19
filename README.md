@@ -92,7 +92,7 @@
   - `5161nc17685612180`
 
 - **RS 1000 G12** (FREE 2 MONTH)
-  
+  - `5159nc17669192980`
 
 - **RS 2000 G12** (FREE 1 MONTH)
   - `5160nc17670060181`
@@ -157,4 +157,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 1/18/2026
+Last updated: 1/19/2026
