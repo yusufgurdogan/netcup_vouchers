@@ -99,7 +99,7 @@ const voucherData = {
         codes: [
           "5799nc17689089270"],
       },
-    }],
+    ],
   },
   webhosting: {
     icon: "fas fa-server",
