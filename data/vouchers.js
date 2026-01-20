@@ -75,6 +75,31 @@ const voucherData = {
           "4095nc17687340140"],
       }],
   },
+      // === NEW: VPS Generation 12 (G12) coupons ===
+      {
+        name: "VPS 8000 G12",
+        discount: "FREE 1 MONTH",
+        codes: [
+          ],
+      },
+      {
+        name: "VPS 4000 G12",
+        discount: "FREE 1 MONTH",
+        codes: [
+          ],
+      },
+      {
+        name: "VPS 2000 G12",
+        discount: "FREE 1 MONTH",
+        codes: [
+          ],
+      },
+      {
+        name: "VPS 1000 G12",
+        discount: "FREE 1 MONTH",
+        codes: [
+          ],
+      },
   webhosting: {
     icon: "fas fa-server",
     name: "Webhosting",
