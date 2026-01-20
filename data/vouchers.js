@@ -73,8 +73,6 @@ const voucherData = {
           "4095nc17686476130",
           "4095nc17687340141",
           "4095nc17687340140"],
-      }],
-  },
       // === NEW: VPS Generation 12 (G12) coupons ===
       {
         name: "VPS 8000 G12",
@@ -100,6 +98,8 @@ const voucherData = {
         codes: [
           "5799nc17689089270"],
       },
+    }],
+  },
   webhosting: {
     icon: "fas fa-server",
     name: "Webhosting",
