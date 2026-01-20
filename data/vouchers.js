@@ -73,6 +73,7 @@ const voucherData = {
           "4095nc17686476130",
           "4095nc17687340141",
           "4095nc17687340140"],
+      },
       // === NEW: VPS Generation 12 (G12) coupons ===
       {
         name: "VPS 8000 G12",
