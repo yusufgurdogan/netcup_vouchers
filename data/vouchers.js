@@ -26,7 +26,7 @@ const voucherData = {
         name: "VPS 1000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          "5799nc17689089270"],
+          "5799nc17689500130"],
       },
       // === Existing: VPS Generation 11 (G11) coupons ===
       {
@@ -98,8 +98,7 @@ const voucherData = {
           "4095nc17686476130",
           "4095nc17687340141",
           "4095nc17687340140"],
-      },
-    ],
+      }],
   },
   webhosting: {
     icon: "fas fa-server",
@@ -141,13 +140,13 @@ const voucherData = {
         name: "RS 4000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          "5161nc17580112720",
           "5161nc17575037545",
           "5161nc17644329952",
           "5161nc17644329951",
           "5161nc17644329950",
           "5161nc17674380140",
-          "5161nc17685612180"],
+          "5161nc17685612180",
+          "5161nc17689500180"],
       },
       {
         name: "RS 1000 G12",
