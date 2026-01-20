@@ -80,25 +80,25 @@ const voucherData = {
         name: "VPS 8000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          ],
+          "5802nc17689089420"],
       },
       {
         name: "VPS 4000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          ],
+          "5801nc17689089370"],
       },
       {
         name: "VPS 2000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          ],
+          "5800nc17689089320"],
       },
       {
         name: "VPS 1000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          ],
+          "5799nc17689089270"],
       },
   webhosting: {
     icon: "fas fa-server",
@@ -118,10 +118,7 @@ const voucherData = {
         name: "Webhosting 2000",
         discount: "30%",
         codes: [
-          "1927nc17387491610",
-          "1927nc17341876197",
-          "1927nc17341876196",
-          "1927nc17341876195"],
+          "1927nc17387491610"],
       }],
   },
   rootserver: {
@@ -161,7 +158,8 @@ const voucherData = {
           "5159nc17669192982",
           "5159nc17669192981",
           "5159nc17688636141",
-          "5159nc17688636140"],
+          "5159nc17688636140",
+          "5159nc17689089470"],
       },
       {
         name: "RS 2000 G12",
@@ -173,7 +171,8 @@ const voucherData = {
           "5160nc17686908180",
           "5160nc17689068132",
           "5160nc17689068131",
-          "5160nc17689068130"],
+          "5160nc17689068130",
+          "5160nc17689089520"],
       },
 
       // === Existing Generation 11 (G11) coupons ===
@@ -224,12 +223,12 @@ const voucherData = {
       {
         name: "RS 2000 G11 iv SE MNZ",
         discount: "ADV24",
-        codes: ["4489nc17341876113"],
+        codes: [],
       },
       {
         name: "RS 2000 G11 iv SE VIE",
         discount: "ADV24",
-        codes: ["4487nc17341876051"],
+        codes: [],
       },
       {
         name: "RS 1000 G11",
@@ -247,7 +246,6 @@ const voucherData = {
         discount: "€5 DISCOUNT",
         codes: [
           "36nc17341876179",
-          "36nc17575786191",
           "36nc17575786190"
         ],
       }],
