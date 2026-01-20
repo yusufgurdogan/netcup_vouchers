@@ -79,8 +79,22 @@
             border: 1px solid #30363d;
             border-radius: 6px;
             padding: 0.75rem;
+            padding-right: 3rem;
             font-family: monospace;
             position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            user-select: none;
+        }
+
+        .code-block:hover {
+            background-color: #161b22;
+            border-color: #484f58;
+        }
+
+        .code-block.copied {
+            background-color: #238636;
+            border-color: #2ea043;
         }
 
         .copy-btn {
@@ -88,8 +102,9 @@
             right: 0.5rem;
             top: 50%;
             transform: translateY(-50%);
-            opacity: 0;
+            opacity: 0.7;
             transition: opacity 0.2s;
+            pointer-events: none;
         }
 
         .code-block:hover .copy-btn {
@@ -709,17 +724,25 @@
             });
         };
 
-        // Copy button functionality
+        // Copy functionality - click anywhere on code block
         const setupCopyButtons = () => {
-            document.querySelectorAll('.copy-btn').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const code = this.parentElement.textContent.trim();
+            document.querySelectorAll('.code-block').forEach(block => {
+                block.addEventListener('click', function () {
+                    // Get the code text (excluding the button text)
+                    const code = this.childNodes[0].textContent.trim();
                     navigator.clipboard.writeText(code);
 
+                    // Visual feedback on the block
+                    this.classList.add('copied');
+
+                    // Update icon to checkmark
                     const icon = this.querySelector('i');
                     icon.classList.remove('fa-copy');
                     icon.classList.add('fa-check');
+
+                    // Reset after 1 second
                     setTimeout(() => {
+                        this.classList.remove('copied');
                         icon.classList.remove('fa-check');
                         icon.classList.add('fa-copy');
                     }, 1000);
