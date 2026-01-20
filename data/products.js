@@ -1033,6 +1033,327 @@ const productInfo = {
       </ul>
     `,
   },
+
+  // === VPS Generation 12 (G12) ===
+  "VPS 500 G12": {
+    title: "VPS 500 G12 – Entry-Level Virtual Private Server (G12)",
+    description:
+      "Budget-friendly entry-level VPS with 2 vCore CPU, 4GB DDR5 ECC RAM, and 128GB NVMe storage. Perfect for small projects and development environments.",
+    features: [
+      "2 vCore (x86) CPU",
+      "4 GB DDR5 ECC RAM",
+      "128 GB NVMe storage",
+      "KVM virtualization",
+      "1 Gbps or 2.5 Gbps network",
+      "Integrated firewall",
+      "DDoS protection",
+      "Hourly billing available",
+      "Locations: Nuremberg, Vienna, Amsterdam, Manassas, Singapore",
+    ],
+    content: `
+      <h2>About VPS 500 G12</h2>
+      <p>
+        The VPS 500 G12 is the most affordable entry point into netcup's new Generation 12
+        virtual server lineup. With 2 vCores and 4GB DDR5 ECC RAM, it's perfect for small
+        projects, personal websites, and development environments.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>Personal websites and blogs</li>
+        <li>Development and testing environments</li>
+        <li>Small web applications</li>
+        <li>Learning and experimentation</li>
+        <li>Lightweight services and APIs</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>2 virtual CPU cores (x86 architecture)</li>
+        <li>4 GB DDR5 ECC RAM</li>
+        <li>128 GB NVMe SSD storage</li>
+        <li>1 Gbps or 2.5 Gbps network interface</li>
+        <li>1 TB traffic per 24 hours at 100 Mbit/s</li>
+        <li>KVM virtualization technology</li>
+        <li>Integrated firewall (new in G12!)</li>
+        <li>DDoS protection included</li>
+      </ul>
+
+      <h2>New in Generation 12</h2>
+      <ul>
+        <li>Integrated firewall for enhanced security</li>
+        <li>DDR5 ECC RAM for improved performance</li>
+        <li>Extended location options including Amsterdam and Singapore</li>
+        <li>Cost-optimized pricing</li>
+      </ul>
+    `,
+  },
+
+  "VPS 1000 G12": {
+    title: "VPS 1000 G12 – Standard Virtual Private Server (G12)",
+    description:
+      "Reliable VPS with 4 vCore CPU, 8GB DDR5 ECC RAM, and 256GB NVMe storage. Ideal for medium-sized applications and growing projects.",
+    features: [
+      "4 vCore (x86) CPU",
+      "8 GB DDR5 ECC RAM",
+      "256 GB NVMe storage",
+      "KVM virtualization",
+      "1 Gbps or 2.5 Gbps network",
+      "Integrated firewall",
+      "DDoS protection",
+      "Hourly billing available",
+      "Locations: Nuremberg, Vienna, Amsterdam, Manassas, Singapore",
+    ],
+    content: `
+      <h2>About VPS 1000 G12</h2>
+      <p>
+        The VPS 1000 G12 offers a balanced combination of resources for medium-sized
+        applications. With 4 vCores and 8GB DDR5 ECC RAM, it provides reliable performance
+        for growing websites and applications.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>Medium-sized websites</li>
+        <li>Web applications</li>
+        <li>Small databases</li>
+        <li>Development environments</li>
+        <li>Mail servers</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>4 virtual CPU cores (x86 architecture)</li>
+        <li>8 GB DDR5 ECC RAM</li>
+        <li>256 GB NVMe SSD storage</li>
+        <li>1 Gbps or 2.5 Gbps network interface</li>
+        <li>Unlimited traffic included</li>
+        <li>KVM virtualization technology</li>
+        <li>Integrated firewall (new in G12!)</li>
+        <li>DDoS protection included</li>
+      </ul>
+
+      <h2>New in Generation 12</h2>
+      <ul>
+        <li>Integrated firewall for enhanced security</li>
+        <li>DDR5 ECC RAM for improved performance</li>
+        <li>Extended location options including Amsterdam and Singapore</li>
+        <li>Cost-optimized pricing</li>
+      </ul>
+    `,
+  },
+
+  "VPS 2000 G12": {
+    title: "VPS 2000 G12 – Business Virtual Private Server (G12)",
+    description:
+      "Business-grade VPS with 8 vCore CPU, 16GB DDR5 ECC RAM, and 512GB NVMe storage. Perfect for demanding web applications and databases.",
+    features: [
+      "8 vCore (x86) CPU",
+      "16 GB DDR5 ECC RAM",
+      "512 GB NVMe storage",
+      "KVM virtualization",
+      "1 Gbps or 2.5 Gbps network",
+      "Integrated firewall",
+      "DDoS protection",
+      "Hourly billing available",
+      "Locations: Nuremberg, Vienna, Amsterdam, Manassas, Singapore",
+    ],
+    content: `
+      <h2>About VPS 2000 G12</h2>
+      <p>
+        The VPS 2000 G12 delivers business-grade performance with 8 vCores and 16GB
+        DDR5 ECC RAM. Ideal for demanding web applications, e-commerce sites, and
+        medium-sized databases.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>E-commerce platforms</li>
+        <li>Business web applications</li>
+        <li>Medium-sized databases</li>
+        <li>Content management systems</li>
+        <li>Multiple website hosting</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>8 virtual CPU cores (x86 architecture)</li>
+        <li>16 GB DDR5 ECC RAM</li>
+        <li>512 GB NVMe SSD storage</li>
+        <li>1 Gbps or 2.5 Gbps network interface</li>
+        <li>Unlimited traffic included</li>
+        <li>KVM virtualization technology</li>
+        <li>Integrated firewall (new in G12!)</li>
+        <li>DDoS protection included</li>
+      </ul>
+
+      <h2>New in Generation 12</h2>
+      <ul>
+        <li>Integrated firewall for enhanced security</li>
+        <li>DDR5 ECC RAM for improved performance</li>
+        <li>Extended location options including Amsterdam and Singapore</li>
+        <li>Cost-optimized pricing</li>
+      </ul>
+    `,
+  },
+
+  "VPS 4000 G12": {
+    title: "VPS 4000 G12 – Professional Virtual Private Server (G12)",
+    description:
+      "High-performance VPS with 12 vCore CPU, 32GB DDR5 ECC RAM, and 1TB NVMe storage. Built for compute-intensive applications and large-scale projects.",
+    features: [
+      "12 vCore (x86) CPU",
+      "32 GB DDR5 ECC RAM",
+      "1 TB NVMe storage",
+      "KVM virtualization",
+      "1 Gbps or 2.5 Gbps network",
+      "Integrated firewall",
+      "DDoS protection",
+      "Hourly billing available",
+      "Locations: Nuremberg, Vienna, Amsterdam, Manassas, Singapore",
+    ],
+    content: `
+      <h2>About VPS 4000 G12</h2>
+      <p>
+        The VPS 4000 G12 provides professional-grade performance with 12 vCores and
+        32GB DDR5 ECC RAM. Designed for compute-intensive applications, large databases,
+        and enterprise workloads.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>Large enterprise applications</li>
+        <li>Data-intensive workloads</li>
+        <li>Large databases</li>
+        <li>Machine learning development</li>
+        <li>High-traffic websites</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>12 virtual CPU cores (x86 architecture)</li>
+        <li>32 GB DDR5 ECC RAM</li>
+        <li>1 TB NVMe SSD storage</li>
+        <li>1 Gbps or 2.5 Gbps network interface</li>
+        <li>Unlimited traffic included</li>
+        <li>KVM virtualization technology</li>
+        <li>Integrated firewall (new in G12!)</li>
+        <li>DDoS protection included</li>
+      </ul>
+
+      <h2>New in Generation 12</h2>
+      <ul>
+        <li>Integrated firewall for enhanced security</li>
+        <li>DDR5 ECC RAM for improved performance</li>
+        <li>Extended location options including Amsterdam and Singapore</li>
+        <li>Cost-optimized pricing</li>
+      </ul>
+    `,
+  },
+
+  "VPS 8000 G12": {
+    title: "VPS 8000 G12 – Enterprise Virtual Private Server (G12)",
+    description:
+      "Top-tier VPS with 16 vCore CPU, 64GB DDR5 ECC RAM, and 2TB NVMe storage. Maximum performance for the most demanding enterprise applications.",
+    features: [
+      "16 vCore (x86) CPU",
+      "64 GB DDR5 ECC RAM",
+      "2 TB NVMe storage",
+      "KVM virtualization",
+      "1 Gbps or 2.5 Gbps network",
+      "Integrated firewall",
+      "DDoS protection",
+      "Hourly billing available",
+      "Locations: Nuremberg, Vienna, Amsterdam, Manassas, Singapore",
+    ],
+    content: `
+      <h2>About VPS 8000 G12</h2>
+      <p>
+        The VPS 8000 G12 is the flagship of netcup's Generation 12 VPS lineup. With
+        16 vCores and 64GB DDR5 ECC RAM, it delivers maximum performance for the most
+        demanding enterprise applications and large-scale projects.
+      </p>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>Enterprise-level applications</li>
+        <li>Big data processing</li>
+        <li>Large-scale databases</li>
+        <li>High-performance computing</li>
+        <li>Complex development environments</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>16 virtual CPU cores (x86 architecture)</li>
+        <li>64 GB DDR5 ECC RAM</li>
+        <li>2 TB NVMe SSD storage</li>
+        <li>1 Gbps or 2.5 Gbps network interface</li>
+        <li>Unlimited traffic included</li>
+        <li>KVM virtualization technology</li>
+        <li>Integrated firewall (new in G12!)</li>
+        <li>DDoS protection included</li>
+      </ul>
+
+      <h2>New in Generation 12</h2>
+      <ul>
+        <li>Integrated firewall for enhanced security</li>
+        <li>DDR5 ECC RAM for improved performance</li>
+        <li>Extended location options including Amsterdam and Singapore</li>
+        <li>Cost-optimized pricing</li>
+      </ul>
+    `,
+  },
+
+  "RS 1000 G11 2M": {
+    title: "RS 1000 G11 2M – Entry-Level Root Server with 2 Free Months",
+    description:
+      "Entry-level root server with AMD EPYC™ 9634, 8GB DDR5 RAM, and 256GB NVMe SSD. Special offer includes 2 months free for new customers.",
+    features: [
+      "AMD EPYC™ 9634 processor",
+      "8 GB DDR5 RAM (ECC)",
+      "4 dedicated cores",
+      "256 GB NVMe SSD",
+      "2 months free for new customers",
+      "Snapshots (Copy-On-Write)",
+      "Remote console access",
+      "Hardware RAID",
+    ],
+    content: `
+      <h2>About RS 1000 G11 2M</h2>
+      <p>
+        The RS 1000 G11 2M is the entry-level root server with a special promotional
+        offer: get 2 months free when you sign up. It's ideal for web and mail servers,
+        as well as light database applications.
+      </p>
+
+      <h2>Special Offer</h2>
+      <ul>
+        <li>2 months free for new customers</li>
+        <li>Same powerful hardware as RS 1000 G11</li>
+        <li>Limited time promotional codes available</li>
+      </ul>
+
+      <h2>Perfect For</h2>
+      <ul>
+        <li>Small web servers</li>
+        <li>Mail servers</li>
+        <li>Light database applications</li>
+        <li>Development environments</li>
+        <li>Testing servers</li>
+      </ul>
+
+      <h2>Technical Features</h2>
+      <ul>
+        <li>4 dedicated AMD EPYC™ 9634 CPU cores</li>
+        <li>8 GB DDR5 ECC RAM</li>
+        <li>256 GB NVMe SSD storage</li>
+        <li>Hardware RAID configuration</li>
+        <li>Snapshot support</li>
+        <li>Remote console access</li>
+      </ul>
+    `,
+  },
 };
 
 // Add common sections based on product type
