@@ -1,0 +1,77 @@
+# Netcup Vouchers
+
+> NetcupVoucher.com provides verified discount codes and promotional offers for Netcup, a German web hosting provider. All vouchers are for new customers only and can be redeemed at netcup.com.
+
+## Current Voucher Codes
+
+### VPS (Virtual Private Servers)
+
+- **VPS 8000 G12** - FREE 1 MONTH: `5802nc17689089420`
+- **VPS 4000 G12** - FREE 1 MONTH: `5801nc17689089370`
+- **VPS 2000 G12** - FREE 1 MONTH: `5800nc17689089320`
+- **VPS 1000 G12** - FREE 1 MONTH: `5799nc17689932140`
+- **VPS 8000 G11** - FREE 1 MONTH: `4105nc17567498930`
+- **VPS 6000 G11** - FREE 1 MONTH: `4104nc17648405350`
+- **VPS 4000 G11** - FREE 1 MONTH: `4103nc17653032553`
+- **VPS 3000 G11** - FREE 1 MONTH: `4102nc17632851810`
+- **VPS 2000 G11** - FREE 1 MONTH: `4101nc17661764300`
+- **VPS 1000 G11** - FREE 1 MONTH: `4095nc17682588130`
+
+### Web Hosting
+
+- **Webhosting 8000** - 30%: `1929nc17341876259`
+- **Webhosting 4000** - 30%: `1928nc17341876229`
+- **Webhosting 2000** - 30%: `1927nc17387491610`
+
+### Root Servers
+
+- **RS 8000 G12** - FREE 1 MONTH: `5162nc17679564181`
+- **RS 4000 G12** - FREE 1 MONTH: `5161nc17575037545`
+- **RS 1000 G12** - FREE 2 MONTH: `5159nc17669193501`
+- **RS 2000 G12** - FREE 1 MONTH: `5160nc17670060180`
+- **RS 1000 G11 2M** - FREE 2 MONTHS: `4096nc17545605010`
+- **RS 8000 G11** - FREE 1 MONTH: `4100nc17573183321`
+- **RS 4000 G11** - FREE 1 MONTH: `4099nc17574941771`
+- **RS 2000 G11** - FREE 1 MONTH: `4098nc17573183052`
+
+### General Offers
+
+- **New Customer Offer** - €5 DISCOUNT: `36nc17341876179`
+
+## How to Use
+
+1. Copy your desired voucher code
+2. Visit netcup.com and add products to cart
+3. Enter the voucher code at checkout
+4. Enjoy your discount
+
+## Product Pages
+
+- [VPS 8000 G12](https://netcupvoucher.com/vps-8000-g12): Top-tier VPS with 16 vCore CPU, 64GB DDR5 ECC RAM, and 2TB NVMe storage. Maximum...
+- [VPS 4000 G12](https://netcupvoucher.com/vps-4000-g12): High-performance VPS with 12 vCore CPU, 32GB DDR5 ECC RAM, and 1TB NVMe storage....
+- [VPS 2000 G12](https://netcupvoucher.com/vps-2000-g12): Business-grade VPS with 8 vCore CPU, 16GB DDR5 ECC RAM, and 512GB NVMe storage. ...
+- [VPS 1000 G12](https://netcupvoucher.com/vps-1000-g12): Reliable VPS with 4 vCore CPU, 8GB DDR5 ECC RAM, and 256GB NVMe storage. Ideal f...
+- [VPS 8000 G11](https://netcupvoucher.com/vps-8000-g11): High-performance VPS with 16 vCore CPU, 64GB RAM, and 2048GB SSD storage for dem...
+- [VPS 6000 G11](https://netcupvoucher.com/vps-6000-g11): Powerful VPS solution with 14 vCore CPU, 48GB RAM, and 1536GB SSD storage for re...
+- [VPS 4000 G11](https://netcupvoucher.com/vps-4000-g11): High-end VPS with 12 vCore CPU, 32GB RAM, and 1024GB SSD storage for compute-int...
+- [VPS 3000 G11](https://netcupvoucher.com/vps-3000-g11): Robust VPS solution with 10 vCore CPU, 24GB RAM, and 768GB SSD storage for high-...
+- [VPS 2000 G11](https://netcupvoucher.com/vps-2000-g11): Business-grade VPS with 8 vCore CPU, 16GB RAM, and 512GB SSD storage for growing...
+- [VPS 1000 G11](https://netcupvoucher.com/vps-1000-g11): Reliable VPS solution with 4 vCore CPU, 8GB RAM, and 256GB SSD storage for mediu...
+- [Webhosting 8000](https://netcupvoucher.com/webhosting-8000): High-performance cloud hosting with 1000GB SSD storage, 12 domains, and advanced...
+- [Webhosting 4000](https://netcupvoucher.com/webhosting-4000): Medium to large-scale web hosting solution with 500GB SSD storage and support fo...
+- [Webhosting 2000](https://netcupvoucher.com/webhosting-2000): Reliable web hosting package with 150GB SSD storage, perfect for small to medium...
+- [RS 8000 G12](https://netcupvoucher.com/rs-8000-g12): For the highest performance and resource demands. RS 8000 G12 pairs AMD EPYC™ 96...
+- [RS 4000 G12](https://netcupvoucher.com/rs-4000-g12): High performance for large enterprise platforms, extensive web apps, and data-in...
+- [RS 1000 G12](https://netcupvoucher.com/rs-1000-g12): Ideal entry-level root server for web & mail servers and light database workload...
+- [RS 2000 G12](https://netcupvoucher.com/rs-2000-g12): Extended resources for medium-sized web & mail servers, complex web apps, and ap...
+- [RS 1000 G11 2M](https://netcupvoucher.com/rs-1000-g11-2m): Entry-level root server with AMD EPYC™ 9634, 8GB DDR5 RAM, and 256GB NVMe SSD. S...
+- [RS 8000 G11](https://netcupvoucher.com/rs-8000-g11): Professional KVM-based root server with AMD EPYC™ 9634, 64GB DDR5 RAM, and 2TB N...
+- [RS 4000 G11](https://netcupvoucher.com/rs-4000-g11): High-performance root server with AMD EPYC™ 9634, 32GB DDR5 RAM, and 1TB NVMe SS...
+- [RS 2000 G11](https://netcupvoucher.com/rs-2000-g11): Balanced root server with AMD EPYC™ 9634, 16GB DDR5 RAM, and 512GB NVMe SSD for ...
+- [New Customer Offer](https://netcupvoucher.com/new-customer-offer): €5 discount voucher for new customers at netcup. Valid for all products except d...
+
+## Optional
+
+- [About](https://netcupvoucher.com/about): Information about how vouchers work
+- [Blog](https://netcupvoucher.com/blog): Articles about Netcup products and comparisons
+- [Homepage](https://netcupvoucher.com/): Browse all vouchers by category
