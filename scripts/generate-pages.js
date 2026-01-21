@@ -825,6 +825,75 @@ const generateAboutPage = () => {
   }
 };
 
+// Generate llms.txt for LLM-friendly content
+const generateLlmsTxt = () => {
+  const categoryNames = {
+    vps: "VPS (Virtual Private Servers)",
+    webhosting: "Web Hosting",
+    rootserver: "Root Servers",
+    general: "General Offers",
+  };
+
+  let content = `# Netcup Vouchers
+
+> NetcupVoucher.com provides verified discount codes and promotional offers for Netcup, a German web hosting provider. All vouchers are for new customers only and can be redeemed at netcup.com.
+
+## Current Voucher Codes
+
+`;
+
+  // Add vouchers by category
+  Object.entries(voucherData).forEach(([category, data]) => {
+    content += `### ${categoryNames[category] || data.name}\n\n`;
+
+    data.items.forEach((item) => {
+      if (item.codes && item.codes.length > 0) {
+        const firstCode = item.codes[0];
+        content += `- **${item.name}** - ${item.discount}: \`${firstCode}\`\n`;
+      }
+    });
+
+    content += "\n";
+  });
+
+  content += `## How to Use
+
+1. Copy your desired voucher code
+2. Visit netcup.com and add products to cart
+3. Enter the voucher code at checkout
+4. Enjoy your discount
+
+## Product Pages
+
+`;
+
+  // Add product page links
+  Object.entries(voucherData).forEach(([category, data]) => {
+    data.items.forEach((item) => {
+      if (item.codes && item.codes.length > 0) {
+        const slug = generateSlug(item.name);
+        const info = productInfo[item.name];
+        const description = info
+          ? info.description.substring(0, 80) + "..."
+          : `${item.discount} discount available`;
+        content += `- [${item.name}](https://netcupvoucher.com/${slug}): ${description}\n`;
+      }
+    });
+  });
+
+  content += `
+## Optional
+
+- [About](https://netcupvoucher.com/about): Information about how vouchers work
+- [Blog](https://netcupvoucher.com/blog): Articles about Netcup products and comparisons
+- [Homepage](https://netcupvoucher.com/): Browse all vouchers by category
+`;
+
+  const pagesDir = path.join(process.cwd(), "pages");
+  fs.writeFileSync(path.join(pagesDir, "llms.txt"), content);
+  return "llms.txt";
+};
+
 // Main function to generate all pages
 const generatePages = () => {
   try {
@@ -903,10 +972,14 @@ Allow: /
 Sitemap: https://netcupvoucher.com/sitemap.xml`;
     fs.writeFileSync(path.join(pagesDir, "robots.txt"), robotsTxt);
 
+    // Generate llms.txt
+    generateLlmsTxt();
+
     console.log("Successfully generated:");
     console.log(` - ${pages.length} pages`);
     console.log(" - sitemap.xml");
     console.log(" - robots.txt");
+    console.log(" - llms.txt");
     console.log(" - updated index.html");
   } catch (error) {
     console.error("Error in page generation:", error);
