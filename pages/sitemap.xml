@@ -172,6 +172,13 @@
     </url>
 
     <url>
+        <loc>https://netcupvoucher.com/blog/netcup-vps-g12-is-out</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-03</lastmod>
+    </url>
+
+    <url>
         <loc>https://netcupvoucher.com/blog/netcup-vs-hetzner-budget-servers-2026</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
