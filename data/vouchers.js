@@ -253,4 +253,3 @@ const voucherData = {
 };
 
 module.exports = { voucherData };
-
