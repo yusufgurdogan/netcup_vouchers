@@ -8,9 +8,9 @@ const voucherData = {
         name: "VPS 8000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          "5802nc17767224120",
           "5802nc17767656120",
-          "5802nc17768952120"],
+          "5802nc17768952120",
+          "5802nc17771544120"],
       },
       {
         name: "VPS 4000 G12",
