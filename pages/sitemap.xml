@@ -172,6 +172,13 @@
     </url>
 
     <url>
+        <loc>https://netcupvoucher.com/blog/hetzner-third-price-hike-june-2026</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-06-22</lastmod>
+    </url>
+
+    <url>
         <loc>https://netcupvoucher.com/blog/netcup-vs-hetzner-after-rampocalypse-2026</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
@@ -201,13 +208,6 @@
 
     <url>
         <loc>https://netcupvoucher.com/blog/netcup-root-server-vs-vps</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-06-22</lastmod>
-    </url>
-
-    <url>
-        <loc>https://netcupvoucher.com/blog/hetzner-third-price-hike-june-2026</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
         <lastmod>2026-06-22</lastmod>
