@@ -205,4 +205,11 @@
         <changefreq>monthly</changefreq>
         <lastmod>2026-06-22</lastmod>
     </url>
+
+    <url>
+        <loc>https://netcupvoucher.com/blog/hetzner-third-price-hike-june-2026</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-06-22</lastmod>
+    </url>
 </urlset>
