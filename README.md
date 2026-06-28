@@ -18,14 +18,14 @@
   - `5801nc17825976170`
 
 - **VPS 2000 G12** (FREE 1 MONTH)
-  - `5800nc17825976222`
-  - `5800nc17825976221`
   - `5800nc17825976220`
+  - `5800nc17826408121`
+  - `5800nc17826408120`
 
 - **VPS 1000 G12** (FREE 1 MONTH)
-  - `5799nc17825976272`
   - `5799nc17825976271`
   - `5799nc17825976270`
+  - `5799nc17826408160`
 
 - **VPS 8000 G11** (FREE 1 MONTH)
   - `4105nc17671356160`
@@ -173,4 +173,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 6/27/2026
+Last updated: 6/28/2026
