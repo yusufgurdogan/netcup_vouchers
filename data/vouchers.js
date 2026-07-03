@@ -33,8 +33,8 @@ const voucherData = {
         discount: "FREE 1 MONTH",
         codes: [
           "5799nc17828568260",
-          "5799nc17829432170",
-          "5799nc17829864230"],
+          "5799nc17829864230",
+          "5799nc17830728120"],
       },
       // === Existing: VPS Generation 11 (G11) coupons ===
       {
