@@ -24,17 +24,17 @@ const voucherData = {
         name: "VPS 2000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          "5800nc17828568220",
           "5800nc17831592161",
-          "5800nc17831592160"],
+          "5800nc17834184131",
+          "5800nc17834184130"],
       },
       {
         name: "VPS 1000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          "5799nc17832456120",
           "5799nc17833320170",
-          "5799nc17833752180"],
+          "5799nc17834184171",
+          "5799nc17834184170"],
       },
       // === Existing: VPS Generation 11 (G11) coupons ===
       {
