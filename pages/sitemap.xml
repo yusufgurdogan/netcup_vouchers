@@ -212,4 +212,11 @@
         <changefreq>monthly</changefreq>
         <lastmod>2026-08-11</lastmod>
     </url>
+
+    <url>
+        <loc>https://netcupvoucher.com/blog/netcup-pricing-2026</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-08-11</lastmod>
+    </url>
 </urlset>
