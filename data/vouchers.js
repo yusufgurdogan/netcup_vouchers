@@ -32,9 +32,9 @@ const voucherData = {
         name: "VPS 1000 G12",
         discount: "FREE 1 MONTH",
         codes: [
-          "5799nc17870904272",
           "5799nc17870904271",
-          "5799nc17870904270"],
+          "5799nc17870904270",
+          "5799nc17871552120"],
       },
       // === Existing: VPS Generation 11 (G11) coupons ===
       {
