@@ -1,5 +1,8 @@
 const fs = require("fs");
-const { voucherData } = require("../data/vouchers.js");
+const { voucherData: allVoucherData } = require("../data/vouchers.js");
+const { getActiveVoucherData } = require("./voucher-utils.js");
+
+const voucherData = getActiveVoucherData(allVoucherData);
 
 const generateReadme = () => {
   try {

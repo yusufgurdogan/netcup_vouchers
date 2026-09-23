@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const { voucherData } = require('../data/vouchers.js');
+const { getActiveVoucherData } = require('./voucher-utils.js');
 
 // Function to copy the netcup-voucher-image.png to the pages directory
 const copyOpenGraphImage = () => {
@@ -173,7 +174,7 @@ const updateSite = () => {
     // Inject voucher data
     const updatedHtml = templateContent.replace(
       '// VOUCHER_DATA_PLACEHOLDER',
-      `const voucherData = ${JSON.stringify(voucherData, null, 2)};`
+      `const voucherData = ${JSON.stringify(getActiveVoucherData(voucherData), null, 2)};`
     );
 
     // Fix favicon paths

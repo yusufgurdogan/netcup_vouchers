@@ -2,6 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const { voucherData } = require("../data/vouchers.js");
 const { productInfo } = require("../data/products.js");
+const { isActive, getActiveVoucherData } = require("./voucher-utils.js");
+
+// Discontinued products still get a page, but are left out of menus and listings
+const activeVoucherData = getActiveVoucherData(voucherData);
 
 const generateSlug = (name) => {
   return name
@@ -53,6 +57,7 @@ const generateProductPage = (name, category, vouchers) => {
 
   // Find related products (same category)
   const relatedProducts = voucherData[category].items
+    .filter(isActive)
     .filter((item) => item.name !== name)
     .map((item) => ({
       name: item.name,
@@ -61,7 +66,7 @@ const generateProductPage = (name, category, vouchers) => {
     }));
 
   // Find recommended products (different categories) - enhanced to include more diversity
-  const recommendedProducts = Object.entries(voucherData)
+  const recommendedProducts = Object.entries(activeVoucherData)
     .filter(([cat, _]) => cat !== category)
     .flatMap(([_, data]) =>
       data.items.slice(0, 2).map((item) => ({
@@ -72,6 +77,37 @@ const generateProductPage = (name, category, vouchers) => {
       }))
     )
     .slice(0, 4);
+
+  // Voucher card (shown in the mobile section and the desktop sidebar)
+  const voucherCardBody = vouchers.discontinued
+    ? `
+                        <p>netcup no longer sells ${name}, so vouchers for it can't be redeemed anymore. The current lineup is G12.5.</p>
+                        <a href="/blog/netcup-g12-5-price-increase-2026.html" class="btn btn-outline-light w-100 mt-2">
+                        What changed with G12.5 &raquo;
+                        </a>
+                        <a href="/" class="btn btn-success w-100 mt-3">
+                        See current vouchers &raquo;
+                        </a>`
+    : `${vouchers.codes
+        .map(
+          (code) => `
+                        <div class="code-block mb-2">
+                            ${code}
+                            <button class="btn btn-sm btn-outline-secondary copy-btn">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>`
+        )
+        .join("")}
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Current discount: ${vouchers.discount}
+                        </div>
+                        <a href="https://www.netcup.com/en/checkout/cart"
+                        target="_blank" rel="noopener"
+                        class="btn btn-success w-100 mt-3">
+                        Redeem at netcup.com &raquo;
+                        </a>`;
 
   // Generate schema.org JSON-LD markup for the product
   const schemaMarkup = {
@@ -87,7 +123,9 @@ const generateProductPage = (name, category, vouchers) => {
       "@type": "Offer",
       price: "0",
       priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
+      availability: vouchers.discontinued
+        ? "https://schema.org/Discontinued"
+        : "https://schema.org/InStock",
       seller: {
         "@type": "Organization",
         name: "Netcup GmbH",
@@ -304,30 +342,10 @@ const generateProductPage = (name, category, vouchers) => {
             <div class="col-12 mobile-vouchers">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h5 class="mb-0">Available Vouchers</h5>
+                        <h5 class="mb-0">${vouchers.discontinued ? "No Longer Sold" : "Available Vouchers"}</h5>
                     </div>
                     <div class="card-body">
-                        ${vouchers.codes
-                          .map(
-                            (code) => `
-                            <div class="code-block mb-2">
-                                ${code}
-                                <button class="btn btn-sm btn-outline-secondary copy-btn">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        `
-                          )
-                          .join("")}
-                        <div class="alert alert-info mt-3">
-                            <i class="fas fa-info-circle me-2"></i>
-                            Current discount: ${vouchers.discount}
-                        </div>
-                        <a href="https://www.netcup.com/en/checkout/cart"
-                        target="_blank" rel="noopener"
-                        class="btn btn-success w-100 mt-3">
-                        Redeem at netcup.com &raquo;
-                        </a>
+${voucherCardBody}
                     </div>
                 </div>
             </div>
@@ -411,30 +429,10 @@ const generateProductPage = (name, category, vouchers) => {
             <div class="col-lg-4">
                 <div class="card sticky-top desktop-vouchers" style="top: 2rem;">
                     <div class="card-header">
-                        <h5 class="mb-0">Available Vouchers</h5>
+                        <h5 class="mb-0">${vouchers.discontinued ? "No Longer Sold" : "Available Vouchers"}</h5>
                     </div>
                     <div class="card-body">
-                        ${vouchers.codes
-                          .map(
-                            (code) => `
-                            <div class="code-block mb-2">
-                                ${code}
-                                <button class="btn btn-sm btn-outline-secondary copy-btn">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        `
-                          )
-                          .join("")}
-                        <div class="alert alert-info mt-3">
-                            <i class="fas fa-info-circle me-2"></i>
-                            Current discount: ${vouchers.discount}
-                        </div>
-                        <a href="https://www.netcup.com/en/checkout/cart"
-                        target="_blank" rel="noopener"
-                        class="btn btn-success w-100 mt-3">
-                        Redeem at netcup.com &raquo;
-                        </a>
+${voucherCardBody}
                     </div>
                 </div>
             </div>
@@ -482,7 +480,7 @@ const generateProductPage = (name, category, vouchers) => {
         // Add products dropdown population
         const populateProductsDropdown = () => {
             const dropdown = document.getElementById('productsDropdown');
-            const voucherData = ${JSON.stringify(voucherData)};
+            const voucherData = ${JSON.stringify(activeVoucherData)};
             
             Object.entries(voucherData).forEach(([category, data]) => {
                 const header = document.createElement('li');
@@ -787,7 +785,7 @@ const generateAboutPage = () => {
         // Add products dropdown population
         const populateProductsDropdown = () => {
             const dropdown = document.getElementById('productsDropdown');
-            const voucherData = ${JSON.stringify(voucherData)};
+            const voucherData = ${JSON.stringify(activeVoucherData)};
             
             Object.entries(voucherData).forEach(([category, data]) => {
                 const header = document.createElement('li');
@@ -843,7 +841,7 @@ const generateLlmsTxt = () => {
 `;
 
   // Add vouchers by category
-  Object.entries(voucherData).forEach(([category, data]) => {
+  Object.entries(activeVoucherData).forEach(([category, data]) => {
     content += `### ${categoryNames[category] || data.name}\n\n`;
 
     data.items.forEach((item) => {
@@ -868,7 +866,7 @@ const generateLlmsTxt = () => {
 `;
 
   // Add product page links
-  Object.entries(voucherData).forEach(([category, data]) => {
+  Object.entries(activeVoucherData).forEach(([category, data]) => {
     data.items.forEach((item) => {
       if (item.codes && item.codes.length > 0) {
         const slug = generateSlug(item.name);

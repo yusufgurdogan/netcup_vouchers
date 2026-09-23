@@ -60,7 +60,7 @@ The normal VPS range is easier to summarize: every comparable plan is 40% more e
 | VPS 500 G12.5 | 2 | 4 GB | 128 → 64 GB | €4.96 | €6.94 | +40% |
 | VPS 1000 G12.5 | 4 | 8 GB | 256 → 128 GB | €8.71 | €12.18 | +40% |
 | VPS 2000 G12.5 | 8 | 16 GB | 512 → 256 GB | €16.17 | €22.62 | +40% |
-| VPS 4000 G12.5 | 12 | 32 GB | 1 TB → 512 GB | €27.23 | €38.12 | +40% |
+| VPS 4000 G12.5 | 12 | 32 GB | 1 TB → 512 GB | €27.23 | €38.11 | +40% |
 | VPS 8000 G12.5 | 16 | 64 GB | 2 TB → 1 TB | €40.29 | €56.39 | +40% |
 
 Storage changed in two ways. Capacity was halved, and the product page now says simply "SSD" instead of "NVMe". Netcup says the VPS storage is still flash-based and runs in RAID 6, but it no longer commits to NVMe specifically. Root Servers still list NVMe storage.
@@ -73,7 +73,7 @@ The cheaper VPS lines got a much smaller increase, and unlike the regular VPS ra
 
 | Plan | vCores | RAM | Disk | Old | New | Change |
 |------|--------|-----|------|-----|-----|--------|
-| VPS pico G11.5s | 1 | 1 GB | 30 GB SSD | €1.54 | €1.86 | ~20% |
+| VPS pico G11.5s | 1 | 1 GB | 30 GB SSD | €1.54 | €1.85 | ~20% |
 | VPS nano G11.5s | 2 | 2 GB | 60 GB SSD | €2.59 | €3.10 | ~20% |
 | VPS Lite 1 G12.5s | 2 | 4 GB | 80 GB SSD | €4.10 | €4.92 | +20% |
 | VPS Lite 2 G12.5s | 4 | 8 GB | 160 GB SSD | €6.65 | €7.98 | +20% |
@@ -158,4 +158,4 @@ And if you are comparing netcup with another provider, re-check the prices rathe
 
 The market moved quickly enough that a comparison from even a few months ago may now be wrong.
 
-*VPS, Lite and ARM prices were converted from netcup's VAT-inclusive listing and may differ by a cent from the net price shown to non-EU and business customers. Root Server prices are as netcup lists them net.*
+*All prices are as netcup lists them net (incl. 0% VAT), verified on 23 September 2026.*

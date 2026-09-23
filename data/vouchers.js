@@ -3,87 +3,66 @@ const voucherData = {
     icon: "fas fa-cloud",
     name: "VPS",
     items: [
-      // === NEW: VPS Generation 12 (G12) coupons ===
+      // === VPS G11/G12: no longer sold since the G12.5 launch (2026-09-23) ===
       {
         name: "VPS 8000 G12",
         discount: "FREE 1 MONTH",
-        codes: [
-          "5802nc17901144120"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "VPS 4000 G12",
         discount: "FREE 1 MONTH",
-        codes: [
-          "5801nc17900064130"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "VPS 2000 G12",
         discount: "FREE 1 MONTH",
-        codes: [
-          "5800nc17899848171"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "VPS 1000 G12",
         discount: "FREE 1 MONTH",
-        codes: [
-          ],
+        codes: [],
+        discontinued: true,
       },
-      // === Existing: VPS Generation 11 (G11) coupons ===
       {
         name: "VPS 8000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4105nc17671356160",
-          "4105nc17676540130",
-          "4105nc17679564130"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "VPS 6000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4104nc17585415041",
-          "4104nc17667900330",
-          "4104nc17672220130"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "VPS 4000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4103nc17653032553",
-          "4103nc17653032552",
-          "4103nc17661764380",
-          "4103nc17667900280"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "VPS 3000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4102nc17632851810",
-          "4102nc17588252571",
-          "4102nc17588252570",
-          "4102nc17431902430",
-          "4102nc17431897680",
-          "4102nc17672220180"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "VPS 2000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4101nc17661764300",
-          "4101nc17670492141",
-          "4101nc17670492140",
-          "4101nc17675676132",
-          "4101nc17675676131",
-          "4101nc17675676130"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "VPS 1000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4095nc17686476132",
-          "4095nc17686476131",
-          "4095nc17687340141",
-          "4095nc17687340140"],
+        codes: [],
+        discontinued: true,
       }],
   },
   webhosting: {
@@ -111,122 +90,74 @@ const voucherData = {
     icon: "fas fa-database",
     name: "Root Server",
     items: [
-      // === NEW: Generation 12 (G12) coupons ===
+      // === RS G11/G12: no longer sold since the G12.5 launch (2026-09-23) ===
       {
         name: "RS 8000 G12",
         discount: "FREE 1 MONTH",
-        codes: [
-          "5162nc17717580140",
-          "5162nc17718876240",
-          "5162nc17731836220",
-          "5162nc17734428160",
-          "5162nc17748648121",
-          "5162nc17748648120"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "RS 4000 G12",
         discount: "FREE 1 MONTH",
-        codes: [
-          "5161nc17731836272",
-          "5161nc17731836270",
-          "5161nc17733996130",
-          "5161nc17738316130",
-          "5161nc17744796171",
-          "5161nc17744796170",
-          "5161nc17750808161",
-          "5161nc17750808160"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "RS 1000 G12",
         discount: "FREE 2 MONTH",
-        codes: [
-          "5159nc17738316170",
-          "5159nc17739180121",
-          "5159nc17739180120",
-          "5159nc17742204170",
-          "5159nc17743932220",
-          "5159nc17744364120",
-          "5159nc17745660270",
-          "5159nc17748216122",
-          "5159nc17748216121",
-          "5159nc17748216120"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "RS 2000 G12",
         discount: "FREE 1 MONTH",
-        codes: [
-          "5160nc17728380120",
-          "5160nc17737452220",
-          "5160nc17737884121",
-          "5160nc17737884120",
-          "5160nc17744796223",
-          "5160nc17744796222",
-          "5160nc17744796221",
-          "5160nc17744796220",
-          "5160nc17745660311",
-          "5160nc17745660310"],
+        codes: [],
+        discontinued: true,
       },
 
-      // === Existing Generation 11 (G11) coupons ===
       {
         name: "RS 1000 G11 2M",
         discount: "FREE 2 MONTHS",
-        codes: [
-          "4096nc17545605010",
-          "4096nc17538666952",
-          "4096nc17538666950",
-          "4096nc17509273891",
-          "4096nc17480217403",
-          "4096nc17480217400"],
+        codes: [],
+        discontinued: true,
       },
       
       {
         name: "RS 8000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4100nc17573183321",
-          "4100nc17573183320",
-          "4100nc17568068830",
-          "4100nc17555276921",
-          "4100nc17555276920",
-          "4100nc17364138842"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "RS 4000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4099nc17574941771",
-          "4099nc17574941770",
-          "4099nc17554168682",
-          "4099nc17554168681",
-          "4099nc17554168680",
-          "4099nc17415196473"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "RS 2000 G11",
         discount: "FREE 1 MONTH",
-        codes: [
-          "4098nc17573183052",
-          "4098nc17573183051",
-          "4098nc17573183050",
-          "4098nc17439419561",
-          "4098nc17543008693"],
+        codes: [],
+        discontinued: true,
       },
       {
         name: "RS 2000 G11 iv SE MNZ",
         discount: "ADV24",
         codes: [],
+        discontinued: true,
       },
       {
         name: "RS 2000 G11 iv SE VIE",
         discount: "ADV24",
         codes: [],
+        discontinued: true,
       },
       {
         name: "RS 1000 G11",
         discount: "FREE 2 MONTHS",
-        codes: [
-          ],
+        codes: [],
+        discontinued: true,
       }],
   },
   general: {

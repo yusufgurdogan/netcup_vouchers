@@ -3,7 +3,11 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const marked = require('marked');
-const { voucherData } = require('../data/vouchers.js');
+const { voucherData: allVoucherData } = require('../data/vouchers.js');
+const { getActiveVoucherData } = require('./voucher-utils.js');
+
+// Only products that are still sold show up in menus and sidebars
+const voucherData = getActiveVoucherData(allVoucherData);
 
 // Function to generate slug from a title
 const generateSlug = (title) => {
