@@ -8,8 +8,18 @@
 
 const isActive = (item) => !item.discontinued;
 
+// How many codes a card shows. Fallback cards each show a different slice of
+// the shared codes, so visitors don't all grab the same one.
+const MAX_SHOWN_CODES = 10;
+const FALLBACK_SHOWN_CODES = 3;
+
+// `count` codes starting at `start`, wrapping around
+const rotatedSlice = (codes, start, count) =>
+  Array.from({ length: Math.min(count, codes.length) }, (_, i) => codes[(start + i) % codes.length]);
+
 // Copy of voucherData with fallback codes filled in
 const resolveVoucherData = (voucherData) => {
+  let fallbackIndex = 0;
   const itemsByName = {};
   Object.values(voucherData).forEach((category) =>
     category.items.forEach((item) => {
@@ -24,10 +34,13 @@ const resolveVoucherData = (voucherData) => {
         ...category,
         items: category.items.map((item) => {
           const fallback = itemsByName[item.fallbackCodesFrom];
-          if (item.codes.length > 0 || !fallback) return item;
+          if (item.codes.length > 0 || !fallback) {
+            return { ...item, codes: item.codes.slice(0, MAX_SHOWN_CODES) };
+          }
+          const start = (fallbackIndex++ * FALLBACK_SHOWN_CODES) % Math.max(fallback.codes.length, 1);
           return {
             ...item,
-            codes: fallback.codes,
+            codes: rotatedSlice(fallback.codes, start, FALLBACK_SHOWN_CODES),
             discount: fallback.discount,
             usingFallback: true,
           };
