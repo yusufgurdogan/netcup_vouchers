@@ -13,10 +13,16 @@ const generateReadme = () => {
 ## Available Vouchers
 
 ${Object.entries(voucherData)
+  .map(([category, data]) => [
+    data,
+    // G12.5 plans without their own codes only repeat the New Customer Offer
+    data.items.filter((item) => !item.usingFallback),
+  ])
+  .filter(([, items]) => items.length > 0)
   .map(
-    ([category, data]) => `
+    ([data, items]) => `
 ### ${data.name}
-${data.items
+${items
   .map(
     (item) => `
 - **${item.name}** (${item.discount})

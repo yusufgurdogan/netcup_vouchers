@@ -1356,6 +1356,133 @@ const productInfo = {
   },
 };
 
+// G12.5 lineup (launched 2026-09-22). Specs and net prices as listed on
+// netcup.com on 2026-09-23. Generated from one table so the pages stay consistent.
+const G125_VERIFIED = "23 September 2026";
+
+const g125Vps = [
+  // name, vCores, RAM, disk, price 1 month, 12 months, 24 months
+  ["VPS 500 G12.5", 2, "4 GB", "64 GB", "7.98", "6.94", "5.90"],
+  ["VPS 1000 G12.5", 4, "8 GB", "128 GB", "14.01", "12.18", "10.35"],
+  ["VPS 2000 G12.5", 8, "16 GB", "256 GB", "26.01", "22.62", "19.23"],
+  ["VPS 4000 G12.5", 12, "32 GB", "512 GB", "43.83", "38.11", "32.40"],
+  ["VPS 8000 G12.5", 16, "64 GB", "1 TB", "64.84", "56.39", "47.93"],
+];
+
+const g125Rs = [
+  // name, dedicated cores, RAM, disk, price 1 month, 12 months, on request only
+  ["RS 500 G12.5", 2, "4 GB", "64 GB", "12.49", "10.86", false],
+  ["RS 1000 G12.5", 4, "8 GB", "128 GB", "21.00", "18.26", false],
+  ["RS 2000 G12.5", 8, "16 GB", "256 GB", "39.33", "34.20", false],
+  ["RS 4000 G12.5", 12, "32 GB", "512 GB", "75.21", "65.40", false],
+  ["RS 8000 G12.5", 16, "64 GB", "1 TB", "143.43", "124.72", false],
+  ["RS 12000 G12.5", 20, "96 GB", "1.5 TB", "209.60", "182.26", true],
+  ["RS 16000 G12.5", 24, "128 GB", "2 TB", "279.73", "243.24", true],
+];
+
+const specTable = (rows) => `
+    <table class="table table-dark table-striped">
+      <tbody>
+        ${rows.map(([k, v]) => `<tr><th scope="row">${k}</th><td>${v}</td></tr>`).join("\n        ")}
+      </tbody>
+    </table>`;
+
+const g125VoucherNote = (name) => `
+    <h2>${name} Vouchers</h2>
+    <p>netcup hasn't released vouchers for the G12.5 lineup to its partner program yet. As soon as ${name} vouchers are available, they'll appear on this page automatically. Until then, the €5 new-customer code shown here works on a ${name} order, since it's valid on anything except domains.</p>
+    <p>For what changed from G12 to G12.5, including the price increase and the smaller disks, see our <a href="/blog/netcup-g12-5-price-increase-2026.html">G12.5 breakdown</a>. Every netcup plan and price is in our <a href="/blog/netcup-pricing-2026.html">netcup price list</a>.</p>`;
+
+g125Vps.forEach(([name, cores, ram, disk, p1, p12, p24]) => {
+  productInfo[name] = {
+    title: `${name} Voucher & Specs - ${cores} vCores, ${ram} RAM, ${disk} SSD`,
+    description: `${name} specs, prices and voucher codes. ${cores} vCores, ${ram} RAM and ${disk} SSD from €${p24}/month net on a 24-month term. G12.5 vouchers aren't out yet, but our €5 new-customer code works on it.`,
+    features: [
+      `${cores} vCores (x86, shared)`,
+      `${ram} RAM`,
+      `${disk} SSD storage in RAID`,
+      "1 Gbit/s or 2.5 Gbit/s, depending on location",
+      "Traffic included (throttled to 200 Mbit/s above 2 TB in 24h)",
+      "99.6% guaranteed annual availability",
+      "Hourly billing available",
+      "Nuremberg, Vienna, Amsterdam, Manassas (US), Singapore",
+    ],
+    content: `
+    <h2>${name} Specs</h2>
+    ${specTable([
+      ["Processor", `${cores} vCores (x86), shared`],
+      ["RAM", ram],
+      ["Storage", `${disk} SSD (RAID)`],
+      ["Network", "1 Gbit/s or 2.5 Gbit/s, depending on location"],
+      ["Traffic", "Included. If traffic exceeds 2 TB within 24 hours, it's temporarily throttled to 200 Mbit/s"],
+      ["Availability", "99.6% guaranteed annual average"],
+      ["Billing", "1, 12 or 24 months, or hourly (1/720 of the monthly price)"],
+      ["Locations", "Nuremberg, Vienna, Amsterdam, Manassas (US), Singapore"],
+      ["Local Block Storage", "Up to 8 TB extra, €0.012 per GB per month"],
+      ["Network options", "IPv4 + /64 IPv6, IPv6 only, or Cloud vLAN only"],
+      ["Included", "DDoS protection (2 Tbit/s), firewall, snapshots, remote console, rescue system, custom images"],
+    ])}
+
+    <h2>${name} Price</h2>
+    <p>Monthly net prices (excl. VAT), as listed on netcup.com on ${G125_VERIFIED}:</p>
+    ${specTable([
+      ["1 month term", `€${p1}`],
+      ["12 month term", `€${p12}`],
+      ["24 month term", `€${p24}`],
+    ])}
+    <p>Picking a specific datacenter instead of "No preference, Europe" adds a small surcharge. Customers in the EU pay their local VAT on top.</p>
+    ${g125VoucherNote(name)}
+  `,
+  };
+});
+
+g125Rs.forEach(([name, cores, ram, disk, p1, p12, onRequest]) => {
+  const locations = onRequest
+    ? "Nuremberg, Vienna, Manassas (US)"
+    : "Nuremberg, Vienna, Manassas (US), Singapore";
+  productInfo[name] = {
+    title: `${name} Voucher & Specs - ${cores} Dedicated Cores, ${ram} RAM, ${disk} NVMe`,
+    description: `${name} specs, prices and voucher codes. ${cores} dedicated AMD EPYC 9645 cores, ${ram} DDR5 RAM and ${disk} NVMe from €${p12}/month net on a 12-month term. G12.5 vouchers aren't out yet, but our €5 new-customer code works on it.`,
+    features: [
+      `${cores} dedicated cores, AMD EPYC 9645 (up to 3.7 GHz)`,
+      `${ram} DDR5 RAM`,
+      `${disk} NVMe storage in RAID`,
+      "1 Gbit/s or 2.5 Gbit/s, depending on location",
+      "Traffic included (throttled to 300 Mbit/s above 3 TB in 24h)",
+      "99.9% guaranteed annual availability",
+      "30-day money-back guarantee",
+      locations,
+    ],
+    content: `
+    <h2>${name} Specs</h2>
+    ${specTable([
+      ["Processor", `AMD EPYC 9645, ${cores} dedicated cores (up to 3.7 GHz per core)`],
+      ["RAM", `${ram} DDR5`],
+      ["Storage", `${disk} NVMe (hardware RAID)`],
+      ["Network", "1 Gbit/s or 2.5 Gbit/s, depending on location"],
+      ["Traffic", "Included. If traffic exceeds 3 TB within 24 hours, it's temporarily throttled to 300 Mbit/s"],
+      ["Availability", "99.9% guaranteed annual average"],
+      ["Guarantee", "30-day money-back guarantee on the base fee"],
+      ["Billing", "1, 12 or 24 months"],
+      ["Locations", locations],
+      ["Local Block Storage", "Up to 8 TB extra, €0.012 per GB per month"],
+      ["Network options", "IPv4 + /64 IPv6, IPv6 only, or Cloud vLAN only"],
+      ["Included", "DDoS protection (2 Tbit/s), firewall, snapshots, remote console, rescue system, custom images"],
+    ])}
+
+    <h2>${name} Price</h2>
+    <p>Monthly net prices (excl. VAT), as listed on netcup.com on ${G125_VERIFIED}:</p>
+    ${specTable([
+      ["1 month term", `€${p1}`],
+      ["12 month term", `€${p12}`],
+      ["24 month term", "about 26% below the monthly price"],
+    ])}
+    ${onRequest ? `<p>${name} can't be ordered directly right now. netcup takes requests for it through the product page.</p>` : ""}
+    <p>Picking a specific datacenter instead of "No preference, Europe" adds a small surcharge. Customers in the EU pay their local VAT on top.</p>
+    ${g125VoucherNote(name)}
+  `,
+  };
+});
+
 // Add common sections based on product type
 Object.entries(productInfo).forEach(([name, product]) => {
   // Determine product type

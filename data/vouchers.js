@@ -3,6 +3,42 @@ const voucherData = {
     icon: "fas fa-cloud",
     name: "VPS",
     items: [
+      // === G12.5 (current lineup). netcup hasn't released G12.5 vouchers yet: until the automation fills `codes`, the site shows the €5 new-customer codes (see scripts/voucher-utils.js) ===
+      {
+        name: "VPS 500 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "2 vCores, 4 GB RAM, 64 GB SSD",
+      },
+      {
+        name: "VPS 1000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "4 vCores, 8 GB RAM, 128 GB SSD",
+      },
+      {
+        name: "VPS 2000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "8 vCores, 16 GB RAM, 256 GB SSD",
+      },
+      {
+        name: "VPS 4000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "12 vCores, 32 GB RAM, 512 GB SSD",
+      },
+      {
+        name: "VPS 8000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "16 vCores, 64 GB RAM, 1 TB SSD",
+      },
       // === VPS G11/G12: no longer sold since the G12.5 launch (2026-09-23) ===
       {
         name: "VPS 8000 G12",
@@ -99,6 +135,56 @@ const voucherData = {
     icon: "fas fa-database",
     name: "Root Server",
     items: [
+      // === G12.5 (current lineup). netcup hasn't released G12.5 vouchers yet: until the automation fills `codes`, the site shows the €5 new-customer codes (see scripts/voucher-utils.js) ===
+      {
+        name: "RS 500 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "2 dedicated cores, 4 GB RAM, 64 GB NVMe",
+      },
+      {
+        name: "RS 1000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "4 dedicated cores, 8 GB RAM, 128 GB NVMe",
+      },
+      {
+        name: "RS 2000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "8 dedicated cores, 16 GB RAM, 256 GB NVMe",
+      },
+      {
+        name: "RS 4000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "12 dedicated cores, 32 GB RAM, 512 GB NVMe",
+      },
+      {
+        name: "RS 8000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "16 dedicated cores, 64 GB RAM, 1 TB NVMe",
+      },
+      {
+        name: "RS 12000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "20 dedicated cores, 96 GB RAM, 1.5 TB NVMe",
+      },
+      {
+        name: "RS 16000 G12.5",
+        discount: "COMING SOON",
+        codes: [],
+        fallbackCodesFrom: "New Customer Offer",
+        specs: "24 dedicated cores, 128 GB RAM, 2 TB NVMe",
+      },
       // === RS G11/G12: no longer sold since the G12.5 launch (2026-09-23) ===
       {
         name: "RS 8000 G12",

@@ -1,11 +1,29 @@
 const fs = require("fs");
 const path = require("path");
-const { voucherData } = require("../data/vouchers.js");
+const { voucherData: rawVoucherData } = require("../data/vouchers.js");
 const { productInfo } = require("../data/products.js");
-const { isActive, getActiveVoucherData } = require("./voucher-utils.js");
+const {
+  isActive,
+  resolveVoucherData,
+  getActiveVoucherData,
+} = require("./voucher-utils.js");
 
-// Discontinued products still get a page, but are left out of menus and listings
-const activeVoucherData = getActiveVoucherData(voucherData);
+// Every product gets a page (fallback codes resolved). Discontinued products
+// are left out of menus and listings.
+const voucherData = resolveVoucherData(rawVoucherData);
+const activeVoucherData = getActiveVoucherData(rawVoucherData);
+
+// Current G12.5 plan replacing a discontinued one (e.g. "RS 1000 G11 2M" ->
+// "RS 1000 G12.5"), if there is one
+const findSuccessor = (name, category) => {
+  const match = name.match(/^(VPS|RS) (\d+) /);
+  if (!match) return null;
+  return (
+    voucherData[category].items.find(
+      (item) => isActive(item) && item.name === `${match[1]} ${match[2]} G12.5`
+    ) || null
+  );
+};
 
 const generateSlug = (name) => {
   return name
@@ -79,16 +97,25 @@ const generateProductPage = (name, category, vouchers) => {
     .slice(0, 4);
 
   // Voucher card (shown in the mobile section and the desktop sidebar)
+  const successor = vouchers.discontinued ? findSuccessor(name, category) : null;
   const voucherCardBody = vouchers.discontinued
     ? `
                         <p>netcup no longer sells ${name}, so vouchers for it can't be redeemed anymore. The current lineup is G12.5.</p>
-                        <a href="/blog/netcup-g12-5-price-increase-2026.html" class="btn btn-outline-light w-100 mt-2">
-                        What changed with G12.5 &raquo;
+                        <a href="${successor ? `/${generateSlug(successor.name)}` : `/#${category}`}" class="btn btn-success w-100 mt-2">
+                        ${successor ? `${successor.name} vouchers` : "Current vouchers"} &raquo;
                         </a>
-                        <a href="/" class="btn btn-success w-100 mt-3">
-                        See current vouchers &raquo;
+                        <a href="/blog/netcup-g12-5-price-increase-2026.html" class="btn btn-outline-light w-100 mt-3">
+                        What changed with G12.5 &raquo;
                         </a>`
-    : `${vouchers.codes
+    : `${
+        vouchers.usingFallback
+          ? `
+                        <div class="alert alert-warning mb-3">
+                            <i class="fas fa-clock me-2"></i>
+                            netcup hasn't released ${name} vouchers yet. Until it does, this €5 new-customer code works on it (any order except domains).
+                        </div>`
+          : ""
+      }${vouchers.codes
         .map(
           (code) => `
                         <div class="code-block mb-2">
@@ -845,7 +872,9 @@ const generateLlmsTxt = () => {
     content += `### ${categoryNames[category] || data.name}\n\n`;
 
     data.items.forEach((item) => {
-      if (item.codes && item.codes.length > 0) {
+      if (item.usingFallback) {
+        content += `- **${item.name}** - no plan-specific vouchers yet, the New Customer Offer code works on it\n`;
+      } else if (item.codes && item.codes.length > 0) {
         const firstCode = item.codes[0];
         content += `- **${item.name}** - ${item.discount}: \`${firstCode}\`\n`;
       }

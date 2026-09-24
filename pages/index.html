@@ -259,7 +259,7 @@
                     <div class="card-body">
                         <h2 class="h4 mb-3">About Netcup Vouchers</h2>
                         <p>Welcome to NetcupVoucher.com, your trusted source for the latest and verified Netcup discount codes. We provide exclusive vouchers for Netcup's complete product range, including VPS servers, Root Servers, and Web Hosting packages.</p>
-                        <p>Our vouchers can save you up to 30% on web hosting. VPS and Root Server vouchers are paused while netcup moves to its new G12.5 lineup, and they'll be back here as soon as netcup releases them. All codes are regularly updated and verified to ensure they work for new Netcup customers.</p>
+                        <p>Our vouchers can save you up to 30% on web hosting. netcup hasn't released vouchers for its new G12.5 VPS and Root Server lineup yet. Until it does, every G12.5 plan below shows our €5 new-customer code, which works on any order except domains. All codes are regularly updated and verified to ensure they work for new Netcup customers.</p>
                         <p>Simply browse by category, copy your preferred voucher code, and redeem it during checkout at Netcup's official website.</p>
                     </div>
                 </div>
@@ -301,7 +301,7 @@
                         <h3 class="h5 mb-0">VPS Servers</h3>
                     </div>
                     <div class="card-body">
-                        <p>Netcup's Virtual Private Servers offer dedicated resources with flexible configuration options. VPS vouchers for the new G12.5 plans will appear here as soon as netcup releases them.</p>
+                        <p>Netcup's Virtual Private Servers offer dedicated resources with flexible configuration options. Vouchers for the G12.5 VPS plans will appear here as soon as netcup releases them. Until then, the €5 new-customer code works on every plan.</p>
                         <a href="/vps-1000-g11" class="btn btn-sm btn-outline-primary">View VPS Vouchers</a>
                     </div>
                 </div>
@@ -312,7 +312,7 @@
                         <h3 class="h5 mb-0">Root Servers</h3>
                     </div>
                     <div class="card-body">
-                        <p>For maximum control and performance, Netcup's Root Servers provide dedicated resources with full root access. Root Server vouchers for the new G12.5 plans will appear here as soon as netcup releases them.</p>
+                        <p>For maximum control and performance, Netcup's Root Servers provide dedicated resources with full root access. Vouchers for the G12.5 Root Servers will appear here as soon as netcup releases them. Until then, the €5 new-customer code works on every plan.</p>
                         <a href="/rs-1000-g11" class="btn btn-sm btn-outline-primary">View Root Server Vouchers</a>
                     </div>
                 </div>
@@ -347,6 +347,79 @@
     <script>
         // Voucher data structure
         const voucherData = {
+  "vps": {
+    "icon": "fas fa-cloud",
+    "name": "VPS",
+    "items": [
+      {
+        "name": "VPS 500 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "2 vCores, 4 GB RAM, 64 GB SSD",
+        "usingFallback": true
+      },
+      {
+        "name": "VPS 1000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "4 vCores, 8 GB RAM, 128 GB SSD",
+        "usingFallback": true
+      },
+      {
+        "name": "VPS 2000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "8 vCores, 16 GB RAM, 256 GB SSD",
+        "usingFallback": true
+      },
+      {
+        "name": "VPS 4000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "12 vCores, 32 GB RAM, 512 GB SSD",
+        "usingFallback": true
+      },
+      {
+        "name": "VPS 8000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "16 vCores, 64 GB RAM, 1 TB SSD",
+        "usingFallback": true
+      }
+    ],
+    "previous": [
+      "VPS 8000 G12",
+      "VPS 4000 G12",
+      "VPS 2000 G12",
+      "VPS 1000 G12",
+      "VPS 8000 G11",
+      "VPS 6000 G11",
+      "VPS 4000 G11",
+      "VPS 3000 G11",
+      "VPS 2000 G11",
+      "VPS 1000 G11"
+    ]
+  },
   "webhosting": {
     "icon": "fas fa-server",
     "name": "Webhosting",
@@ -381,6 +454,103 @@
           "4602nc17901792130"
         ]
       }
+    ],
+    "previous": []
+  },
+  "rootserver": {
+    "icon": "fas fa-database",
+    "name": "Root Server",
+    "items": [
+      {
+        "name": "RS 500 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "2 dedicated cores, 4 GB RAM, 64 GB NVMe",
+        "usingFallback": true
+      },
+      {
+        "name": "RS 1000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "4 dedicated cores, 8 GB RAM, 128 GB NVMe",
+        "usingFallback": true
+      },
+      {
+        "name": "RS 2000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "8 dedicated cores, 16 GB RAM, 256 GB NVMe",
+        "usingFallback": true
+      },
+      {
+        "name": "RS 4000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "12 dedicated cores, 32 GB RAM, 512 GB NVMe",
+        "usingFallback": true
+      },
+      {
+        "name": "RS 8000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "16 dedicated cores, 64 GB RAM, 1 TB NVMe",
+        "usingFallback": true
+      },
+      {
+        "name": "RS 12000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "20 dedicated cores, 96 GB RAM, 1.5 TB NVMe",
+        "usingFallback": true
+      },
+      {
+        "name": "RS 16000 G12.5",
+        "discount": "€5 DISCOUNT",
+        "codes": [
+          "36nc17341876179",
+          "36nc17575786190"
+        ],
+        "fallbackCodesFrom": "New Customer Offer",
+        "specs": "24 dedicated cores, 128 GB RAM, 2 TB NVMe",
+        "usingFallback": true
+      }
+    ],
+    "previous": [
+      "RS 8000 G12",
+      "RS 4000 G12",
+      "RS 1000 G12",
+      "RS 2000 G12",
+      "RS 1000 G11 2M",
+      "RS 8000 G11",
+      "RS 4000 G11",
+      "RS 2000 G11",
+      "RS 2000 G11 iv SE MNZ",
+      "RS 2000 G11 iv SE VIE",
+      "RS 1000 G11"
     ]
   },
   "general": {
@@ -395,7 +565,8 @@
           "36nc17575786190"
         ]
       }
-    ]
+    ],
+    "previous": []
   }
 };
 
@@ -484,6 +655,12 @@
                                 <span class="badge badge-discount">${item.discount}</span>
                             </div>
                             <div class="card-body">
+                                ${item.specs ? `<p class="small text-secondary mb-2">${item.specs}</p>` : ''}
+                                ${item.usingFallback ? `
+                                    <div class="alert alert-warning py-2 small mb-2">
+                                        <i class="fas fa-clock me-1"></i>
+                                        ${item.name} vouchers aren't available yet. This €5 new-customer code works on it meanwhile.
+                                    </div>` : ''}
                                 ${item.codes.map(code => `
                                     <div class="code-block mb-2">
                                         ${code}
@@ -499,6 +676,18 @@
                 });
 
                 content.appendChild(row);
+
+                // Older generations keep their pages; link them so they stay reachable
+                if (category.previous && category.previous.length > 0) {
+                    const older = document.createElement('p');
+                    older.className = 'small text-secondary mt-4 mb-0';
+                    older.innerHTML = 'Older generations, no longer sold: ' + category.previous.map(name => {
+                        const slug = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                        return `<a href="/${slug}" class="text-secondary">${name}</a>`;
+                    }).join(', ');
+                    content.appendChild(older);
+                }
+
                 tabContent.appendChild(content);
             });
         };
