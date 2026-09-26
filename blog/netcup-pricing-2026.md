@@ -251,7 +251,7 @@ If you're buying now, the 24-month term is the cheapest way in, 26% below monthl
 
 Everything above is list price. Two ways to pay less:
 
-**Voucher codes.** Netcup hasn't released vouchers for the G12.5 VPS and Root Server plans to partners yet, so there are none for those right now. Webhosting vouchers and a new-customer code are live. Individual codes have limited redemptions and run out quickly, so anything quoted in an article is stale by the time you read it. The [live list is on our homepage](https://netcupvoucher.com) and gets updated continuously. G12.5 codes will show up there once netcup releases them.
+**Voucher codes.** Since 26 September 2026, netcup has vouchers for most G12.5 VPS and Root Server plans. VPS 500, RS 500, RS 4000, RS 12000 and RS 16000 don't have their own vouchers yet, but the new-customer code works on those. Webhosting vouchers are live too. Individual codes have limited redemptions and run out quickly, so anything quoted in an article is stale by the time you read it. The [live list is on our homepage](https://netcupvoucher.com) and gets updated continuously.
 
 **New customer offer.** A discount code for first-time accounts. Details are on the [new customer offer page](https://netcupvoucher.com/new-customer-offer).
 

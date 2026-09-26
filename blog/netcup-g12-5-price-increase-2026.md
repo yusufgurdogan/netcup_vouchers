@@ -142,7 +142,7 @@ This is already netcup's second price increase of 2026. On May 1, existing contr
 
 G12 vouchers are effectively finished because the products they belong to can no longer be ordered.
 
-We cannot issue G12.5 vouchers yet either. Netcup has not added the new products to its partner program, so there is nothing we can generate on our side until that happens. Once they become available, they will appear on the [voucher list](/).
+**Update, September 26:** netcup has now released G12.5 vouchers for VPS 1000, 2000, 4000 and 8000, and for RS 1000, 2000 and 8000. They're on our [voucher list](/). VPS 500, RS 500, RS 4000, RS 12000 and RS 16000 don't have their own vouchers yet, so those plans show the €5 new-customer code instead, which works on any order except domains.
 
 New-customer vouchers and Webhosting vouchers are not affected.
 

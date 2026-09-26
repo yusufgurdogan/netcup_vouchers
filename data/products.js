@@ -1387,15 +1387,35 @@ const specTable = (rows) => `
       </tbody>
     </table>`;
 
+// G12.5 plans netcup offers partner vouchers for (released 2026-09-26)
+const G125_VOUCHER_OFFERS = {
+  "VPS 1000 G12.5": "one month free",
+  "VPS 2000 G12.5": "one month free",
+  "VPS 4000 G12.5": "one month free",
+  "VPS 8000 G12.5": "one month free",
+  "RS 1000 G12.5": "two months free",
+  "RS 2000 G12.5": "one month free",
+  "RS 8000 G12.5": "one month free",
+};
+
+const g125VoucherSummary = (name) =>
+  G125_VOUCHER_OFFERS[name]
+    ? `Voucher codes for ${G125_VOUCHER_OFFERS[name]} included.`
+    : "No plan-specific vouchers yet, but our €5 new-customer code works on it.";
+
 const g125VoucherNote = (name) => `
     <h2>${name} Vouchers</h2>
-    <p>netcup hasn't released vouchers for the G12.5 lineup to its partner program yet. As soon as ${name} vouchers are available, they'll appear on this page automatically. Until then, the €5 new-customer code shown here works on a ${name} order, since it's valid on anything except domains.</p>
+    ${
+      G125_VOUCHER_OFFERS[name]
+        ? `<p>netcup offers a ${name} voucher worth ${G125_VOUCHER_OFFERS[name]} for new customers. The current codes are in the voucher box on this page. Each code works once, so if one has already been used, try the next.</p>`
+        : `<p>netcup hasn't released ${name} vouchers yet. As soon as they're available, they'll appear on this page automatically. Until then, the €5 new-customer code shown here works on a ${name} order, since it's valid on anything except domains.</p>`
+    }
     <p>For what changed from G12 to G12.5, including the price increase and the smaller disks, see our <a href="/blog/netcup-g12-5-price-increase-2026.html">G12.5 breakdown</a>. Every netcup plan and price is in our <a href="/blog/netcup-pricing-2026.html">netcup price list</a>.</p>`;
 
 g125Vps.forEach(([name, cores, ram, disk, p1, p12, p24]) => {
   productInfo[name] = {
     title: `${name} Voucher & Specs - ${cores} vCores, ${ram} RAM, ${disk} SSD`,
-    description: `${name} specs, prices and voucher codes. ${cores} vCores, ${ram} RAM and ${disk} SSD from €${p24}/month net on a 24-month term. G12.5 vouchers aren't out yet, but our €5 new-customer code works on it.`,
+    description: `${name} specs, prices and voucher codes. ${cores} vCores, ${ram} RAM and ${disk} SSD from €${p24}/month net on a 24-month term. ${g125VoucherSummary(name)}`,
     features: [
       `${cores} vCores (x86, shared)`,
       `${ram} RAM`,
@@ -1441,7 +1461,7 @@ g125Rs.forEach(([name, cores, ram, disk, p1, p12, onRequest]) => {
     : "Nuremberg, Vienna, Manassas (US), Singapore";
   productInfo[name] = {
     title: `${name} Voucher & Specs - ${cores} Dedicated Cores, ${ram} RAM, ${disk} NVMe`,
-    description: `${name} specs, prices and voucher codes. ${cores} dedicated AMD EPYC 9645 cores, ${ram} DDR5 RAM and ${disk} NVMe from €${p12}/month net on a 12-month term. G12.5 vouchers aren't out yet, but our €5 new-customer code works on it.`,
+    description: `${name} specs, prices and voucher codes. ${cores} dedicated AMD EPYC 9645 cores, ${ram} DDR5 RAM and ${disk} NVMe from €${p12}/month net on a 12-month term. ${g125VoucherSummary(name)}`,
     features: [
       `${cores} dedicated cores, AMD EPYC 9645 (up to 3.7 GHz)`,
       `${ram} DDR5 RAM`,

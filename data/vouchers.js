@@ -3,7 +3,7 @@ const voucherData = {
     icon: "fas fa-cloud",
     name: "VPS",
     items: [
-      // === G12.5 (current lineup). netcup hasn't released G12.5 vouchers yet: until the automation fills `codes`, the site shows the €5 new-customer codes (see scripts/voucher-utils.js) ===
+      // === G12.5 (current lineup). Plans without codes of their own (no netcup voucher type yet, or none created yet) show the €5 new-customer codes (see scripts/voucher-utils.js) ===
       {
         name: "VPS 500 G12.5",
         discount: "COMING SOON",
@@ -13,28 +13,28 @@ const voucherData = {
       },
       {
         name: "VPS 1000 G12.5",
-        discount: "COMING SOON",
+        discount: "FREE 1 MONTH",
         codes: [],
         fallbackCodesFrom: "New Customer Offer",
         specs: "4 vCores, 8 GB RAM, 128 GB SSD",
       },
       {
         name: "VPS 2000 G12.5",
-        discount: "COMING SOON",
+        discount: "FREE 1 MONTH",
         codes: [],
         fallbackCodesFrom: "New Customer Offer",
         specs: "8 vCores, 16 GB RAM, 256 GB SSD",
       },
       {
         name: "VPS 4000 G12.5",
-        discount: "COMING SOON",
+        discount: "FREE 1 MONTH",
         codes: [],
         fallbackCodesFrom: "New Customer Offer",
         specs: "12 vCores, 32 GB RAM, 512 GB SSD",
       },
       {
         name: "VPS 8000 G12.5",
-        discount: "COMING SOON",
+        discount: "FREE 1 MONTH",
         codes: [],
         fallbackCodesFrom: "New Customer Offer",
         specs: "16 vCores, 64 GB RAM, 1 TB SSD",
@@ -141,7 +141,7 @@ const voucherData = {
     icon: "fas fa-database",
     name: "Root Server",
     items: [
-      // === G12.5 (current lineup). netcup hasn't released G12.5 vouchers yet: until the automation fills `codes`, the site shows the €5 new-customer codes (see scripts/voucher-utils.js) ===
+      // === G12.5 (current lineup). Plans without codes of their own (no netcup voucher type yet, or none created yet) show the €5 new-customer codes (see scripts/voucher-utils.js) ===
       {
         name: "RS 500 G12.5",
         discount: "COMING SOON",
@@ -151,14 +151,14 @@ const voucherData = {
       },
       {
         name: "RS 1000 G12.5",
-        discount: "COMING SOON",
+        discount: "FREE 2 MONTHS",
         codes: [],
         fallbackCodesFrom: "New Customer Offer",
         specs: "4 dedicated cores, 8 GB RAM, 128 GB NVMe",
       },
       {
         name: "RS 2000 G12.5",
-        discount: "COMING SOON",
+        discount: "FREE 1 MONTH",
         codes: [],
         fallbackCodesFrom: "New Customer Offer",
         specs: "8 dedicated cores, 16 GB RAM, 256 GB NVMe",
@@ -172,7 +172,7 @@ const voucherData = {
       },
       {
         name: "RS 8000 G12.5",
-        discount: "COMING SOON",
+        discount: "FREE 1 MONTH",
         codes: [],
         fallbackCodesFrom: "New Customer Offer",
         specs: "16 dedicated cores, 64 GB RAM, 1 TB NVMe",
