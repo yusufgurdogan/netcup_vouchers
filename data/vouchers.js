@@ -68,7 +68,6 @@ const voucherData = {
         discount: "FREE 1 MONTH",
         codes: [
           "6880nc179045346210",
-          "6880nc17904534629",
           "6880nc17904534628",
           "6880nc17904534627",
           "6880nc17904534625",
@@ -77,7 +76,8 @@ const voucherData = {
           "6880nc17904534622",
           "6880nc17904534620",
           "6880nc17905464161",
-          "6880nc17905464160"],
+          "6880nc17905464160",
+          "6880nc17905896150"],
         fallbackCodesFrom: "New Customer Offer",
         specs: "16 vCores, 64 GB RAM, 1 TB SSD",
       },
