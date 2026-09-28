@@ -45,7 +45,6 @@
 
 - **VPS 8000 G12.5** (FREE 1 MONTH)
   - `6880nc179045346210`
-  - `6880nc17904534629`
   - `6880nc17904534628`
   - `6880nc17904534627`
   - `6880nc17904534625`
@@ -54,6 +53,7 @@
   - `6880nc17904534622`
   - `6880nc17904534620`
   - `6880nc17905464161`
+  - `6880nc17905464160`
 
 ### Webhosting
 
@@ -140,4 +140,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 9/27/2026
+Last updated: 9/28/2026
