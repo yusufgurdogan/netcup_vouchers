@@ -68,7 +68,6 @@
 - **Webhosting 4000** (30%)
   - `1928nc17341876229`
   - `4603nc17901792181`
-  - `4603nc17902440181`
   - `4603nc17902440180`
 
 - **Webhosting 2000** (30%)
@@ -110,7 +109,7 @@
   - `6876nc17908272241`
   - `6876nc17908272240`
   - `6876nc17914752190`
-  - `6876nc17916480200`
+  - `6876nc17917776150`
 
 ### General
 
@@ -133,4 +132,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 10/11/2026
+Last updated: 10/12/2026
