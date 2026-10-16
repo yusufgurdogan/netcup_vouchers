@@ -24,7 +24,7 @@ const voucherData = {
           "6877nc17919288162",
           "6877nc17919288161",
           "6877nc17919288160",
-          "6877nc17920800150"],
+          "6877nc17921448140"],
         fallbackCodesFrom: "New Customer Offer",
         specs: "4 vCores, 8 GB RAM, 128 GB SSD",
       },
