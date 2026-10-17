@@ -76,7 +76,6 @@
 ### Root Server
 
 - **RS 1000 G12.5** (FREE 2 MONTHS)
-  - `6874nc17915832250`
   - `6874nc17916264191`
   - `6874nc17916264190`
   - `6874nc17918316310`
@@ -86,6 +85,7 @@
   - `6874nc17920800191`
   - `6874nc17920800190`
   - `6874nc17921772150`
+  - `6874nc17922312140`
 
 - **RS 2000 G12.5** (FREE 1 MONTH)
   - `6875nc17906976240`
@@ -132,4 +132,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 10/16/2026
+Last updated: 10/17/2026
