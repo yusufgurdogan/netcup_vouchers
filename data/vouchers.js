@@ -195,7 +195,6 @@ const voucherData = {
         name: "RS 1000 G12.5",
         discount: "FREE 2 MONTHS",
         codes: [
-          "6874nc17915832250",
           "6874nc17916264191",
           "6874nc17916264190",
           "6874nc17918316310",
@@ -204,7 +203,8 @@ const voucherData = {
           "6874nc17920368160",
           "6874nc17920800191",
           "6874nc17920800190",
-          "6874nc17921772150"],
+          "6874nc17921772150",
+          "6874nc17922312140"],
         fallbackCodesFrom: "New Customer Offer",
         specs: "4 dedicated cores, 8 GB RAM, 128 GB NVMe",
       },
