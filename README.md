@@ -52,8 +52,8 @@
   - `6880nc17909352240`
   - `6880nc17913024240`
   - `6880nc17913456190`
-  - `6880nc17913672160`
   - `6880nc17914104190`
+  - `6880nc17915184240`
 
 ### Webhosting
 
@@ -132,4 +132,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 10/18/2026
+Last updated: 10/19/2026
