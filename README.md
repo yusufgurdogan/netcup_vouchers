@@ -41,7 +41,7 @@
   - `6879nc17920260141`
   - `6879nc17920260140`
   - `6879nc17924256190`
-  - `6879nc17925336220`
+  - `6879nc17925876230`
 
 - **VPS 8000 G12.5** (FREE 1 MONTH)
   - `6880nc17905464160`
@@ -132,4 +132,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 10/21/2026
+Last updated: 10/22/2026
