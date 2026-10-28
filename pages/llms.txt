@@ -7,7 +7,7 @@
 ### VPS (Virtual Private Servers)
 
 - **VPS 500 G12.5** - no plan-specific vouchers yet, the New Customer Offer code works on it
-- **VPS 1000 G12.5** - FREE 1 MONTH: `6877nc17930664167`
+- **VPS 1000 G12.5** - FREE 1 MONTH: `6877nc17930664165`
 - **VPS 2000 G12.5** - FREE 1 MONTH: `6878nc17925336171`
 - **VPS 4000 G12.5** - FREE 1 MONTH: `6879nc17917992250`
 - **VPS 8000 G12.5** - FREE 1 MONTH: `6880nc17909136150`
