@@ -8,7 +8,6 @@
 ### VPS
 
 - **VPS 1000 G12.5** (FREE 1 MONTH)
-  - `6877nc17930664164`
   - `6877nc17930664162`
   - `6877nc17930664161`
   - `6877nc17930664160`
@@ -18,6 +17,7 @@
   - `6877nc17931960191`
   - `6877nc17931960190`
   - `6877nc17932068180`
+  - `6877nc17932500160`
 
 - **VPS 2000 G12.5** (FREE 1 MONTH)
   - `6878nc17925336171`
@@ -131,4 +131,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 10/28/2026
+Last updated: 10/29/2026
