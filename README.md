@@ -83,8 +83,8 @@
   - `6874nc17931420161`
   - `6874nc17931420160`
   - `6874nc17932068371`
-  - `6874nc17932068370`
   - `6874nc17933148220`
+  - `6874nc17933256150`
 
 - **RS 2000 G12.5** (FREE 1 MONTH)
   - `6875nc17924364291`
@@ -131,4 +131,4 @@
 3. Click to copy the code
 4. Redeem at [netcup.com](https://www.netcup.com/en/checkout/cart)
 
-Last updated: 10/29/2026
+Last updated: 10/30/2026
