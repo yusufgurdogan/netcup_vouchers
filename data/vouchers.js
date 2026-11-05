@@ -212,7 +212,6 @@ const voucherData = {
         name: "RS 2000 G12.5",
         discount: "FREE 1 MONTH",
         codes: [
-          "6875nc17927496230",
           "6875nc17927712270",
           "6875nc17929044261",
           "6875nc17931096330",
@@ -221,7 +220,8 @@ const voucherData = {
           "6875nc17933796211",
           "6875nc17933796210",
           "6875nc17934012260",
-          "6875nc17937036260"],
+          "6875nc17937036260",
+          "6875nc17939088160"],
         fallbackCodesFrom: "New Customer Offer",
         specs: "8 dedicated cores, 16 GB RAM, 256 GB NVMe",
       },
