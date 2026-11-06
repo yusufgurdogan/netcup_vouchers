@@ -15,7 +15,6 @@ const voucherData = {
         name: "VPS 1000 G12.5",
         discount: "FREE 1 MONTH",
         codes: [
-          "6877nc17936712150",
           "6877nc17937360170",
           "6877nc17937792182",
           "6877nc17937792181",
@@ -24,7 +23,8 @@ const voucherData = {
           "6877nc17938332161",
           "6877nc17938332160",
           "6877nc17938440160",
-          "6877nc17939196160"],
+          "6877nc17939304151",
+          "6877nc17939304150"],
         fallbackCodesFrom: "New Customer Offer",
         specs: "4 vCores, 8 GB RAM, 128 GB SSD",
       },
