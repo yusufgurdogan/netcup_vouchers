@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment2.outputs.page_url || steps.deployment3.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -59,7 +59,9 @@ jobs:
         run: |
           git add pages/* README.md sitemap.xml
           git commit -m "Update site content, generate product pages and blog posts" || echo "No changes to commit"
-          git push
+          # The server may push new vouchers while this runs: rebase onto them and try again.
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -70,8 +72,36 @@ jobs:
           name: github-pages
           path: pages
 
+      # GitHub sometimes doesn't list the just-uploaded artifact yet ("No artifacts named github-pages"),
+      # which failed the run. Try the deploy up to three times, waiting in between.
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
+          token: ${{ github.token }}
+
+      - name: Wait before second deploy attempt
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 20
+
+      - name: Deploy to GitHub Pages (second attempt)
+        id: deployment2
+        if: steps.deployment.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
+          token: ${{ github.token }}
+
+      - name: Wait before third deploy attempt
+        if: steps.deployment2.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy to GitHub Pages (third attempt)
+        id: deployment3
+        if: steps.deployment2.outcome == 'failure'
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages
