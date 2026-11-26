@@ -59,8 +59,13 @@ jobs:
         run: |
           git add pages/* README.md sitemap.xml
           git commit -m "Update site content, generate product pages and blog posts" || echo "No changes to commit"
-          # The server may push new vouchers while this runs: rebase onto them and try again.
-          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          # The server may push new vouchers while this runs: if the push is refused, rebase onto them and try again.
+          # (--autostash: the build leaves other generated files changed but uncommitted.)
+          for i in 1 2 3; do
+            git push -q origin HEAD:main && exit 0
+            sleep 5
+            git pull --rebase --autostash -q origin main || true
+          done
           exit 1
 
       - name: Setup Pages
